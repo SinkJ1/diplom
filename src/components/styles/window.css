@@ -1,0 +1,9 @@
+#container{
+    position: relative;
+    border: 2px solid #0C0C0C;
+    margin-top:16%;
+    margin-left:38%;
+    height: auto;
+    width : 15%;
+    background-color: blanchedalmond;
+}

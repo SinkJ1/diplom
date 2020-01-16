@@ -1,11 +1,18 @@
 import React from 'react';
 import './App.css';
-import Login from './components/Login';
+import Header from './components/Header';
+import Body from './components/Body';
+import Basement from './components/Basement';
 
 function App() {
+
+
+
   return (
     <>
-    <Login />
+    <Header />
+    <Body />
+    <Basement />
     </>
   );
 }
