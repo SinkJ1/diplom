@@ -1,0 +1,35 @@
+input{
+    outline: 0 !important;
+    margin-right : 10%;
+    margin-left : 2px;
+    border: 1px solid #0C0C0C;
+}
+
+#submit[type="submit"]{
+    background-color: #FEFEFE;
+    cursor: pointer;
+    border: 1px solid #0C0C0C;
+    margin-left: 2px;
+    margin-bottom :2px;
+}
+
+input:valid{
+    background-color:#dfd;
+
+}
+
+input:invalid{
+    background-color:#fdd;
+}
+
+#form{
+    border: 2px solid #0C0C0C;
+    margin-top:16%;
+    margin-left:38%;
+    height: 32%;
+    width : 15%;
+    
+}
+#lable {
+    margin-left : 2px;
+}
