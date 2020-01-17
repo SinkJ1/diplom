@@ -1,14 +1,14 @@
 #header {
     width : 100%;
-    height: 30px;
+    height: 50px;
     background-color: #0C0C0C;
 }
 
 .buttonIn {
-    position: relative;
+    position: absolute;
     float:left;
-    top : 5%;
-    left : 80%;   
+    top : 2%;
+    left : 77%;   
     text-align: center;
     border-radius: 3px;
     text-decoration: none;
@@ -22,16 +22,44 @@
 }
 
 .buttonIn:hover {
-    color: #0971FA;
-    border: 2px solid #0971FA;
+    color: #7CAAFA;
+    border: 2px solid #7CAAFA;
+    transition: 1s;
+}
+
+.buttonIn:not(:hover){
+    transition: 1s;
 }
 
 .buttonReg {
-    position: relative;
-    left : 16%;
+    position: absolute;
+    top : 2%;
+    left : 80%;
+    text-align: center;
+    border-radius: 3px;
+    text-decoration: none;
+    border: 2px solid white;
+    color: white;
+    background-color: #0C0C0C;
+}
+
+.buttonReg:not(:hover){
+    transition: 1s;
+}
+
+.buttonReg:focus {
+    outline: none;
+}
+
+.buttonReg:hover {
+    color: #7CAAFA;
+    border: 2px solid #7CAAFA;
+    transition: 1s;
 }
 
 .findPlace {
-    margin-left : 35%;
+    position: absolute;
+    top : 2%;
+    margin-left : 50%;
     width: 20%;
 }
