@@ -1,0 +1,51 @@
+.menu {
+    position: absolute; 
+    height: 30px;
+    width: 600px;
+    top: 2%;
+    left : 10%;
+}
+
+.genre,.top,.country,.news{
+    border : 0px;
+    margin-left: 20px;
+    background-color: #0C0C0C;
+    color : white;
+    outline: none;
+}
+
+.genre:hover {
+    color: #7CAAFA;
+    transition: 1s;
+}
+
+.top:hover {
+    color: #7CAAFA;
+    transition: 1s;
+}
+
+.country:hover {
+    color: #7CAAFA;
+    transition: 1s;
+}
+
+.news:hover {
+    color: #7CAAFA;
+    transition: 1s;
+}
+
+.genre:not(:hover){
+    transition: 1s;
+}
+
+.top:not(:hover){
+    transition: 1s;
+}
+
+.country:not(:hover){
+    transition: 1s;
+}
+
+.news:not(:hover){
+    transition: 1s;
+}
