@@ -1,28 +1,17 @@
-import React, { useState } from 'react'
-import "./styles/header.css"
-import Window from './Window';
+import React from 'react'
+import "./styles/header.css";
 import HeaderMenu from './HeaderMenu';
 
 
-const Header = () =>{
+const Header = (props) =>{
     
-    const [state, setState] = useState();
-      
-    const o = () => {
-      setState(<Window />);
-    }
     
-    const a = () => {
-      setState();
-    }
     
     return (<div id="header">
         <div className="logo">LOGO</div>
         <HeaderMenu />
-        <button className="buttonIn" onClick={o}> Вход </button>
+        {props.value}
         <input type="text"className="findPlace"/>
-        <button className="buttonReg" onClick={a}> Регистрация </button>
-    {state}
     </div>);
 }
 
