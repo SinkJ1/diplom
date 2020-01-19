@@ -6,9 +6,13 @@ const Body = () => {
 
     let filmBlocks = [];
 
+    const onBlockClick = (id) => {
+        window.location.assign(`/film/${id}`);
+    }
+
     for (let i = 0; i < 5; i++){
         filmBlocks.push(
-            <FilmBlock id={i} key={i}/>
+            <FilmBlock id={i} key={i} onClick={() => {onBlockClick(i)}}/>
         )
     }
 

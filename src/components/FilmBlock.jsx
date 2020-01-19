@@ -2,10 +2,10 @@ import React from "react"
 import "./styles/filmBlock.css"
 
 
-const FilmBlock = () => {
+const FilmBlock = (props) => {
 
     const onBtnClick = () => {
-        
+        props.onClick(props.id)
     }
 
     return (
