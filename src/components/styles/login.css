@@ -1,6 +1,6 @@
 input{
     outline: 0 !important;
-    margin-right : 10%;
+    right : auto;
     margin-left : 2px;
     border: 1px solid #0C0C0C;
 }
@@ -34,4 +34,5 @@ input:invalid{
 }
 #lable {
     margin-left : 2px;
+    margin-right: 1px;
 }

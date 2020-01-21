@@ -4,12 +4,8 @@ import "./styles/filmBlock.css"
 
 const FilmBlock = (props) => {
 
-    const onBtnClick = () => {
-        props.onClick(props.id)
-    }
-
     return (
-        <div className="filmBlock" onClick={onBtnClick}></div>
+        <div className="filmBlock"></div>
     );
 }
 
