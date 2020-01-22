@@ -2,83 +2,113 @@
     background-color: blanchedalmond;
 }
 
+.header_menu_genre {
+    grid-area: header_menu_genre;
+}
+
+.header_menu_tops {
+    grid-area: header_menu_tops;
+}
+
+.header_menu_country {
+    grid-area: header_menu_country;
+}
+
+.header_menu_news {
+    grid-area: header_menu_news;
+}
+
+.header_menu_genre_button,.header_menu_tops_button,.header_menu_country_button,.header_menu_news_button{
+    background-color: #0C0C0C;
+    color: white;
+    outline: none;
+    border: 0px solid #0C0C0C;
+    cursor: pointer;
+}
+
+.header_menu_genre,.header_menu_tops,.header_menu_country,.header_menu_news{
+    text-align: center;
+    align-self: center;
+}
+
 .header_menu{
-    background-color: red;
+    grid-area: header_menu;
+    background-color: #0C0C0C;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas: 
+    "header_menu_genre header_menu_tops header_menu_country header_menu_news";
+}
+
+.header_menu_genre_button:hover, .header_menu_tops_button:hover, .header_menu_country_button:hover, .header_menu_news_button:hover {
+    color: #7CAAFA;
+    transition: 1s;
+}
+
+.header_menu_genre_button:not(:hover), .header_menu_tops_button:not(:hover), .header_menu_country_button:not(:hover), .header_menu_news_button:not(:hover){
+    transition: 1s;
+}
+
+.header_find{
+    grid-area: header_find;
+    display: grid;
+}
+
+.header_find_block{
+    align-self: center;
+    text-align: center;
+}
+
+.header_find_input{
+    background-color: #898787;
+    width: 75%;
+    cursor: pointer;
+}
+
+.header_find_input:focus{
+    background-color: #FEFEFE;
+    cursor: text;
+}
+
+.header_menu_buttons {
+    grid-area:header_buttons;
+    display: grid;
+    grid-template-columns: 1fr 1fr 3fr;
+    grid-template-areas: 
+    "header_menu_buttons_In header_menu_buttons_Reg header_menu_buttons_Add";
+}
+
+.header_menu_buttons_In, .header_menu_buttons_Reg, .header_menu_buttons_Add{
+    text-align: center;
+    align-self: center;
+}
+
+.header_menu_buttons_In_Button, .header_menu_buttons_Reg_Button{
+    border-radius: 4px;
+    text-decoration: none;
+    border: 2px solid white;
+    color: white;
+    background-color: #0C0C0C;
+    cursor: pointer;
+    outline: none;
+}
+
+.header_menu_buttons_In_Button:hover, .header_menu_buttons_Reg_Button:hover{
+    color: #7CAAFA;
+    border: 2px solid #7CAAFA;
+    transition: 1s;
+}
+
+.header_menu_buttons_In_Button:not(:hover), .header_menu_buttons_Reg_Button:not(:hover){
+    transition: 1s;
 }
 
 .header {
     display: grid;
     height: 50px;
     width: 100%;
-    grid-template-columns: 1fr 2fr 1fr 2fr 1fr 1fr;
+    grid-template-columns: 1fr 2fr 0.5fr 2fr 2fr ;
     background-color: #0C0C0C;
     grid-template-areas: 
-    "header_logo header_menu nothing1 header_find heder_buttons nothing2";
-}
-
-.buttonIn {
-    position: absolute;
-    float:left;
-    top : 2%;
-    right : auto;
-    left : 77%;   
-    text-align: center;
-    border-radius: 3px;
-    text-decoration: none;
-    border: 2px solid white;
-    color: white;
-    background-color: #0C0C0C;
-}
-
-.buttonIn:focus {
-	outline: none;
-}
-
-.buttonIn:hover {
-    color: #7CAAFA;
-    border: 2px solid #7CAAFA;
-    transition: 1s;
-}
-
-.buttonIn:not(:hover){
-    transition: 1s;
-}
-
-.buttonReg {
-    position: absolute;
-    top : 2%;
-    left : 80%;
-    text-align: center;
-    border-radius: 3px;
-    text-decoration: none;
-    border: 2px solid white;
-    color: white;
-    background-color: #0C0C0C;
-}
-
-.buttonReg:not(:hover){
-    transition: 1s;
-}
-
-.buttonReg:focus {
-    outline: none;
-}
-
-.buttonReg:hover {
-    color: #7CAAFA;
-    border: 2px solid #7CAAFA;
-    transition: 1s;
-}
-
-.findPlace {
-    position: absolute;
-    top : 2%;
-    margin-left : 50%;
-    width: 20%;
-}
-
-.logo {
-    height: 50px;
-    width : 100px;
-    background-color: white;
+    "header_logo header_menu nothing1 header_find header_buttons";
 }

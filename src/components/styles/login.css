@@ -13,12 +13,12 @@ input{
     margin-bottom :2px;
 }
 
-input:valid{
+.input:valid{
     background-color:#dfd;
 
 }
 
-input:invalid{
+.input:invalid{
     background-color:#fdd;
 }
 
