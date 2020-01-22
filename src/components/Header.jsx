@@ -7,12 +7,12 @@ const Header = (props) =>{
     
     
     
-    return (<div id="header">
-        <div className="logo">LOGO</div>
-        <HeaderMenu />
-        {props.value}
-        <input type="text"className="findPlace"/>
-    </div>);
+    return (<div className="header">
+                <div className="header_logo">
+                    <image alt="LOGO"></image>
+                </div>
+                <div className="header_menu"></div>
+            </div>);
 }
 
 export default Header

@@ -1,8 +1,19 @@
-#header {
-    width : 100%;
+.header_logo{
+    background-color: blanchedalmond;
+}
+
+.header_menu{
+    background-color: red;
+}
+
+.header {
+    display: grid;
     height: 50px;
-    margin-right: auto;
+    width: 100%;
+    grid-template-columns: 1fr 2fr 1fr 2fr 1fr 1fr;
     background-color: #0C0C0C;
+    grid-template-areas: 
+    "header_logo header_menu nothing1 header_find heder_buttons nothing2";
 }
 
 .buttonIn {
