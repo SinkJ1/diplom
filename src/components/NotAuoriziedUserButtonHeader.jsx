@@ -6,17 +6,18 @@ const Buttons = () => {
     const [state, setState] = useState();
       
     const open = () => {
-      setState(<Window />);
+      setState(alert());
     }
     
     const close = () => {
       setState();
     }
-    return (<div>
-    <button className="buttonIn" onClick={open}> Вход </button>
-    <button className="buttonReg" onClick={close}> Регистрация </button>
-    {state}
-</div>);
+    
+    return (<>
+              <div className="header_menu_buttons_In"><button className="header_menu_buttons_In_Button" onClick={open}>ВХОД</button></div>
+              <div className="header_menu_buttons_Reg"><button className="header_menu_buttons_Reg_Button" onClick={close}>РЕГИСТРАЦИЯ</button></div>
+              {state}
+            </>);
 }
 
 export default Buttons

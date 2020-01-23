@@ -1,14 +1,15 @@
 import React from 'react'
 import "./styles/header.css";
-
+import logo from "./images/logo.png";
+import { Link } from "react-router-dom";
 
 const Header = (props) =>{
     
-    
-    
     return (<div className="header">
                 <div className="header_logo">
-                    <image alt="LOGO"></image>
+                    <Link key="l" className="film_block_link" to={`/`}>
+                        <img src={logo} alt="LOGO"></img>
+                    </Link>
                 </div>
                 <div className="header_menu">
                     <div className="header_menu_genre"><button className="header_menu_genre_button">ЖАНР</button></div>
@@ -20,8 +21,7 @@ const Header = (props) =>{
                     <div className="header_find_block"><input type="text" className="header_find_input"/></div>
                 </div>
                 <div className="header_menu_buttons">
-                    <div className="header_menu_buttons_In"><button className="header_menu_buttons_In_Button">ВХОД</button></div>
-                    <div className="header_menu_buttons_Reg"><button className="header_menu_buttons_Reg_Button">РЕГИСТРАЦИЯ</button></div>
+                    {props.value}
                 </div>
             </div>);
 }

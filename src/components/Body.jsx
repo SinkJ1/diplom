@@ -9,8 +9,8 @@ const Body = () => {
 
     for (let i = 0; i < 5; i++){
         filmBlocks.push(
-        <Link key={i} to={`/film/${i}`}>
-            <FilmBlock id={i} key={i} />
+        <Link key={i} className="film_block_link" to={`/film/${i}`}>
+            <FilmBlock id={i} key={i} value="Film name" />
         </Link>
         )
     }

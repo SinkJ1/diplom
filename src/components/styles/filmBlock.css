@@ -1,5 +1,52 @@
+.film_block_image{
+    grid-area: film_block_image;
+    text-align: center;
+    align-self: center;
+}
+
+.film_image {
+    height: 150px;
+    width: 150px;
+}
+
+.film_block_text_name_name  {
+    color : white;
+}
+
+.film_block_text_name{
+    grid-area: film_block_text_name;
+    align-self: center;
+    text-align: center;
+}
+
+.film_block_text_text{
+    color : white;
+}
+
+
+.film_block_text_info{
+    grid-area: film_block_text_info;
+    text-align: justify;
+}
+
+.film_block_text{
+    grid-area: film_block_info;
+    display: grid;
+    grid-template-rows: 20px 180px;
+    grid-template-areas: 
+    "film_block_text_name"
+    "film_block_text_info";
+}
+
+
 .filmBlock {
     border: 1px solid white;
     height : 200px;
     cursor: pointer;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+    "film_block_image film_block_info";
 }
+

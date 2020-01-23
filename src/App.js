@@ -25,8 +25,8 @@ function App() {
 
   return (
     <>
-    <Header value={<NotAutoriziedUserButtonHeader />}/>
       <Router>
+        <Header value={<NotAutoriziedUserButtonHeader />}/>
             <Switch>
                 <Route exact path="/" component={MainFolder} />
                 <Route path="/film/:id" component={filmPage} />
