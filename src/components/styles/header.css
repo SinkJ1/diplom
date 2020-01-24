@@ -45,6 +45,33 @@
     transition: 1s;
 }
 
+.testBtn{
+    margin-top:50%;
+    cursor: pointer;
+    visibility:hidden;
+}
+
+.genre_content{
+    position: absolute;
+    margin-left: -50px;
+    width : 100px;
+    height: 0px;
+    background-color: darkmagenta;
+    cursor: default;
+}
+.header_menu_genre_button:hover .genre_content , .header_menu_tops_button:hover .genre_content, .header_menu_country_button:hover .genre_content, .header_menu_news_button:hover .genre_content{
+    border : 2px solid #0C0C0C;
+    height: auto;
+    width:150px;
+    box-shadow: 0 0 20px darkmagenta;
+    transition: 1s;
+}
+
+.header_menu_genre_button:hover .genre_content .testBtn, .header_menu_tops_button:hover .genre_content, .header_menu_country_button:hover .genre_content, .header_menu_news_button:hover .genre_content{
+    visibility:visible;
+    transition: 1s;
+}
+
 .header_menu_genre_button:not(:hover), .header_menu_tops_button:not(:hover), .header_menu_country_button:not(:hover), .header_menu_news_button:not(:hover){
     transition: 1s;
 }

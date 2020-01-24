@@ -12,10 +12,10 @@ const Header = (props) =>{
                     </Link>
                 </div>
                 <div className="header_menu">
-                    <div className="header_menu_genre"><button className="header_menu_genre_button">ЖАНР</button></div>
-                    <div className="header_menu_tops"><button className="header_menu_tops_button">ЛУЧШЕЕ</button></div>
-                    <div className="header_menu_country"><button className="header_menu_country_button">СТРАНА</button></div>
-                    <div className="header_menu_news"><button className="header_menu_news_button">НОВИНКИ</button></div>
+                    <div className="header_menu_genre"><button className="header_menu_genre_button">ЖАНР<div className="genre_content"><button className="testBtn">hello</button></div></button></div>
+                    <div className="header_menu_tops"><button className="header_menu_tops_button">ЛУЧШЕЕ<div className="genre_content"></div></button></div>
+                    <div className="header_menu_country"><button className="header_menu_country_button">СТРАНА<div className="genre_content"></div></button></div>
+                    <div className="header_menu_news"><button className="header_menu_news_button">НОВИНКИ<div className="genre_content"></div></button></div>
                 </div>
                 <div className="header_find">
                     <div className="header_find_block"><input type="text" className="header_find_input"/></div>
