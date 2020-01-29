@@ -16,8 +16,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import by.diplom.practics.interfaces.GenericService;
+
 import by.diplom.practics.model.User;
+import by.diplom.practics.services.GenericService;
 
 @Controller
 @RequestMapping(value = "/users")

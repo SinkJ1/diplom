@@ -3,11 +3,10 @@ package by.diplom.practics.DAO;
 import java.util.List;
 import java.util.Map;
 import javax.persistence.EntityManager;
-import by.diplom.practics.interfaces.GenericDAO;
 
 public abstract class AbstractGenericDAO<T> implements GenericDAO<T> {
 
-	public void persist(EntityManager em, T object) {
+	public void add(EntityManager em, T object) {
 		em.persist(object);
 	}
 

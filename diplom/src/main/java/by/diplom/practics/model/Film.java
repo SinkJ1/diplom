@@ -8,6 +8,11 @@ import javax.persistence.*;
 @Table(name="t_film")
 public class Film implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3493948154248492047L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "film_id")

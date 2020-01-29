@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import by.diplom.practics.interfaces.GenericService;
 import by.diplom.practics.model.User;
+import by.diplom.practics.services.GenericService;
 
 public abstract class AbstractController<T> {
 
@@ -21,7 +21,7 @@ public abstract class AbstractController<T> {
 
 	@PostMapping(produces = "application/json;charset=UTF-8")
 	public ResponseEntity<T> add(@RequestBody T entity) {
-		genericService.persist(entity);
+		genericService.add(entity);
 		return ResponseEntity.ok().build();
 	}
 

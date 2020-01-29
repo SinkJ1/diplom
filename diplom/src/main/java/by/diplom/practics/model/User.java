@@ -1,9 +1,7 @@
 package by.diplom.practics.model;
 
-import by.diplom.practics.enums.Role;
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Set;
 
 @Entity
 @Table(name = "t_user")

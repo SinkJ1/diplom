@@ -1,11 +1,11 @@
-package by.diplom.practics.interfaces;
+package by.diplom.practics.services;
 
 import java.util.List;
 import java.util.Map;
 
 public interface GenericService<T> {
 
-	void persist(T object);
+	void add(T object);
 
 	void update(T object);
 

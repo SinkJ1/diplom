@@ -1,10 +1,17 @@
 package by.diplom.practics.model;
 
+import java.io.Serializable;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "t_actor")
-public class Actor {
+public class Actor implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 9151783396754007932L;
 
 	@Id
 	private int id;
