@@ -1,6 +1,5 @@
 import React, {useState} from "react"
 import "./styles/header.css"
-import Window from './Window';
 
 const Buttons = () => {
     const [state, setState] = useState();

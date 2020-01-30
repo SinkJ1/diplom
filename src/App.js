@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import MainFolder from './MainFolder';
 import NotFoundPage from './components/NotFoundPage';
 import FilmPage from './components/FilmPage';
+import Test from './components/Test';
 //import ReactPlayer from 'react-player'
 
 /*
@@ -21,10 +22,12 @@ const filmPage = (props) => {
     return (<FilmPage value={props.match.params.id} />);
 }
 
+
 function App() {
 
   return (
     <>
+      {<Test />}
       <Router>
         <Header value={<NotAutoriziedUserButtonHeader />}/>
             <Switch>

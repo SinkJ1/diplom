@@ -10,7 +10,7 @@ const FilmBlock = (props) => {
                 <li>Актёры</li>
                 </div>
                 <div className="film_block_image">
-                    <img className="film_image" src="https://kinogo.by/uploads/cache/6/1/1/7/6/7/c/3/f/1573515816-336390502-doktor-son-KINOGO_BY-200x300.jpg" alt="film image"></img>
+                    <img className="film_image" src="https://kinogo.by/uploads/cache/6/1/1/7/6/7/c/3/f/1573515816-336390502-doktor-son-KINOGO_BY-200x300.jpg" alt="filmImage"></img>
                 </div>
                 <div className="film_block_text">
                     <div className="film_block_text_name">
