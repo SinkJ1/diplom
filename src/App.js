@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
-import Ters from './components/Ters';
+import TestAxios from './components/TestAxios';
 import './App.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -9,7 +9,6 @@ import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import MainFolder from './MainFolder';
 import NotFoundPage from './components/NotFoundPage';
 import FilmPage from './components/FilmPage';
-import Test from './components/Test';
 import AutorizedUserButton from './components/AutoriziedUserButtonHeader';
 //import ReactPlayer from 'react-player'
 
@@ -35,6 +34,7 @@ function App() {
   }
   
   return (<>
+  <TestAxios />
     <Router>
       <Header value={buttons} />
       <Switch>

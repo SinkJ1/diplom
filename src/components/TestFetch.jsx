@@ -16,7 +16,7 @@ const Test = () => {
 
   useEffect(() => {
     const download = async () => { 
-      fetch('http://localhost:8080/films')
+      fetch('http://localhost:8080/diplom/users')
           .then(res => res.json())
           .then(users => console.log(users))};
     download();
