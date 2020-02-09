@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
+import './App.css';
+import Ters from './components/Ters';
 import './App.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -8,6 +10,7 @@ import MainFolder from './MainFolder';
 import NotFoundPage from './components/NotFoundPage';
 import FilmPage from './components/FilmPage';
 import Test from './components/Test';
+import AutorizedUserButton from './components/AutoriziedUserButtonHeader';
 //import ReactPlayer from 'react-player'
 
 /*
@@ -18,27 +21,30 @@ width='900px'
 height='500px'
  />*/
 
+let buttons;
 const filmPage = (props) => {
     return (<FilmPage value={props.match.params.id} />);
 }
 
-
 function App() {
-
-  return (
-    <>
-      {<Test />}
-      <Router>
-        <Header value={<NotAutoriziedUserButtonHeader />}/>
-            <Switch>
-                <Route exact path="/" component={MainFolder} />
-                <Route path="/film/:id" component={filmPage} />
-                <Route component={NotFoundPage} />
-            </Switch>
-      </Router>
+  const [isAutorize,setIsAutrize] = useState(false);
+  if(isAutorize){
+    buttons = <AutorizedUserButton />;
+  } else {
+    buttons = <NotAutoriziedUserButtonHeader />;
+  }
+  
+  return (<>
+    <Router>
+      <Header value={buttons} />
+      <Switch>
+        <Route exact path="/" component={MainFolder} />
+        <Route path="/film/:id" component={filmPage} />
+        <Route component={NotFoundPage} />
+      </Switch>
+    </Router>
     <Footer />
-    </>
-  );
+  </>);
 }
 
 export default App;

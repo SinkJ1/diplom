@@ -16,17 +16,18 @@ const Test = () => {
 
   useEffect(() => {
     const download = async () => { 
-      fetch('http://localhost:8082/diplom/users')
+      fetch('http://localhost:8080/films')
           .then(res => res.json())
-          .then(users => setData({text : users, isLoaded : true}))};
+          .then(users => console.log(users))};
     download();
   },[]);
 
       if(data.isLoaded){
-        console.log(data.text.map(function(users){
+      /*  console.log();
+        return (data.text.map(function(users){
           return (users.name);
-        }));
-        return ("");
+        }));*/
+        return ("Loading...")
       }else{
         return ("Loading...");
       }

@@ -107,6 +107,22 @@
     cursor: text;
 }
 
+
+.header_menu_buttons_autorize{
+    grid-area: header_menu_buttons_Reg;
+}
+
+.header_menu_buttons_autorize_button{
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    border: 2px solid white;
+    color: white;
+    background-color: #0C0C0C;
+    cursor: pointer;
+    outline: none;
+}
+
 .header_menu_buttons {
     grid-area:header_buttons;
     display: grid;
@@ -114,8 +130,7 @@
     grid-template-areas: 
     "header_menu_buttons_In header_menu_buttons_Reg header_menu_buttons_Add";
 }
-
-.header_menu_buttons_In, .header_menu_buttons_Reg, .header_menu_buttons_Add{
+.header_menu_buttons_In, .header_menu_buttons_Reg, .header_menu_buttons_Add,.header_menu_buttons_autorize{
     text-align: center;
     align-self: center;
 }
