@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Built-By: Admin
+Build-Jdk: 10.0.1
+Implementation-Title: diplom
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: diplom
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/diplom
+Created-By: Maven Integration for Eclipse
+

@@ -19,7 +19,7 @@ public abstract class AbstractController<T> {
 	private GenericService<T> genericService;
 
 
-	@PostMapping(produces = "application/json;charset=UTF-8")
+	//@PostMapping(produces = "application/json;charset=UTF-8")
 	public ResponseEntity<T> add(@RequestBody T entity) {
 		genericService.add(entity);
 		return ResponseEntity.ok().build();

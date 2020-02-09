@@ -19,24 +19,24 @@ public abstract class AbstractGenericService<T> implements GenericService<T> {
 	@Autowired
 	protected GenericDAO<T> dao;
 	
+	@Transactional
 	public void add(T object) {
-		// TODO Auto-generated method stub
-		
+		dao.add(entityManager, object);
 	}
 
+	@Transactional
 	public void update(T object) {
-		// TODO Auto-generated method stub
-		
+		dao.update(entityManager, object);
 	}
 
+	@Transactional
 	public void delete(Integer id) {
-		// TODO Auto-generated method stub
-		
+		dao.delete(entityManager, id);
 	}
 
+	@Transactional
 	public T findById(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.findById(entityManager, id);
 	}
 
 	@Transactional

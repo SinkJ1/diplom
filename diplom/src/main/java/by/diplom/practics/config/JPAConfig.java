@@ -15,15 +15,15 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 public class JPAConfig {
 
 	@Bean
-	public EntityManagerFactory entityManagerFactory() {
-		return Persistence.createEntityManagerFactory("persistence");
-	}
-
+    public EntityManagerFactory entityManagerFactory() {
+        return Persistence.createEntityManagerFactory("persistence");
+    }
+	
 	@Bean
 	public PlatformTransactionManager transactionManager() {
 		JpaTransactionManager result = new JpaTransactionManager();
 		result.setEntityManagerFactory(entityManagerFactory());
 		return result;
 	}
-
+	
 }

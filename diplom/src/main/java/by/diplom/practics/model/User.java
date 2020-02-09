@@ -20,13 +20,25 @@ public class User implements Serializable {
 	@Column(name = "user_birdth_date")
 	private String birdthDate;
 
+	@Column(name = "user_login")
+	private String login;
+	
+	@Column(name = "user_password")
+	private String password;
+	
+	/*
+	 * add many to many Set
+	 * */
+	
 	public User() {
 	}
 
-	public User(Integer id, String name, String birdthDate) {
+	public User(Integer id, String name, String birdthDate, String login, String password) {
 		this.id = id;
 		this.name = name;
 		this.birdthDate = birdthDate;
+		this.login = login;
+		this.password = password;
 	}
 
 	public Integer getId() {
@@ -53,11 +65,26 @@ public class User implements Serializable {
 		this.birdthDate = birdthDate;
 	}
 
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", birdthDate=" + birdthDate + "]";
+	public String getLogin() {
+		return login;
 	}
 
-	
-	
+	public void setLogin(String login) {
+		this.login = login;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", name=" + name + ", birdthDate=" + birdthDate + ", login=" + login + ", password="
+				+ password + "]";
+	}
+
 }
