@@ -1,14 +1,18 @@
-import React, { useState } from "react"
+import React, { useState, useMemo, useEffect } from "react"
 
-const State = (props) =>{
+import NotAutoriziedUserButtonHeader from './NotAuoriziedUserButtonHeader'
+import AutorizedUserButton from "./AutoriziedUserButtonHeader"
 
-const [state, setState] = useState("/");
+const State = (props) => {
+        if(props.value){
+                return <AutorizedUserButton />
+        }else {
+                return <NotAutoriziedUserButtonHeader />
+                
+        }
 
-if(props.value && props.value !== state){
-    setState(props.value);
-}
-return state;
-
+        
+    
 }
 
 export default State

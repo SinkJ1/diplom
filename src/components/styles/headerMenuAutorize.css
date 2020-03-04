@@ -1,0 +1,74 @@
+.menu_body_login{
+    grid-area: login;
+    text-align: center;
+    align-self: center;
+}
+
+.header_login_input{
+    cursor: pointer;
+    background-color: #898787;
+}
+
+.label{
+    color: white;
+}
+
+.header_login_input:focus{
+    background-color: #FEFEFE;
+    cursor: text;
+}
+
+.header_body_password{
+    grid-area: password;
+    text-align: center;
+    align-self: center;
+}
+
+.header_password_input{
+    background-color: #898787;
+    cursor: pointer;
+}
+
+.header_password_input:focus{
+    background-color: #FEFEFE;
+    cursor: text;
+}
+
+.menu_body_button{
+    grid-area: button;
+    text-align: center;
+    align-self: center;
+}
+
+.body_button{
+    border-radius: 2px;
+    text-decoration: none;
+    border: 1.5px solid white;
+    color: white;
+    background-color: #0C0C0C;
+    cursor: pointer;
+    outline: none;
+}
+
+.body_button:hover{
+    color: #7CAAFA;
+    border: 1.5px solid #7CAAFA;
+    transition: 1s;
+}
+
+.body_button:not(:hover){
+    transition: 1s;
+}
+
+.header_autorize_menu_body {
+    height: auto;
+    width: 200px;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 10px 45px 45px 40px;
+    grid-template-areas: 
+    "nothing"
+    "login"
+    "password"
+    "button"
+}

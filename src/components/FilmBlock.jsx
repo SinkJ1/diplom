@@ -10,14 +10,14 @@ const FilmBlock = (props) => {
                 <li>Актёры</li>
                 </div>
                 <div className="film_block_image">
-                    <img className="film_image" src="https://kinogo.by/uploads/cache/6/1/1/7/6/7/c/3/f/1573515816-336390502-doktor-son-KINOGO_BY-200x300.jpg" alt="filmImage"></img>
+                    <img className="film_image" src={props.imgPath} alt="filmImage"></img>
                 </div>
                 <div className="film_block_text">
                     <div className="film_block_text_name">
-                        <div className="film_block_text_name_name">{props.value}</div>
+                        <div className="film_block_text_name_name">{props.name}</div>
                     </div>
                     <div className="film_block_text_info">
-                        <div className="film_block_text_text">Сериал расскажет о неловком шестнадцатилетнем парне по имени Отис (Эйса Баттерфилд).</div>
+                        <div className="film_block_text_text">{props.description}</div>
                     </div>
                 </div>
             </div>
