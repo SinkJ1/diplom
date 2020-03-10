@@ -1,7 +1,6 @@
 import React, { useState } from "react"
 import "./styles/header.css"
 import AutorizeMenu from "./AutorizeMenu"
-import AutorizedUserButton from "./AutoriziedUserButtonHeader"
 
 const Buttons = () => {
 

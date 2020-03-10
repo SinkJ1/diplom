@@ -1,12 +1,71 @@
-#body{
-    margin-top : 10%;
-    margin-left : 40%;
-    height: 1260px;
-    width: 55%;
-    background-color: black;
+.filmBlocks {
+    grid-area: filmBlocks;
 }
 
+.pageNumber {
+    grid-area: pageNumber;
+    text-align: center;
+    align-self: center;
+}
 
-.film_block_link{
+.btnCenter {
+    height: 50%;
+    width: 15%;
+    margin-left: 40%;
+    text-align: center;
+    border: 2px solid black;
+    border-radius: 50%;
+}
+
+.btnNext {
+    grid-area: nextBtn;
+    text-align: left;
+    align-self: left;
+}
+
+.btnBack {
+    grid-area: backBtn;
+    text-align: right;
+    align-self: right;
+}
+
+.btnLeft, .btnRight {
+    border: 0px;
+}
+
+.btnLeft, .btnRight {
+    border: 0px;
+    background-color: black;
+    color: white;
+}
+
+.btnLeft, .btnRight {
+    height: 120%;
+}
+
+.btnLeft {}
+
+.btnRight {}
+
+.navigateBtn {
+    background-color: white;
+    grid-area: navigateBtn;
+    display: grid;
+    grid-template-columns: 40% 20% 40%;
+    grid-template-areas: "backBtn pageNumber nextBtn";
+}
+
+#body {
+    margin-top: 10%;
+    display: grid;
+    margin-left: 40%;
+    height: auto;
+    width: 55%;
+    background-color: black;
+    grid-template-rows: auto 25px;
+    grid-template-areas: "filmBlocks" "navigateBtn";
+}
+
+.film_block_link {
     text-decoration: none;
 }

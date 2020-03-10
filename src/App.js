@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -23,11 +23,9 @@ const filmPage = (props) => {
 
 function App() {
 
-  const [test,setTest] = useState(true)
-
   return (<>
     <Router>
-      <Header value={<GlobalState value={test} />} />
+      <Header value={<GlobalState />} />
       <Switch>
         <Route exact path="/" component={MainFolder} />
         <Route path="/film/:id" component={filmPage} />

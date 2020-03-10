@@ -1,13 +1,13 @@
 import React from "react"
-import Body from './components/Body';
 import Menu from './components/SlideMenu';
+import Page from "./components/Page";
 
 
 const MainFolder = () => {
 
     return (<>
             <Menu />
-            <Body />
+            <Page/>
             </>
     );
 }

@@ -1,26 +1,29 @@
 import React, { useState } from "react"
+
+import AutorizedUserButtonWindow from "./AutorizedUserButtonWindow"
 import "./styles/header.css"
 
 const AutorizedUserButton = () => {
 
-    const[isOpen,setOpen] = useState(false);
+    let isOpen = false;
 
-    const onClick = () => {
-        if(isOpen){
-            setWindow({button})
-            setOpen(false)
-        } else{
-            setWindow(<>{button}<div style={{position:"absolute" ,height:"250px",width:"250px", backgroundColor:"red", top:"90px"}}>sdg</div></>)
-            setOpen(true)
+    const change = () => {
+        if (isOpen) {
+            setState(button)
+            isOpen = false;
+        } else {
+            setState(<>{button}{<AutorizedUserButtonWindow />}</>)
+            isOpen = true;
         }
-        console.log(isOpen)
     }
 
-    const button = <div className="header_menu_buttons_autorize"><button className="header_menu_buttons_autorize_button" onClick={onClick}>img</button></div>
+    const button = <div className="header_menu_buttons_autorize"><button className="header_menu_buttons_autorize_button" onClick={change}>Img</button></div>
 
-    const [window,setWindow] = useState(button);
+    const [state, setState] = useState(button);
 
-    return window;
+
+
+    return state;
 
 }
 

@@ -2,33 +2,22 @@ import React from "react"
 import "./styles/body.css"
 import FilmBlock from "./FilmBlock";
 import { Link } from "react-router-dom";
-import DataLoader from "./services/DataLoader";
 
-const FilmDownload = () => {
+const Body = (props) => {
 
-    let films = [];
+    document.title = 'CINEMA_yS'
 
-    let film = DataLoader.getData('http://localhost:8080/films')
-
-    if (film) {
-        film.entity.map(function (entity) {
-            films.push(entity);
-        });
-        return films;
-    }
-
-
-}
-
-const Body = () => {
-
-    let films = FilmDownload();
+    let films = props.value;
     let filmsName = [];
     let filmsDescription = [];
     let filmsImgPath = [];
     let filmBlocks = [];
+    let max_length
 
     if (films) {
+
+        max_length = films.length >= 5 ? 5 : films.length
+
         for (let i = 0; i < films.length; i++) {
             films.map(function (film, index) {
                 if (index === i) {
@@ -40,7 +29,7 @@ const Body = () => {
         }
     }
 
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < max_length; i++) {
         filmBlocks.push(
             <Link key={i} className="film_block_link" to={`/film/${filmsName[i]}`}>
                 <FilmBlock id={i} key={i} name={filmsName[i]} description={filmsDescription[i]} imgPath={filmsImgPath[i]} />
@@ -48,7 +37,7 @@ const Body = () => {
         )
     }
 
-    return (<div id="body">{filmBlocks}</div>);
+    return (<div className="filmBlocks">{filmBlocks}</div>);
 }
 
 export default Body

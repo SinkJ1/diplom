@@ -19,9 +19,9 @@ const FilmPage = (props) => {
    let data = "downloading...";
 
    if (film) {
+      { document.title = props.value }
       data = <div className="container">
          <div className="item_film_name">
-            {document.title=props.value}
             {props.value}
          </div>
          <div className="item_film_info">

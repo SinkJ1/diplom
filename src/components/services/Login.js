@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import "../styles/headerMenuAutorize.css"
 
 const patternForLogin = "^([a-z0-9_-]+\\.)*[A-Za-z0-9_-]+@[a-z0-9_-]+(\\.[a-z0-9_-]+)*\\.[a-z]{2,6}$";
@@ -20,6 +20,7 @@ const Login = () => {
 
     const sss = (e) => {
         setForm(true)
+        localStorage.setItem('onLogin',true);
         e.preventDefault();
     }
 

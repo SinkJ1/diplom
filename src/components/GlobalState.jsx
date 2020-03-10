@@ -1,18 +1,16 @@
-import React, { useState, useMemo, useEffect } from "react"
+import React from "react"
 
 import NotAutoriziedUserButtonHeader from './NotAuoriziedUserButtonHeader'
 import AutorizedUserButton from "./AutoriziedUserButtonHeader"
 
-const State = (props) => {
-        if(props.value){
+const State = () => {
+
+        if (localStorage.getItem('onLogin') === 'true') {
                 return <AutorizedUserButton />
-        }else {
+        } else {
                 return <NotAutoriziedUserButtonHeader />
-                
         }
 
-        
-    
 }
 
 export default State
