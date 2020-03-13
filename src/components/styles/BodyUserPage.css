@@ -1,0 +1,42 @@
+.userInfoData{
+    
+    border: 1px solid gray;
+    display: grid;
+    grid-area: userInfoData;
+    grid-template-columns: 5fr;
+    grid-template-rows: auto;
+    text-align: center;
+}
+.userInfoImg{
+    
+    border: 1px solid gray;
+    grid-area: userInfoImg;
+    text-align: center;
+    align-self: center;
+}
+
+.userImg {
+    height: 250px;
+    width: 250px;
+    border: 1px solid black;
+}
+
+
+.userInfo{
+    display: grid;
+    grid-area: userInfo2;   
+    grid-template-columns: auto 10px auto;
+    grid-template-rows: auto;
+    grid-template-areas:
+    "userInfoImg nothing userInfoData"
+}
+
+
+.userPage{
+    display: grid;
+    grid-template-columns: 1fr 8fr 1fr;
+    grid-template-rows: 200px auto;
+    grid-template-areas: 
+    "nothing1 nothing2 nothing3"
+    "userInfo1 userInfo2 userInfo3";
+}

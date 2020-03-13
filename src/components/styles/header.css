@@ -1,0 +1,212 @@
+.header_logo{
+    cursor: pointer;
+}
+
+.header_menu_genre {
+    grid-area: header_menu_genre;
+}
+
+.header_menu_tops {
+    grid-area: header_menu_tops;
+}
+
+.header_menu_country {
+    grid-area: header_menu_country;
+}
+
+.header_menu_news {
+    grid-area: header_menu_news;
+}
+
+.header_menu_genre_button,.header_menu_tops_button,.header_menu_country_button,.header_menu_news_button{
+    background-color: #0C0C0C;
+    color: white;
+    outline: none;
+    border: 0px solid #0C0C0C;
+    cursor: pointer;
+}
+
+.header_menu_genre,.header_menu_tops,.header_menu_country,.header_menu_news{
+    text-align: center;
+    align-self: center;
+}
+
+.header_menu{
+    grid-area: header_menu;
+    background-color: #0C0C0C;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas: 
+    "header_menu_genre header_menu_tops header_menu_country header_menu_news";
+}
+
+.header_menu_genre_button:hover, .header_menu_tops_button:hover, .header_menu_country_button:hover, .header_menu_news_button:hover {
+    color: #7CAAFA;
+    transition: 1s;
+}
+
+.testBtn{
+    cursor: pointer;
+    outline: none;
+    visibility:hidden;
+}
+
+.genre_content{
+    position: absolute;
+    margin-left: -50px;
+    width : 100px;
+    height: 0px;
+    background-color: darkmagenta;
+    cursor: default;
+}
+.header_menu_genre_button:hover .genre_content  {
+    border : 2px solid #0C0C0C;
+    height: auto;
+    width:150px;
+    box-shadow: 0 0 20px darkmagenta;
+    display: grid;
+    grid-template-rows: auto;
+    transition: 1s;
+}
+
+.header_menu_genre_button:hover .genre_content .testBtn{
+    visibility:visible;
+    transition: 1s;
+}
+
+.testBtn:hover{
+    background-color : white;
+}
+
+.testBtn:not(:hover){
+    transition: 0s;
+}
+
+.header_menu_genre_button:not(:hover), .header_menu_tops_button:not(:hover), .header_menu_country_button:not(:hover), .header_menu_news_button:not(:hover){
+    transition: 1s;
+}
+
+.header_find{
+    grid-area: header_find;
+    display: grid;
+}
+
+.header_find_block{
+    align-self: center;
+    text-align: center;
+}
+
+.header_find_input{
+    background-color: #898787;
+    width: 75%;
+    cursor: pointer;
+}
+
+.header_find_input:focus{
+    background-color: #FEFEFE;
+    cursor: text;
+}
+
+
+.header_menu_buttons_autorize{
+    grid-area: header_menu_buttons_Reg;
+}
+
+.header_menu_buttons_autorize_button{
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    border: 2px solid white;
+    color: white;
+    background-color: #0C0C0C;
+    cursor: pointer;
+    outline: none;
+}
+
+.header_menu_buttons {
+    grid-area:header_buttons;
+    display: grid;
+    grid-template-columns: 1fr 1fr 3fr;
+    grid-template-areas: 
+    "header_menu_buttons_In header_menu_buttons_Reg header_menu_buttons_Add";
+}
+.header_menu_buttons_In, .header_menu_buttons_Reg, .header_menu_buttons_Add,.header_menu_buttons_autorize{
+    text-align: center;
+    align-self: center;
+}
+
+.header_menu_buttons_In_Button, .header_menu_buttons_Reg_Button{
+    border-radius: 2px;
+    text-decoration: none;
+    border: 1.5px solid white;
+    color: white;
+    background-color: #0C0C0C;
+    cursor: pointer;
+    outline: none;
+}
+
+.header_menu_buttons_In_Button:hover, .header_menu_buttons_Reg_Button:hover{
+    color: #7CAAFA;
+    border: 1.5px solid #7CAAFA;
+    transition: 1s;
+}
+
+.header_menu_buttons_In_Button:not(:hover), .header_menu_buttons_Reg_Button:not(:hover){
+    transition: 1s;
+}
+
+.header {
+    display: grid;
+    height: 50px;
+    width: 100%;
+    grid-template-columns: 1fr 2fr 0.5fr 2fr 2fr ;
+    background-color: #0C0C0C;
+    grid-template-areas: 
+    "header_logo header_menu nothing1 header_find header_buttons";
+}
+
+.regWindow {
+    position: absolute;
+    top : 25%;
+    left: 25%;
+    height: auto;
+    width: auto;
+    background-color: #0C0C0C;
+}
+
+.closeBtn{
+    position: absolute;
+    display: grid;
+    top:-16%;
+    right : -11%;
+    height: 25px;
+    width: 25px;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+    "icon";
+}
+
+.icon{
+    grid-area: icon;
+    text-align: center;
+    align-self: center;
+}
+
+.closeBtnIcon{
+    transform: rotate(45deg);
+    background: #CD6D45;
+    height: 25px; 
+    width: 5px;
+    position: relative; 
+    left: 40%;
+}
+
+.closeBtnIcon:after {
+    content: "";
+    height: 5px; 
+    width: 25px;
+    background: #CD6D45;
+    position: absolute; 
+    left: -198%; 
+    top: 40%;
+}

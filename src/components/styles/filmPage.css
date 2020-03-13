@@ -1,0 +1,56 @@
+.item_film_name {
+    grid-area: film_name;
+    text-align: center;
+    font-size: 35px;
+}
+
+.item_film_info {
+    grid-area: film_info;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 2fr));
+}
+
+.image {
+    height: 50%;
+    width: 50%;
+    margin-left: 35%;
+}
+
+.text {
+    text-align: justify;
+}
+
+.item_film_info2 {
+    grid-area: film_info2;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 2fr));
+}
+
+.item_film_player {
+    grid-area: player;
+    background-color: blueviolet;
+}
+
+.item_film_comment {
+    grid-area: comments;
+    background-color: cyan;
+}
+
+.item_film_facts {
+    grid-area: facts;
+}
+
+.container {
+    margin-top: 100px;
+    display: grid;
+    grid-template-columns: 1fr 5fr 1fr;
+    grid-template-rows: 45px auto 100px 100px 500px auto;
+    grid-template-areas: 
+    "left film_name right"
+    "left1 film_info right1"
+    "left2 film_info2 right2"
+    "left5 facts right5"
+    "left3 player right3"
+    "left4 comments right4";
+}
+
