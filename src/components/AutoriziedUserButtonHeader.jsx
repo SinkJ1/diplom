@@ -17,11 +17,9 @@ const AutorizedUserButton = () => {
         }
     }
 
-    const button = <div className="header_menu_buttons_autorize"><button className="header_menu_buttons_autorize_button" onClick={change}>Img</button></div>
+    const button = <div className="header_menu_buttons_autorize" onClose={() =>{alert("d")}}><button className="header_menu_buttons_autorize_button" onClick={change}>Img</button></div>
 
     const [state, setState] = useState(button);
-
-
 
     return state;
 

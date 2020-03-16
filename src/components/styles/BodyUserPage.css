@@ -17,7 +17,7 @@
 
 .userImg {
     height: 250px;
-    width: 250px;
+    width: 300px;
     border: 1px solid black;
 }
 
@@ -31,6 +31,13 @@
     "userInfoImg nothing userInfoData"
 }
 
+.flimHostoryBlock{
+    margin-top: 10px;
+    border: 1px solid gray;
+    grid-area: userInfo5;
+    text-align: left;
+    align-self: left;
+}
 
 .userPage{
     display: grid;
@@ -38,5 +45,24 @@
     grid-template-rows: 200px auto;
     grid-template-areas: 
     "nothing1 nothing2 nothing3"
-    "userInfo1 userInfo2 userInfo3";
+    "userInfo1 userInfo2 userInfo3"
+    "userInfo4 userInfo5 userInfo6";
+}
+
+.flimHostoryBlock:hover .moreInfoBtn{
+    transition: 1s;
+    background-color: #E9E9E9;
+}
+
+.flimHostoryBlock:not(:hover) .moreInfoBtn{
+    transition: 1s;
+    background-color: white;
+}
+
+.moreInfoBtn{
+    border:0px;
+    cursor: pointer;
+    background-color: white;
+    width:100%;
+    top: 5%;
 }

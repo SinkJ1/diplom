@@ -24,6 +24,8 @@ const filmPage = (props) => {
 
 function App() {
 
+  console.log("")
+
   return (<>
     <Router>
       <Header value={<GlobalState />} />
