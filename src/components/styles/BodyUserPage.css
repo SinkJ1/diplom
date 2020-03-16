@@ -32,9 +32,57 @@
 }
 
 .flimHostoryBlock{
-    margin-top: 10px;
+    height: auto;
     border: 1px solid gray;
+    margin-top: 10px;
+    text-align: left;
+    align-self: left;
+}
+
+.filmHistoryLabel{
+    margin-top: 10px;
     grid-area: userInfo5;
+    text-align: center;
+}
+
+.likedFilmBlock{
+    height: auto;
+    border: 1px solid gray;
+    margin-top: 10px;
+    text-align: left;
+    align-self: left;
+}
+
+.likedFilmLabel{
+    margin-top: 10px;
+    grid-area: userInfo8;
+    text-align: center;
+}
+
+.likedFilmBlock{
+    height: auto;
+    border: 1px solid gray;
+    margin-top: 10px;
+    text-align: left;
+    align-self: left;
+}
+
+.likedFilmLabel{
+    margin-top: 10px;
+    grid-area: userInfo8;
+    text-align: center;
+}
+
+.expectedFilmLabel{
+    margin-top: 10px;
+    grid-area: userInfo11;
+    text-align: center;
+}
+
+.expectedFilmBlock{
+    height: auto;
+    border: 1px solid gray;
+    margin-top: 10px;
     text-align: left;
     align-self: left;
 }
@@ -46,7 +94,9 @@
     grid-template-areas: 
     "nothing1 nothing2 nothing3"
     "userInfo1 userInfo2 userInfo3"
-    "userInfo4 userInfo5 userInfo6";
+    "userInfo4 userInfo5 userInfo6"
+    "userInfo7 userInfo8 userInfo9"
+    "userInfo10 userInfo11 userInfo12";
 }
 
 .flimHostoryBlock:hover .moreInfoBtn{
