@@ -19,6 +19,7 @@ const BodyUserPage = () =>{
     const [height, setHeight] = useState("auto")
 
     const click = () => {
+        alert("")
         setContent(<><p>ssss</p><p>ssss</p><p>ssss</p><p>ssss</p><p>ssss</p></>)
     }
 
