@@ -19,8 +19,11 @@ const BodyUserPage = () =>{
     const [height, setHeight] = useState("auto")
 
     const click = () => {
-        alert("")
         setContent(<><p>ssss</p><p>ssss</p><p>ssss</p><p>ssss</p><p>ssss</p></>)
+        alert()
+        alert()
+        alert()
+        alert()
     }
 
     return <div  className="userPage"><div className="userInfo"><div className="userInfoImg"><img className="userImg" alt="userImg" src={testImg}></img></div><div className="userInfoData">Имя:<div>Фамилия:</div><div>Дата Регистрации:</div></div></div>
