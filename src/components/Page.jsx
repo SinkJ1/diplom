@@ -60,13 +60,13 @@ const Page = () => {
         
     }
     const next = () => {
-        if(pageNumber !== groups.length){
+        if(pageNumber && pageNumber !== groups.length){
             setPageNumber(pageNumber + 1)
         }
     }
 
     const back = () => {
-        if (pageNumber > 1) {
+        if (pageNumber && pageNumber > 1) {
             setPageNumber(pageNumber - 1)
         }
     }

@@ -1,0 +1,118 @@
+.userInfoData{
+    
+    border: 1px solid gray;
+    display: grid;
+    grid-area: userInfoData;
+    grid-template-columns: 5fr;
+    grid-template-rows: auto;
+    text-align: center;
+}
+.userInfoImg{
+    
+    border: 1px solid gray;
+    grid-area: userInfoImg;
+    text-align: center;
+    align-self: center;
+}
+
+.userImg {
+    height: 250px;
+    width: 300px;
+    border: 1px solid black;
+}
+
+
+.userInfo{
+    display: grid;
+    grid-area: userInfo2;   
+    grid-template-columns: auto 10px auto;
+    grid-template-rows: auto;
+    grid-template-areas:
+    "userInfoImg nothing userInfoData"
+}
+
+.flimHostoryBlock{
+    height: auto;
+    border: 1px solid gray;
+    margin-top: 10px;
+    text-align: left;
+    align-self: left;
+}
+
+.filmHistoryLabel{
+    margin-top: 10px;
+    grid-area: userInfo5;
+    text-align: center;
+}
+
+.likedFilmBlock{
+    height: auto;
+    border: 1px solid gray;
+    margin-top: 10px;
+    text-align: left;
+    align-self: left;
+}
+
+.likedFilmLabel{
+    margin-top: 10px;
+    grid-area: userInfo8;
+    text-align: center;
+}
+
+.likedFilmBlock{
+    height: auto;
+    border: 1px solid gray;
+    margin-top: 10px;
+    text-align: left;
+    align-self: left;
+}
+
+.likedFilmLabel{
+    margin-top: 10px;
+    grid-area: userInfo8;
+    text-align: center;
+}
+
+.expectedFilmLabel{
+    margin-top: 10px;
+    grid-area: userInfo11;
+    text-align: center;
+}
+
+.expectedFilmBlock{
+    height: auto;
+    border: 1px solid gray;
+    margin-top: 10px;
+    text-align: left;
+    align-self: left;
+}
+
+.userPage{
+    display: grid;
+    grid-template-columns: 1fr 8fr 1fr;
+    grid-template-rows: 200px auto;
+    grid-template-areas: 
+    "nothing1 nothing2 nothing3"
+    "userInfo1 userInfo2 userInfo3"
+    "userInfo4 userInfo5 userInfo6"
+    "userInfo7 userInfo8 userInfo9"
+    "userInfo10 userInfo11 userInfo12";
+}
+
+.flimHostoryBlock:hover .moreInfoBtn{
+    transition: 1s;
+    background-color: #E9E9E9;
+}
+
+.flimHostoryBlock:not(:hover) .moreInfoBtn{
+    transition: 1s;
+    background-color: white;
+}
+
+.moreInfoBtn{
+    border:0px;
+    cursor: pointer;
+    background-color: white;
+    width:100%;
+    top: 5%;
+}

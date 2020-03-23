@@ -123,6 +123,50 @@
     outline: none;
 }
 
+.header_menu_buttons_autorize_button:focus .window{
+    position: absolute;
+    top: 6%;
+    display: grid;
+    right: 12%;
+    grid-template-rows: auto;
+    height: 150px;
+    width: 150px;
+    background-color: white;
+    box-shadow: 0 0 20px darkmagenta;
+    border: 2px solid #0C0C0C; 
+}
+
+.header_menu_buttons_autorize_button:focus .exitBtn{
+    visibility: visible;
+}
+
+.link, .exitBtn {
+    background-color: white;
+    width: 100%;
+    text-decoration: none;
+    text-align: center;
+}
+
+.exitBtn{
+    visibility: hidden;
+    cursor: pointer;
+    border: 0px;
+}
+
+.link:hover, .exitBtn:hover {
+    border:0.1px solid black;
+    background-color: #0C0C0C;
+    color: #7CAAFA;
+}
+
+
+.buttons{
+    background-color: white;
+    height: 100%;
+    width: 100%;
+}
+
+
 .header_menu_buttons {
     grid-area:header_buttons;
     display: grid;

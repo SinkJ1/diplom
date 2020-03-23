@@ -7,6 +7,7 @@ import MainFolder from './MainFolder';
 import NotFoundPage from './components/NotFoundPage';
 import FilmPage from './components/FilmPage';
 import GlobalState from "./components/GlobalState"
+import UserPage from "./UserPage"
 //import ReactPlayer from 'react-player'
 
 /*
@@ -29,6 +30,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={MainFolder} />
         <Route path="/film/:id" component={filmPage} />
+        <Route path="/user/:userName" component={UserPage} />
         <Route component={NotFoundPage} />
       </Switch>
     </Router>

@@ -1,0 +1,13 @@
+.header_find_input:focus .findList{
+
+    width: 390px;
+}
+
+.findList{
+    position: absolute;
+    top:4.5%;
+    left: 49.8%;
+    height: auto;
+    width: 0px;
+    background-color: red;
+}
