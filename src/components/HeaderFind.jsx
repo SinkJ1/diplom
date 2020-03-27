@@ -1,9 +1,9 @@
 import React from "react"
 import "./styles/header.css";
 import "./styles/HeaderFind.css"
-import FilmBlock from "../components/FilmBlock"
+//import FilmBlock from "../components/FilmBlock"
 import { useState } from "react";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 
 const HeaderFind = () => {
 

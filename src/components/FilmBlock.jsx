@@ -6,7 +6,7 @@ const FilmBlock = (props) => {
     return (
         <div className="filmBlock">
             <div className="film_block_info">
-                <div className="content">Информация о фильме:
+                <div className="film_block_content">Информация о фильме:
                 <li>Актёры</li>
                 </div>
                 <div className="film_block_image">

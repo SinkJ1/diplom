@@ -8,6 +8,10 @@ import NotFoundPage from './components/NotFoundPage';
 import FilmPage from './components/FilmPage';
 import GlobalState from "./components/GlobalState"
 import UserPage from "./UserPage"
+import ScrollableAnchor from 'react-scrollable-anchor'
+import { goToTop } from 'react-scrollable-anchor'
+import { goToAnchor } from 'react-scrollable-anchor'
+import { Link } from "react-router-dom";
 //import ReactPlayer from 'react-player'
 
 /*
@@ -26,7 +30,9 @@ function App() {
 
   return (<>
     <Router>
-      <Header value={<GlobalState />} />
+      <div id="headerAnchor">
+        <Header value={<GlobalState />} />
+      </div>
       <Switch>
         <Route exact path="/" component={MainFolder} />
         <Route path="/film/:id" component={filmPage} />

@@ -16,7 +16,7 @@ const Body = (props) => {
 
     if (films) {
 
-        //max_length = films.length >= 5 ? 5 : films.length
+        max_length = films.length >= 5 ? 5 : films.length
 
         for (let i = 0; i < films.length; i++) {
             films.map(function (film, index) {

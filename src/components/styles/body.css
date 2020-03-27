@@ -31,10 +31,6 @@
 
 .btnLeft, .btnRight {
     border: 0px;
-}
-
-.btnLeft, .btnRight {
-    border: 0px;
     background-color: black;
     color: white;
 }
@@ -42,10 +38,6 @@
 .btnLeft, .btnRight {
     height: 120%;
 }
-
-.btnLeft {}
-
-.btnRight {}
 
 .navigateBtn {
     background-color: white;
@@ -55,17 +47,51 @@
     grid-template-areas: "backBtn pageNumber nextBtn";
 }
 
-#body {
+.topLowBtn{
+    text-align: center;
+    align-self: center;
+    position: absolute;
+    position: fixed;
+    bottom:5%;
+    height: 15%;
+    width: 15%;
+    background-color: #E3DFDF;
+    border: 0px;
+    cursor: pointer;
+    outline: 0 !important;
+}
+
+.body {
     margin-top: 10%;
     display: grid;
     margin-left: 40%;
     height: auto;
     width: 55%;
-    background-color: black;
     grid-template-rows: auto 25px;
     grid-template-areas: "filmBlocks" "navigateBtn";
 }
 
 .film_block_link {
     text-decoration: none;
+}
+
+.topBtnContenet{
+    transform: rotate(45deg);
+    height: 25px; 
+    width: 5px;
+    background-color: black;
+    position: relative; 
+}
+
+.topBtnContenet:after {
+    content: "";
+    height: 5px; 
+    width: 25px;
+    left: 6%;
+    background-color: black;
+    position: absolute;
+}
+
+.content{
+    margin-left:45%
 }

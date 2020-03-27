@@ -13,7 +13,7 @@
 .image {
     height: 50%;
     width: 50%;
-    margin-left: 35%;
+    margin-left: 23%;
 }
 
 .text {
@@ -45,12 +45,41 @@
     display: grid;
     grid-template-columns: 1fr 5fr 1fr;
     grid-template-rows: 45px auto 100px 100px 500px auto;
-    grid-template-areas: 
-    "left film_name right"
-    "left1 film_info right1"
-    "left2 film_info2 right2"
-    "left5 facts right5"
-    "left3 player right3"
-    "left4 comments right4";
+    grid-template-areas: "left film_name right" "left1 film_info right1" "left2 film_info2 right2" "left5 facts right5" "left3 player right3" "left4 comments right4";
 }
 
+.star-rating {
+    font-size: 0;
+  }
+  
+  .star-rating__wrap {
+    display: inline-block;
+    font-size: 1rem;
+  }
+  
+  .star-rating__wrap:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  .star-rating__ico {
+    float: right;
+    padding-left: 2px;
+    cursor: pointer;
+    color: #FFB300;
+  }
+  
+  .star-rating__ico:last-child {
+    padding-left: 0;
+  }
+  
+  .star-rating__input {
+    display: none;
+  }
+  
+  .star-rating__ico:hover:before,
+  .star-rating__ico:hover~.star-rating__ico:before,
+  .star-rating__input:checked~.star-rating__ico:before {
+    content: "\f005";
+  }

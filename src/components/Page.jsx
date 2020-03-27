@@ -32,11 +32,11 @@ const filmGroupsBuild = (array, max_values_in_group) => {
     for (let i = 0; i < array.length; i++) {
         group[counter] = array[i]
         counter++;
-        if(group.length === max_values_in_group){
+        if (group.length === max_values_in_group) {
             groups.push(group)
             group = []
             counter = 0;
-        } else if(i + 1 === array.length){
+        } else if (i + 1 === array.length) {
             groups.push(group)
         }
     }
@@ -51,16 +51,16 @@ const Page = () => {
     let pages = []
     let groups
     let films = FilmDownload();
-    
+
     if (films) {
         groups = filmGroupsBuild(films, max_film_block_value)
         for (let i = 0; i < Math.ceil(films.length / max_film_block_value); i++) {
             pages[i] = <Body value={groups[i]} />
         }
-        
+
     }
     const next = () => {
-        if(pageNumber && pageNumber !== groups.length){
+        if (pageNumber && pageNumber !== groups.length) {
             setPageNumber(pageNumber + 1)
         }
     }
@@ -73,7 +73,8 @@ const Page = () => {
 
     const buttons = <div className="navigateBtn"><div className="btnBack"><button className="btnLeft" onClick={back}>назад</button></div><div className="pageNumber"><div className="btnCenter">{pageNumber}</div></div><div className="btnNext"><button className="btnRight" onClick={next}>вперёд</button></div></div>
 
-    return <><div id="body">{pages[pageNumber - 1]}{buttons}</div></>
+    return <><a href='#headerAnchor'><button className="topLowBtn" ><div className="content"><div className="topBtnContenet"></div></div></button></a><div className="body">{pages[pageNumber - 1]}{buttons}</div></>
+
 }
 
 export default Page
