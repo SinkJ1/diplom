@@ -11,7 +11,7 @@ const FilmDownload = () => {
 
     let films = [];
 
-    let film = DataLoader.getData('http://localhost:8080/films')
+    let film = DataLoader.getData('http://192.168.100.4:8080/films')
 
     if (film) {
         film.entity.map(function (entity) {

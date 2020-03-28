@@ -1,85 +1,130 @@
 .item_film_name {
-    grid-area: film_name;
-    text-align: center;
-    font-size: 35px;
+  grid-area: film_name;
+  text-align: center;
+  font-size: 35px;
 }
 
 .item_film_info {
-    grid-area: film_info;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(500px, 2fr));
+  border-top: 1px solid black;
+  grid-area: film_info;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 2fr));
 }
 
 .image {
-    height: 50%;
-    width: 50%;
-    margin-left: 23%;
+  height: 50%;
+  width: 50%;
+  margin-top: 0.5%;
+  margin-left: 23%;
 }
 
 .text {
-    text-align: justify;
+  text-align: justify;
 }
 
 .item_film_info2 {
-    grid-area: film_info2;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(500px, 2fr));
+  grid-area: film_info2;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 2fr));
 }
 
 .item_film_player {
-    grid-area: player;
-    background-color: blueviolet;
+  border-bottom: 1px solid black;
+  grid-area: player;
 }
 
 .item_film_comment {
-    grid-area: comments;
-    background-color: cyan;
+  grid-area: comments;
 }
 
 .item_film_facts {
-    grid-area: facts;
+  border: 1px solid black;
+  border-left: 0px;
+  border-right: 0px;
+  grid-area: facts;
 }
 
 .container {
-    margin-top: 100px;
-    display: grid;
-    grid-template-columns: 1fr 5fr 1fr;
-    grid-template-rows: 45px auto 100px 100px 500px auto;
-    grid-template-areas: "left film_name right" "left1 film_info right1" "left2 film_info2 right2" "left5 facts right5" "left3 player right3" "left4 comments right4";
+  grid-area: container;
+  background: url("https://picjumbo.com/wp-content/uploads/forks-2210x1473.jpg");
+  display: grid;
+  border: 1px solid black;
+  grid-template-rows: 45px auto 100px 100px 500px auto;
+  grid-template-areas: "film_name" "film_info" "film_info2" "facts" "player" "comments";
+}
+
+.container-wrapper{
+  margin-top: 100px;
+  grid-template-columns: 1fr 5fr 1fr;
+  display: grid;
+  grid-template-areas: "n container n1";
 }
 
 .star-rating {
-    font-size: 0;
-  }
-  
-  .star-rating__wrap {
-    display: inline-block;
-    font-size: 1rem;
-  }
-  
-  .star-rating__wrap:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-  
-  .star-rating__ico {
-    float: right;
-    padding-left: 2px;
-    cursor: pointer;
-    color: #FFB300;
-  }
-  
-  .star-rating__ico:last-child {
-    padding-left: 0;
-  }
-  
-  .star-rating__input {
-    display: none;
-  }
-  
-  .star-rating__ico:hover:before,
-  .star-rating__ico:hover~.star-rating__ico:before,
-  .star-rating__input:checked~.star-rating__ico:before {
-    content: "\f005";
-  }
+  margin-top:1%;
+  font-size: 0;
+}
+
+.star-rating__wrap {
+  display: inline-block;
+  font-size: 1rem;
+}
+
+.star-rating__wrap:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.star-rating__ico {
+  float: right;
+  padding-left: 2px;
+  cursor: pointer;
+  color: #FFB300;
+}
+
+.star-rating__ico:last-child {
+  padding-left: 0;
+}
+
+.star-rating__input {
+  display: none;
+}
+
+.star-rating__ico:hover:before, .star-rating__ico:hover~.star-rating__ico:before, .star-rating__input:checked~.star-rating__ico:before {
+  content: "\f005";
+}
+
+.value {
+  width: 100%;
+  height: 10px;
+  background: #ddd;
+  margin-bottom: 20px;
+}
+
+progress[value] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 70%;
+  height: 20px;
+  background-color: red;
+}
+
+progress[value]::-webkit-progress-bar {
+  background-color: red;
+  border-radius: 2px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+}
+
+progress[value]::-webkit-progress-value {
+  background-image: -webkit-linear-gradient(-45deg, transparent 33%, rgba(0, 0, 0, .1) 33%, rgba(0, 0, 0, .1) 66%, transparent 66%), -webkit-linear-gradient(top, rgba(255, 255, 255, .25), rgba(0, 0, 0, .25)), -webkit-linear-gradient(left, #09c, #f44);
+  border-radius: 2px;
+  background-size: 35px 20px, 100% 100%, 100% 100%;
+}
+
+.value-box {
+  height: 10px;
+  text-align: right;
+  font-size: 20px;
+  align-self: top;
+}
