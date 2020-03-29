@@ -2,10 +2,11 @@ package com.diplom.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 
 @Entity
 @Table(name = "t_user")
-public class User {
+public class User implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,10 +24,9 @@ public class User {
 	
 	@Column(name = "user_password")
 	private String password;
-	
-	/*
-	 * add many to many Set
-	 * */
+
+	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+	private Set<Actor> actors;
 	
 	public User() {
 	}
@@ -37,6 +37,25 @@ public class User {
 		this.birdthDate = birdthDate;
 		this.login = login;
 		this.password = password;
+	}
+
+	
+	
+	public User(Integer id, String name, String birdthDate, String login, String password, Set<Actor> actors) {
+		this.id = id;
+		this.name = name;
+		this.birdthDate = birdthDate;
+		this.login = login;
+		this.password = password;
+		this.actors = actors;
+	}
+
+	public Set<Actor> getActors() {
+		return actors;
+	}
+
+	public void setActors(Set<Actor> actors) {
+		this.actors = actors;
 	}
 
 	public Integer getId() {
@@ -82,8 +101,10 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", name=" + name + ", birdthDate=" + birdthDate + ", login=" + login + ", password="
-				+ password + "]";
+				+ password + ", actors=" + actors + "]";
 	}
+
+	
 
 
 }

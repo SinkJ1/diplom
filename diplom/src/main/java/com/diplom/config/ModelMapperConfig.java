@@ -6,10 +6,12 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ComponentScan(basePackages = "com.diplom")
+@ComponentScan(basePackages = "com")
 public class ModelMapperConfig {
+	
 	@Bean
 	public ModelMapper modelMapper() {
 		return new ModelMapper();
 	}
+	
 }

@@ -4,7 +4,9 @@ import java.util.List;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -14,7 +16,6 @@ public abstract class AbstractController<T> {
 
 	@Autowired
 	private GenericService<T> genericService;
-	
 
 	@PostMapping
 	public String add(@RequestBody T entity) {
@@ -26,6 +27,10 @@ public abstract class AbstractController<T> {
 		return genericService.getAll();
 	}
 
+	@GetMapping(value = "{/id}")
+	public T getById(@PathVariable("id") int id){
+		return (genericService.findById(id));
+	}
 
 
 }

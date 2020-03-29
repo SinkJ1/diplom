@@ -1,6 +1,6 @@
 package com.diplom.entity.dto;
 
-public class UserDto {
+public class UserDto{
 
 	private String name;
 	

@@ -10,7 +10,11 @@ import com.diplom.entity.User;
 public class UserDaoImpl extends GenericDao<User> implements UserDao {
 
 	public User findByName(EntityManager em, String name) {
-		return em.createQuery("from " + User.class.getName() + " where user_login =" + "'" + name + "'", User.class).getSingleResult();
+		return em.createQuery("from " + User.class.getName() + " where user_name =" + "'" + name + "'", User.class).getSingleResult();
+	}
+
+	public User findByLogin(EntityManager em, String login) {
+		return em.createQuery("from " + User.class.getName() + " where user_login =" + "'" + login + "'", User.class).getSingleResult();
 	}
 
 	@Override

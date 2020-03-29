@@ -1,59 +1,35 @@
-package com.diplom.entity;
+package com.diplom.entity.dto;
 
-import java.io.Serializable;
 import java.util.Set;
 
-import javax.persistence.*;
+public class FilmDto {
 
-@Entity
-@Table(name="t_film")
-public class Film implements Serializable{
-
-	private static final long serialVersionUID = -3493948154248492047L;
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "film_id")
-	private int id;
-	
-	@Column(name = "film_name")
 	private String filmName;
 	
-	@OneToOne
-	@JoinColumn(name = "producer_id")
-	private User userId;
-	
-	@Column(name = "film_information")
+	private UserDto userId;
+
 	private String filmInformation;
 	
-	@Column(name = "film_release_date")
 	private String filmReleaseDate;
 	
-	@Column(name = "film_raiting")
 	private double filmRaiting;
 	
-	@Column(name = "img_path")
 	private String imgPath;
 	
-	@Column(name = "film_country")
 	private String filmCountry;
 	
-	@Column(name = "film_profit")
 	private double filmProfit;
 	
-	@Column(name = "film_cost")
 	private double filmCost;
 	
-	@OneToMany(mappedBy = "film", fetch = FetchType.LAZY)
-	private Set<Actor> actors;
-	
-	public Film() {
+	private Set<ActorDto> actors;
+
+	public FilmDto() {
 		
 	}
-
-	public Film(int id, String filmName, User userId, String filmInformation, String filmReleaseDate,
-			double filmRaiting, String imgPath, String filmCountry, double filmProfit, double filmCost) {
-		this.id = id;
+	
+	public FilmDto(String filmName, UserDto userId, String filmInformation, String filmReleaseDate, double filmRaiting,
+			String imgPath, String filmCountry, double filmProfit, double filmCost) {
 		this.filmName = filmName;
 		this.userId = userId;
 		this.filmInformation = filmInformation;
@@ -65,10 +41,8 @@ public class Film implements Serializable{
 		this.filmCost = filmCost;
 	}
 
-	public Film(int id, String filmName, User userId, String filmInformation, String filmReleaseDate,
-			double filmRaiting, String imgPath, String filmCountry, double filmProfit, double filmCost,
-			Set<Actor> actors) {
-		this.id = id;
+	public FilmDto(String filmName, UserDto userId, String filmInformation, String filmReleaseDate, double filmRaiting,
+			String imgPath, String filmCountry, double filmProfit, double filmCost, Set<ActorDto> actors) {
 		this.filmName = filmName;
 		this.userId = userId;
 		this.filmInformation = filmInformation;
@@ -80,13 +54,16 @@ public class Film implements Serializable{
 		this.filmCost = filmCost;
 		this.actors = actors;
 	}
+	
+	
 
-	public int getId() {
-		return id;
+
+	public Set<ActorDto> getActors() {
+		return actors;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setActors(Set<ActorDto> actors) {
+		this.actors = actors;
 	}
 
 	public String getFilmName() {
@@ -97,11 +74,11 @@ public class Film implements Serializable{
 		this.filmName = filmName;
 	}
 
-	public User getUserId() {
+	public UserDto getUserId() {
 		return userId;
 	}
 
-	public void setUserId(User userId) {
+	public void setUserId(UserDto userId) {
 		this.userId = userId;
 	}
 
@@ -160,23 +137,13 @@ public class Film implements Serializable{
 	public void setFilmCost(double filmCost) {
 		this.filmCost = filmCost;
 	}
-	
-	public Set<Actor> getActors() {
-		return actors;
-	}
-
-	public void setActors(Set<Actor> actors) {
-		this.actors = actors;
-	}
 
 	@Override
 	public String toString() {
-		return "Film [id=" + id + ", filmName=" + filmName + ", userId=" + userId + ", filmInformation="
-				+ filmInformation + ", filmReleaseDate=" + filmReleaseDate + ", filmRaiting=" + filmRaiting
-				+ ", imgPath=" + imgPath + ", filmCountry=" + filmCountry + ", filmProfit=" + filmProfit + ", filmCost="
-				+ filmCost + ", actors=" + actors + "]";
+		return "FilmDto [filmName=" + filmName + ", userId=" + userId + ", filmInformation=" + filmInformation
+				+ ", filmReleaseDate=" + filmReleaseDate + ", filmRaiting=" + filmRaiting + ", imgPath=" + imgPath
+				+ ", filmCountry=" + filmCountry + ", filmProfit=" + filmProfit + ", filmCost=" + filmCost + ", actors="
+				+ actors + "]";
 	}
-	
-	
 	
 }

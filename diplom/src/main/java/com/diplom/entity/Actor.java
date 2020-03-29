@@ -17,12 +17,12 @@ public class Actor implements Serializable{
 	private int id;
 	
 	@JoinColumn(name = "actor_id")
-	@OneToOne(fetch = FetchType.EAGER)
+	@OneToOne(fetch = FetchType.LAZY)
 	private User user;
 	
 	
 	@JoinColumn(name = "film_id")
-	@OneToOne(fetch = FetchType.EAGER)
+	@OneToOne(fetch = FetchType.LAZY)
 	private Film film;
 	
 	public Actor() {

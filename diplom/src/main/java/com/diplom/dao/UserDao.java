@@ -9,5 +9,6 @@ import com.diplom.entity.User;
 public interface UserDao extends Dao<User> {
 
 	User findByName(EntityManager em, String name);
-	
+
+	User findByLogin(EntityManager em, String login);
 }

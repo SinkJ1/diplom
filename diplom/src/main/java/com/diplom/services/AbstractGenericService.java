@@ -37,7 +37,7 @@ public abstract class AbstractGenericService<T> implements GenericService<T> {
 	public T findById(Integer id) {
 		return dao.findById(entityManager, id);
 	}
-
+	
 	@Transactional
 	public List<T> getAll() {
 		return dao.getAll(entityManager);
