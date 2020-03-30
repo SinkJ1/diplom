@@ -7,11 +7,11 @@ import Body from "./Body"
 
 const max_film_block_value = 5;
 
-const FilmDownload = () => {
+const FilmDownload = (url) => {
 
     let films = [];
 
-    let film = DataLoader.getData('http://192.168.100.4:8080/films')
+    let film = DataLoader.getData(url)
 
     if (film) {
         film.entity.map(function (entity) {
@@ -45,12 +45,12 @@ const filmGroupsBuild = (array, max_values_in_group) => {
 
 }
 
-const Page = () => {
+const Page = (props) => {
 
     const [pageNumber, setPageNumber] = useState(1)
     let pages = []
     let groups
-    let films = FilmDownload();
+    let films = props.value;
 
     if (films) {
         groups = filmGroupsBuild(films, max_film_block_value)

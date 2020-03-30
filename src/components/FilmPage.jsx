@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import "./styles/filmPage.css"
 import DataLoader from "./services/DataLoader";
+import { Link } from "react-router-dom";
 
 const FilmDownload = (name) => {
    let film = DataLoader.getData(`http://192.168.100.4:8080/films/${name}`)
@@ -34,7 +35,7 @@ const FilmPage = (props) => {
    let data = "downloading...";
    if (film) {
       { document.title = props.value }
-      console.log(film)
+      console.log(film.actors)
       data = <div className="container-wrapper"><div className="container">
          <div className="item_film_name">
             {props.value}
@@ -43,10 +44,10 @@ const FilmPage = (props) => {
             <div className="film_logo">
                <img className="image" src={film.imgPath} alt="logo"></img>
             </div>
-            <div className="text" style={{borderLeft:"1px solid black"}}>{film.filmInformation}</div>
+            <div className="text" style={{ borderLeft: "1px solid black" }}>{film.filmInformation}</div>
          </div>
          <div className="item_film_info2">
-            <div className="raiting" style={{borderTop:"1px solid black"}}>
+            <div className="raiting" style={{ borderTop: "1px solid black" }}>
                <div className="star-rating">
                   <div className="star-rating__wrap">
                      <input className="star-rating__input" id="star-rating-5" type="radio" name="rating" value="5" onClick={() => { setRaitingState(5) }} />
@@ -69,13 +70,11 @@ const FilmPage = (props) => {
                   </div>
                </div>
             </div>
-            <div className="actors" style={{borderTop:"1px solid black",borderLeft:"1px solid black"}}><b>Актёры:</b></div>
+            <div className="actors" style={{ borderTop: "1px solid black", borderLeft: "1px solid black" }}><b>Актёры:</b>{film.actors.map((user) => <li key={user.user.name}><Link to={`/filmByActor/${user.user.name}`}>{user.user.name}</Link></li>)}</div>
          </div>
          <div className="item_film_facts">facts</div>
          <div className="item_film_player">player</div>
-         <div className="item_film_comment">comments
-         asdg
-              asdg</div>
+         <div className="item_film_comment"><div className="commentBody"><div className="userImg">di</div></div></div>
       </div>
       </div>
    }

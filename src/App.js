@@ -12,6 +12,7 @@ import ScrollableAnchor from 'react-scrollable-anchor'
 import { goToTop } from 'react-scrollable-anchor'
 import { goToAnchor } from 'react-scrollable-anchor'
 import { Link } from "react-router-dom";
+import FilmPageByActor from './FilmPageByActor';
 //import ReactPlayer from 'react-player'
 
 /*
@@ -26,6 +27,10 @@ const filmPage = (props) => {
   return (<FilmPage value={props.match.params.id} />);
 }
 
+const filmPageByActor = (props) => {
+  return (<FilmPageByActor value={props.match.params.name}/>);
+}
+
 function App() {
 
   return (<>
@@ -36,6 +41,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={MainFolder} />
         <Route path="/film/:id" component={filmPage} />
+        <Route path={"/filmByActor/:name"} component={filmPageByActor} />
         <Route path="/user/:userName" component={UserPage} />
         <Route component={NotFoundPage} />
       </Switch>
