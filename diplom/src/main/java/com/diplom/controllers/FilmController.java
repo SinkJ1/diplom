@@ -27,7 +27,7 @@ public class FilmController extends AbstractController<Film> {
 	ModelMapper mapper;
 	
 	@GetMapping(value = "/{name}")
-	public Film getUserByName(@PathVariable("name") String name) {
+	public FilmDto getUserByName(@PathVariable("name") String name) {
 		return userService.findByName(name);
 	}
 	

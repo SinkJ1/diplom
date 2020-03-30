@@ -7,7 +7,7 @@ import com.diplom.entity.dto.FilmDto;
 
 public interface FilmService extends GenericService<Film>{
 
-	Film findByName(String name); 
+	FilmDto findByName(String name); 
 	
 	List<FilmDto> getAllDto();
 	

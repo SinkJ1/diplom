@@ -18,8 +18,8 @@ public class FilmServiceImpl extends AbstractGenericService<Film> implements Fil
 	private FilmDao dao;
 
 	@Override
-	public Film findByName(String name) {
-		return dao.findByName(entityManager, name);
+	public FilmDto findByName(String name) {
+		return new MapperService<Film, FilmDto>(Film.class, FilmDto.class).toDto(dao.findByName(entityManager, name));
 	}
 
 	@Transactional

@@ -1,11 +1,9 @@
 package com.diplom.entity.dto;
 
-import java.util.Set;
-
-public class UserDto {
-
+public class UserDtoName {
+	
 	private String name;
-
+	
 
 	public void setName(String name) {
 		this.name = name;
@@ -17,7 +15,8 @@ public class UserDto {
 
 	@Override
 	public String toString() {
-		return "UserDto [name=" + name + "]";
+		return "ActorNameDto [name=" + name + "]";
 	}
-
+	
+	
 }
