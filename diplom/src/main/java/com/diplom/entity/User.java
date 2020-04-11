@@ -6,8 +6,8 @@ import java.util.Set;
 
 @Entity
 @Table(name = "t_user")
-public class User implements Serializable{
-	
+public class User implements Serializable {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "user_id")
@@ -15,39 +15,42 @@ public class User implements Serializable{
 
 	@Column(name = "user_name")
 	private String name;
-	
+
 	@Column(name = "user_birdth_date")
 	private String birdthDate;
 
 	@Column(name = "user_login")
 	private String login;
-	
+
 	@Column(name = "user_password")
 	private String password;
 
+	@OneToMany(mappedBy = "userId", fetch = FetchType.LAZY)
+	private Set<Film> films;
+
 	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
 	private Set<Actor> actors;
-	
+
 	public User() {
 	}
 
-	public User(Integer id, String name, String birdthDate, String login, String password) {
+	public User(Integer id, String name, String birdthDate, String login, String password, Set<Film> films,
+			Set<Actor> actors) {
 		this.id = id;
 		this.name = name;
 		this.birdthDate = birdthDate;
 		this.login = login;
 		this.password = password;
+		this.films = films;
+		this.actors = actors;
 	}
 
-	
-	
-	public User(Integer id, String name, String birdthDate, String login, String password, Set<Actor> actors) {
-		this.id = id;
-		this.name = name;
-		this.birdthDate = birdthDate;
-		this.login = login;
-		this.password = password;
-		this.actors = actors;
+	public Set<Film> getFilms() {
+		return films;
+	}
+
+	public void setFilms(Set<Film> films) {
+		this.films = films;
 	}
 
 	public Set<Actor> getActors() {
@@ -101,10 +104,7 @@ public class User implements Serializable{
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", name=" + name + ", birdthDate=" + birdthDate + ", login=" + login + ", password="
-				+ password + ", actors=" + actors + "]";
+				+ password + ", films=" + films + ", actors=" + actors + "]";
 	}
-
-	
-
 
 }

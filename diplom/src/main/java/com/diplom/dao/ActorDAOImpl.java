@@ -14,4 +14,10 @@ public class ActorDAOImpl extends GenericDao<Actor> implements Dao<Actor>{
 		return Actor.class;
 	}
 
+	@Override
+	String nameColumn() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

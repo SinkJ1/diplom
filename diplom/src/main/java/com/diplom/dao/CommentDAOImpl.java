@@ -15,4 +15,10 @@ public class CommentDAOImpl extends GenericDao<Comment> implements Dao<Comment>{
 		return Comment.class;
 	}
 
+	@Override
+	String nameColumn() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

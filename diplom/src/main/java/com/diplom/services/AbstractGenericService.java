@@ -39,6 +39,11 @@ public abstract class AbstractGenericService<T> implements GenericService<T> {
 	}
 	
 	@Transactional
+	public T findByName2(String name) {
+		return dao.findByName(entityManager, name);
+	}
+	
+	@Transactional
 	public List<T> getAll() {
 		return dao.getAll(entityManager);
 	}

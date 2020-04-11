@@ -3,17 +3,8 @@ package com.diplom.entity.dto;
 import java.util.Date;
 import java.util.Set;
 
-import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.format.annotation.DateTimeFormat.ISO;
-
-import com.diplom.entity.FilmCountry;
-import com.fasterxml.jackson.annotation.JsonFormat;
-
-public class FilmDto {
-
+public class FilmProducerDto {
 	private String filmName;
-
-	private UserDto userId;
 
 	private String filmInformation;
 
@@ -31,14 +22,13 @@ public class FilmDto {
 
 	private Set<FilmCountryDto> countries;
 
-	public FilmDto() {
+	public FilmProducerDto() {
 
 	}
 
-	public FilmDto(String filmName, UserDto userId, String filmInformation, Date filmReleaseDate, double filmRaiting,
+	public FilmProducerDto(String filmName, String filmInformation, Date filmReleaseDate, double filmRaiting,
 			String imgPath, double filmProfit, double filmCost, Set<ActorDto> actors, Set<FilmCountryDto> countries) {
 		this.filmName = filmName;
-		this.userId = userId;
 		this.filmInformation = filmInformation;
 		this.filmReleaseDate = filmReleaseDate;
 		this.filmRaiting = filmRaiting;
@@ -63,14 +53,6 @@ public class FilmDto {
 
 	public void setFilmName(String filmName) {
 		this.filmName = filmName;
-	}
-
-	public UserDto getUserId() {
-		return userId;
-	}
-
-	public void setUserId(UserDto userId) {
-		this.userId = userId;
 	}
 
 	public String getFilmInformation() {
@@ -131,10 +113,9 @@ public class FilmDto {
 
 	@Override
 	public String toString() {
-		return "FilmDto [filmName=" + filmName + ", userId=" + userId + ", filmInformation=" + filmInformation
+		return "FilmDto [filmName=" + filmName + ", filmInformation=" + filmInformation
 				+ ", filmReleaseDate=" + filmReleaseDate + ", filmRaiting=" + filmRaiting + ", imgPath=" + imgPath
 				+ ", filmProfit=" + filmProfit + ", filmCost=" + filmCost + ", actors=" + actors + ", countries="
 				+ countries + "]";
 	}
-
 }

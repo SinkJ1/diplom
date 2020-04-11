@@ -21,4 +21,10 @@ public class UserDaoImpl extends GenericDao<User> implements UserDao {
 	Class<User> getTClass() {
 		return User.class;
 	}
+
+	@Override
+	String nameColumn() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
