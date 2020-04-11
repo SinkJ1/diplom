@@ -3,7 +3,6 @@ import { useState, useEffect } from "react"
 
 class DataLoader {
 
-
     getData(url) {
         const [data, setData] = useState({
             entity: [],
@@ -11,14 +10,12 @@ class DataLoader {
         });
 
         useEffect(() => {
-            const download = async () => {
                 fetch(url)
                     .then(response => response.json())
                     .then(data => {
                         setData({ entity: data, isLoaded: true })
                     })
-            };
-            download();
+
         }, []);
 
         if (data.isLoaded) {
@@ -26,6 +23,11 @@ class DataLoader {
         }
     }
 
+}
+export const get = (url, onDataFetch) => {
+    fetch(url)
+    .then(res => res.json())
+    .then(data => onDataFetch(data))   
 }
 
 export default new DataLoader()

@@ -15,8 +15,8 @@ const FilmDownload = (name) => {
 
 const FilmPage = (props) => {
 
-   const [raitingState, setRaitingState] = useState(3.5)
    let film = FilmDownload(props.value);
+   const [raitingState, setRaitingState] = useState(2.2)
 
    const raitingColor = () => {
       if (raitingState <= 1) {
@@ -35,7 +35,7 @@ const FilmPage = (props) => {
    let data = "downloading...";
    if (film) {
       { document.title = props.value }
-      console.log(film.actors)
+      console.log(film)
       data = <div className="container-wrapper"><div className="container">
          <div className="item_film_name">
             {props.value}
@@ -72,7 +72,7 @@ const FilmPage = (props) => {
             </div>
             <div className="actors" style={{ borderTop: "1px solid black", borderLeft: "1px solid black" }}><b>Актёры:</b>{film.actors.map((user) => <li key={user.user.name}><Link to={`/filmByActor/${user.user.name}`}>{user.user.name}</Link></li>)}</div>
          </div>
-         <div className="item_film_facts">facts</div>
+         <div className="item_film_facts">Страны:{film.countries.map((country) => <li key={country.country.name}><Link to={`/filmByCountry/${country.country.name}`}>{country.country.name}</Link></li>)}</div>
          <div className="item_film_player">player</div>
          <div className="item_film_comment"><div className="commentBody"><div className="userImg">di</div></div></div>
       </div>

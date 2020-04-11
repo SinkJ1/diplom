@@ -8,11 +8,10 @@ import NotFoundPage from './components/NotFoundPage';
 import FilmPage from './components/FilmPage';
 import GlobalState from "./components/GlobalState"
 import UserPage from "./UserPage"
-import ScrollableAnchor from 'react-scrollable-anchor'
-import { goToTop } from 'react-scrollable-anchor'
-import { goToAnchor } from 'react-scrollable-anchor'
-import { Link } from "react-router-dom";
 import FilmPageByActor from './FilmPageByActor';
+import FilmPageByCountry from './FilmPageByCountry';
+import NewsFilmsPage from './NewsFilmsPage';
+import BestsFilm from './BestsFilm';
 //import ReactPlayer from 'react-player'
 
 /*
@@ -31,8 +30,12 @@ const filmPageByActor = (props) => {
   return (<FilmPageByActor value={props.match.params.name}/>);
 }
 
-function App() {
+const filmPageByCountry = (props) => {
+  return (<FilmPageByCountry value={props.match.params.name}/>);
+}
 
+function App() {
+  console.log((new Date().getFullYear()))
   return (<>
     <Router>
       <div id="headerAnchor">
@@ -42,7 +45,10 @@ function App() {
         <Route exact path="/" component={MainFolder} />
         <Route path="/film/:id" component={filmPage} />
         <Route path={"/filmByActor/:name"} component={filmPageByActor} />
+        <Route path={"/filmByCountry/:name"} component={filmPageByCountry} />
         <Route path="/user/:userName" component={UserPage} />
+        <Route path="/newsFilms" component={NewsFilmsPage} />
+        <Route path="/bestsFilms" component={BestsFilm} />
         <Route component={NotFoundPage} />
       </Switch>
     </Router>

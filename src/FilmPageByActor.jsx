@@ -1,11 +1,12 @@
-import React from "react"
+import React, { useState } from "react"
 
 import Page from "./components/Page";
 
 import DataLoader from "./components/services/DataLoader";
 
-let name;
 const FilmPageByActor = (props) => {
+
+    const [name, setName] = useState(props.value);
 
     const FilmDownload = (url) => {
 
@@ -14,7 +15,6 @@ const FilmPageByActor = (props) => {
         let film = DataLoader.getData(url)
 
         if (film) {
-            name = film.entity.name;
             film.entity.actors.map(function (entity) {
                 films.push(entity.film);
             });

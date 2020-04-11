@@ -1,0 +1,66 @@
+.country_area{
+    grid-area: country;
+}
+
+.year_area{
+    grid-area: year;
+}
+
+.producer_area{
+    grid-area: producer;
+}
+
+.actor_area{
+    grid-area: actor;
+}
+
+.findButton_area{
+    grid-area: findButton;
+}
+
+.right_area{
+    grid-area: right;
+    text-align: right;
+    align-self: right;
+}
+
+.left_area{
+    grid-area: left;
+    text-align: right;
+    align-self: right;
+}
+
+.country_area, .year_area, .producer_area, .actor_area, .findButton_area{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "left right";
+}
+
+.nothing_area{
+    grid-area: nothing;
+}
+
+.selectCondition{
+    height: auto;
+    display: grid;
+    border: 1px solid black;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    grid-template-areas: "country year"
+                         "producer actor"
+                         "nothing findButton";
+}
+
+.topLowBtn_best_film{
+    width:200%;
+    border: 0px;
+    outline: 0 !important;
+    cursor: pointer;
+    background-color: #D9D9D9;
+}
+
+.container_best_film {
+    margin-top: 3%;
+    height: auto;
+    width: 100%;
+}
