@@ -24,7 +24,7 @@ public abstract class GenericDao<T> implements Dao<T> {
 	}
 
 	public T findByName(EntityManager em, String name) {
-		return em.createQuery("from " + getTClass().getName() + nameColumn() + "'" + name + "'", getTClass())
+		return em.createQuery("from " + getTClass().getName() + " where " + nameColumn() + " = " + "'" + name + "'", getTClass())
 				.getSingleResult();
 	}
 

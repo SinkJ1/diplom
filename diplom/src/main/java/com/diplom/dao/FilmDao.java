@@ -1,5 +1,6 @@
 package com.diplom.dao;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -14,6 +15,10 @@ public interface FilmDao extends Dao<Film>{
 	List<Film> getFilmByYear(EntityManager em, int year);
 	
 	List<Film> getTopFilms(EntityManager em, int topValue);
+	
+	List<Film> getLastXFilms(EntityManager em, int xValue);
+	
+	List<Film> getCommingsFilms(EntityManager em, Date date);
 	
 	List<Film> getFilmsByParam(EntityManager em, String params);
 }

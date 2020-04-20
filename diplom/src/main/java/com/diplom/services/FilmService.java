@@ -1,12 +1,12 @@
 package com.diplom.services;
 
+import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 import com.diplom.controllers.EntryModelParamsFilmByParametr;
 import com.diplom.entity.Film;
-import com.diplom.entity.dto.ActorDtoFilm;
 import com.diplom.entity.dto.FilmDto;
+import com.diplom.entity.dto.FilmImgDto;
 
 public interface FilmService extends GenericService<Film>{
 
@@ -19,5 +19,9 @@ public interface FilmService extends GenericService<Film>{
 	List<FilmDto> getAllDto();
 	
 	List<FilmDto> findFilmByYear(int year);
+	
+	List<FilmDto> getCommingSonFilms(Date date);
+	
+	List<FilmImgDto>  getLastXFilms(int xValue);
 	
 }

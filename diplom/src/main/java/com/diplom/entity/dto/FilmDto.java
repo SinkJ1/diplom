@@ -3,12 +3,6 @@ package com.diplom.entity.dto;
 import java.util.Date;
 import java.util.Set;
 
-import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.format.annotation.DateTimeFormat.ISO;
-
-import com.diplom.entity.FilmCountry;
-import com.fasterxml.jackson.annotation.JsonFormat;
-
 public class FilmDto {
 
 	private String filmName;
@@ -31,12 +25,15 @@ public class FilmDto {
 
 	private Set<FilmCountryDto> countries;
 
+	private Set<FilmGenreDtoGenre> genres;
+
 	public FilmDto() {
 
 	}
 
 	public FilmDto(String filmName, UserDto userId, String filmInformation, Date filmReleaseDate, double filmRaiting,
-			String imgPath, double filmProfit, double filmCost, Set<ActorDto> actors, Set<FilmCountryDto> countries) {
+			String imgPath, double filmProfit, double filmCost, Set<ActorDto> actors, Set<FilmCountryDto> countries,
+			Set<FilmGenreDtoGenre> genres) {
 		this.filmName = filmName;
 		this.userId = userId;
 		this.filmInformation = filmInformation;
@@ -47,6 +44,7 @@ public class FilmDto {
 		this.filmCost = filmCost;
 		this.actors = actors;
 		this.countries = countries;
+		this.genres = genres;
 	}
 
 	public Set<ActorDto> getActors() {
@@ -129,12 +127,20 @@ public class FilmDto {
 		this.countries = countries;
 	}
 
+	public Set<FilmGenreDtoGenre> getGenres() {
+		return genres;
+	}
+
+	public void setGenres(Set<FilmGenreDtoGenre> genres) {
+		this.genres = genres;
+	}
+
 	@Override
 	public String toString() {
 		return "FilmDto [filmName=" + filmName + ", userId=" + userId + ", filmInformation=" + filmInformation
 				+ ", filmReleaseDate=" + filmReleaseDate + ", filmRaiting=" + filmRaiting + ", imgPath=" + imgPath
 				+ ", filmProfit=" + filmProfit + ", filmCost=" + filmCost + ", actors=" + actors + ", countries="
-				+ countries + "]";
+				+ countries + ", genres=" + genres + "]";
 	}
 
 }

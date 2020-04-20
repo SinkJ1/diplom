@@ -1,5 +1,6 @@
 package com.diplom.dao;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -49,6 +50,19 @@ public class FilmDAOImpl extends GenericDao<Film> implements FilmDao {
 	@Override
 	public List<Film> getFilmsByParam(EntityManager em, String params) {
 		return em.createQuery("select  DISTINCT (f) from " + Actor.class.getName() + " a left join a.film f, " + FilmCountry.class.getName() + " fc where " + params + "", Film.class).getResultList();
+	}
+
+	@Override
+	public List<Film> getLastXFilms(EntityManager em, int xValue) {
+		TypedQuery<Film> typedQuery = em.createQuery("from " + getTClass().getName() + " ORDER BY film_release_date DESC", getTClass());
+		typedQuery.setFirstResult(0);
+		typedQuery.setMaxResults(xValue);
+		return typedQuery.getResultList();
+	}
+
+	@Override
+	public List<Film> getCommingsFilms(EntityManager em, Date date) {
+		return em.createQuery("from " + Film.class.getName() + " where film_release_date > " + "'" + date + "'", Film.class).getResultList();
 	}
 
 }

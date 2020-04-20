@@ -14,7 +14,7 @@ public class CountryDaoImpl extends GenericDao<Country> implements CountryDao{
 
 	@Override
 	String nameColumn() {
-		return " where name =";
+		return " name ";
 	}
 
 }

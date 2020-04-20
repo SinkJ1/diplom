@@ -11,17 +11,20 @@ import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.diplom.entity.Film;
-import com.diplom.entity.dto.ActorDto;
-import com.diplom.entity.dto.ActorDtoFilm;
 import com.diplom.entity.dto.FilmDto;
+import com.diplom.entity.dto.FilmImgDto;
 import com.diplom.services.FilmServiceImpl;
 
 @CrossOrigin // (origins = { "http://localhost:8080", "http://localhost:3000" })
@@ -54,19 +57,25 @@ public class FilmController extends AbstractController<Film> {
 		return filmService.getFilmsByParametr(parametrs);
 	}
 
-	@GetMapping(value = "/test/{date}")	public Date getAllDto(@PathVariable("date") Date date) throws ParseException {
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd");
-		
-		return filmService.findByName("Игра Престолов").getFilmReleaseDate();
+	@PostMapping(value = "/test")
+	@ResponseStatus(HttpStatus.OK)
+	public String getAllDto(@RequestBody String test) {
+		String str = test + "aprooved";
+		return str;
 //		return date.before(sdf.parse(gg));
 	}
 	
-	@GetMapping(value = "/test")
-	public Date getAllDtoq() throws ParseException {
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd");
-		return filmService.findByName("Игра Престолов").getFilmReleaseDate();
-//		return date.before(sdf.parse(gg));
+	@GetMapping(value = "/commingsFilms/{date}")	
+	public List<FilmDto> getCommingsFilms(@PathVariable("date") String date) throws ParseException {
+		SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
+		return filmService.getCommingSonFilms(sdf.parse(date));
 	}
+	
+	@GetMapping(value = "/filmImg")
+	public List<FilmImgDto> getImgFilms(){
+		return filmService.getLastXFilms(15);
+	}
+
 	
 	@GetMapping(value = "/year/{year}")
 	public List<FilmDto> getFilmsByYear(@PathVariable("year") int year) {
