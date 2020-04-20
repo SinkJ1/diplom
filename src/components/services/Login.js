@@ -7,8 +7,25 @@ const titleForMessage = "use pattern in login - UserName@PostServerName.domain"
 
 const Login = () => {
 
-    const [login, setLogin] = useState();
-    const [password, setPassword] = useState();
+  var user1 = {
+    name: "Tom",
+    key: "123",
+    role: "admin"
+};
+
+
+var user2 = {
+  name: "Adam",
+  key: "456",
+  role: "user"
+};
+
+let users = [user1,user2];
+
+
+    const [login, setLogin] = useState("");
+    const [password, setPassword] = useState("");
+
     const onLoginChange = (e) => {
         setLogin(e.target.value);
     }
@@ -18,29 +35,53 @@ const Login = () => {
         setPassword(e.target.value);
     }
 
-    const sss = (e) => {
-        setForm(true)
-        localStorage.setItem('onLogin',true);
-        e.preventDefault();
+    const submit = (e) => {
+        users.forEach(function(value){
+          if(login === value.name && password === value.key){
+            localStorage.setItem('name',value.name);
+            localStorage.setItem('role',value.role);
+            localStorage.setItem('onLogin',true);
+            setWindow(true)
+          }
+          
+        })
+       // e.preventDefault();
     }
 
-    const [form, setForm] = useState(<><form className="header_autorize_menu_body" onSubmit={sss}>
-        <div className="menu_body_login">
-            <label className="label">
-                Login<input className="header_login_input" /*type="email"*/ value={login} /*pattern={patternForLogin}*/ title={titleForMessage} onChange={onLoginChange} /*required*//>
-            </label>
-        </div>
-        <div className="header_body_password">
-            <label className="label">Password<input type="password" className="header_password_input" value={password} onChange={onPasswordChange} /*required*//>
-            </label>
-        </div>
-        <div className="menu_body_button">
-            <button className="body_button">Вход</button>
-        </div>
-    </form></>)
+    const close = (e) => {
+        setWindow(false)
+    }
 
+    const[window, setWindow]=useState(false);
+     let a = <div class="modal-dialog" role="document" style={{position:"fixed", marginLeft:"-30%",marginTop:"10%",tabIndex:"-1", zIndex:"5"}}>
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">Вход</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true" onClick={close}>&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form onSubmit={submit}>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Логин</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" value={login} onChange={onLoginChange}/>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Пароль</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" value={password} onChange={onPasswordChange}/>
+              </div>
+              <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+                <label class="form-check-label" for="exampleCheck1">Запомнить меня</label>
+              </div>
+              <button type="submit" class="btn btn-primary">Войти</button>
+            </form>
+          </div>
+        </div>
+      </div>
 
-    return form
+      return window===true ? window : a;
 }
 
 export default Login

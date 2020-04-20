@@ -51,6 +51,7 @@ const Page = (props) => {
     let pages = []
     let groups
     let films = props.value;
+    let pageNumbers = []
 
     if (films) {
         groups = filmGroupsBuild(films, max_film_block_value)
@@ -59,6 +60,50 @@ const Page = (props) => {
         }
 
     }
+
+    const [left, setLeft] = useState(0);
+    const [right, setRight] = useState(7)
+
+    const getPageNumbers = () => {
+        if (pageNumbers.length > 8) {
+            return 0;
+        } else {
+            return pageNumbers
+        }
+    }
+
+    const clck = (i) => {
+        if (getPageNumbers().length > 6) {
+
+            let center = (left + right) / 2
+            if (center < i) {
+                setLeft(left + 2)
+                setRight(right + 2)
+            } else {
+                if (i > 1 && left > 1) {
+                    setLeft(left - 2)
+                    setRight(right - 2)
+                }
+            }
+        }
+        setPageNumber(i)
+    }
+
+    for (let i = 1; i < pages.length + 1; i++) {
+        pageNumbers[i] = <button key={i} onClick={() => { clck(i) }}>{i}</button>
+    }
+
+
+    for (let i = 1; i < pageNumbers.length + 1; i++) {
+        if(pageNumbers[i]){
+
+            if(pageNumbers[i].props.children === pageNumber){
+                pageNumbers[i] = <button key={i} onClick={() => { clck(i) }} style={{border: "1px solid darkmagenta"}}>{i}</button>
+            }
+        }
+    }
+
+
     const next = () => {
         if (pageNumber && pageNumber !== groups.length) {
             setPageNumber(pageNumber + 1)
@@ -71,7 +116,7 @@ const Page = (props) => {
         }
     }
 
-    const buttons = <div className="navigateBtn"><div className="btnBack"><button className="btnLeft" onClick={back}>назад</button></div><div className="pageNumber"><div className="btnCenter">{pageNumber}</div></div><div className="btnNext"><button className="btnRight" onClick={next}>вперёд</button></div></div>
+    const buttons = <div className="navigateBtn"><div className="btnBack"><button className="btnLeft" onClick={back}>назад</button></div><div className="pageNumber"><div className="btnCenter"><div className="btnNumbers">{getPageNumbers().slice(left, right)}</div>{pageNumber}</div></div><div className="btnNext"><button className="btnRight" onClick={next}>вперёд</button></div></div>
 
     return <><a href='#headerAnchor'><button className="topLowBtn" ><div className="content"><div className="topBtnContenet"></div></div></button></a><div className="body">{pages[pageNumber - 1]}{buttons}</div></>
 

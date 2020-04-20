@@ -44,6 +44,8 @@
 
 .header_menu_genre_button:hover, .header_menu_tops_button:hover, .header_menu_country_button:hover, .header_menu_news_button:hover {
     color: #7CAAFA;
+  
+    text-decoration: none;
     transition: 1s;
 }
 
@@ -69,25 +71,6 @@
     grid-template-areas: "area1 area2 area3";
 }
 
-.genre_content{
-    position: absolute;
-    margin-left: -50px;
-    width : 100px;
-    height: 0px;
-    background-color: darkmagenta;
-    cursor: default;
-}
-
-
-.header_menu_genre_button:hover .genre_content {
-    border : 2px solid #0C0C0C;
-    height: auto;
-    width:150px;
-    box-shadow: 0 0 20px darkmagenta;
-    display: grid;
-    grid-template-rows: auto;
-    transition: 1s;
-}
 .country_content{
     position: absolute;
     margin-left: -50px;
@@ -97,16 +80,16 @@
     cursor: default;
 }
 
-.header_menu_country_button:hover .country_content {
+.header_menu_country_button:hover .country_content,.header_menu_genre_button:hover .country_content {
     border : 2px solid #0C0C0C;
     height: auto;
     width:auto;
     box-shadow: 0 0 20px darkmagenta;
-    
+    z-index: 3;
     transition: 1s;
 }
 
-.header_menu_country_button:hover .country_content .countries{
+.header_menu_country_button:hover .country_content .countries, .header_menu_genre_button:hover .country_content .countries{
     visibility:visible;
     transition: 1s;
 }
@@ -141,6 +124,7 @@
 .header_find_input{
     background-color: #898787;
     width: 75%;
+    height: 0%;
     cursor: pointer;
 }
 

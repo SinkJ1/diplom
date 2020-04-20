@@ -2,34 +2,61 @@
     grid-area: film_block_image;
     text-align: center;
     align-self: center;
+    
+    text-decoration: none;
 }
 
 .film_image {
+    
+    text-decoration: none;
     height: 200px;
     width: 190px;
 }
 
 .film_block_text_name_name  {
+    
+    text-decoration: none;
     color : white;
 }
 
 .film_block_text_name{
+    
+    text-decoration: none;
     grid-area: film_block_text_name;
     align-self: center;
     text-align: center;
 }
 
 .film_block_text_text{
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    -ms-line-clamp: 9;
+    -webkit-line-clamp: 9;
+    line-clamp: 9;
+    display: -webkit-box;
+    display: box;
+    word-wrap: break-word;
+    -webkit-box-orient: vertical;
+    box-orient: vertical;
+    font-size: 15px;
+    line-height: 22px;
+    text-decoration: none;
     color : white;
 }
 
 
 .film_block_text_info{
+    text-overflow: ellipsis;
+    line-clamp: 3;
+    text-decoration: none;
     grid-area: film_block_text_info;
     text-align: justify;
 }
 
 .film_block_text{
+    
+    text-decoration: none;
     grid-area: film_block_text;
     display: grid;
     grid-template-rows: 20px 180px;
@@ -39,6 +66,8 @@
 }
 
 .film_block_info{
+    
+    text-decoration: none;
     grid-area: film_block_info;
     display: grid;
     grid-template-columns: 1fr 2fr 0.1fr;
@@ -48,23 +77,9 @@
 }
 
 
-.film_block_content{
-    position: absolute;
-    height: 250px;
-    width: 0px;
-    font-size: 0px;
-    float: left;
-    background-color: red;
-}
-
-.film_block_info:hover .film_block_content{
-    width: 15%;
-    font-size: 100%;
-    transition : 1s;
-    color: black;
-}
-
 .filmBlock {
+    
+    text-decoration: none;
     border: 1px solid white;
     background-color: black;
     height : 250px;

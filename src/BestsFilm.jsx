@@ -43,8 +43,9 @@ const BestsFilm = () => {
         setActor(e.target.value)
     }
 
-    const findButtonClick = () => {
-        let paramStr = "?123"
+    const findButtonClick = (e) => {
+        e.preventDefault();
+        let paramStr = "?"
         let paramUrl = `http://localhost:8080/films/filmByParametr`
         if (country.length > 0) {
             paramStr = paramStr + `country=${country}`
@@ -69,24 +70,48 @@ const BestsFilm = () => {
         }
         if (paramStr.length > 1) {
             paramUrl = paramUrl + paramStr
-         //   FilmDownload(`http://localhost:8080/films/year/${year}`);
+            FilmDownload(paramUrl);
         }
     }
-    console.log(DataLoader.getData('http://localhost:8080/films/filmByParametr?country=usa&year=2010&producer=aldkj'))
+ 
+    let CriteriesWindow = <><form style={{ width:"80%", marginLeft:"13%"}} onSubmit={findButtonClick}>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputEmail4">Страна:</label>
+        <input type="text" class="form-control" id="inputEmail4" value={country} onChange={onCountryChange}/>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputPassword4">Год:</label>
+        <input type="text" class="form-control" id="inputPassword4" value={year} onChange={onYearChange}/>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputPassword4">Режиссёр:</label>
+        <input type="text" class="form-control" id="inputPassword4" value={producer} onChange={onProducerChange}/>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputPassword4">Актёр:</label>
+        <input type="text" class="form-control" id="inputPassword4" value={actor} onChange={onActorChange}/>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary" onSubmit={findButtonClick}>Найти</button>
+  </form></>
 
-    let CriteriesWindow = <><div className="country_area"><label className="left_area">Страна:<input type="text" value={country} onChange={onCountryChange} /></label></div><div className="year_area"><label className="left_area">Год:<input type="text" value={year} onChange={onYearChange} /></label></div><div className="producer_area"><label className="left_area">Режиссёр:<input type="text" value={producer} onChange={onProducerChange} /></label></div><div className="actor_area"><label className="left_area">Актёр:<input className="actor_input" type="text" value={actor} onChange={onActorChange} /></label></div><div className="nothing_area"></div><div className="findButton_area"><button onClick={findButtonClick}>Найти</button></div></>
-
-    //let film = DataLoader.getData('http://localhost:8080/films/filmByParametr?country="usa"&year="2010"&producer="aldkj"&actor="tom hanks"')
+    console.log(DataLoader.getData('http://localhost:8080/films/filmByParametr?year=2012'))
 
     if(!films){
         FilmDownload(url)
     }
 
-    return <div className="container_best_film"><div className="best_film_content"><div className="selectCondition">{CriteriesWindow}</div><div className="films">
-        <Page value={films} />
-    </div>
-    </div>
-    </div>
+    return <div className="container_best_film">
+                <div className="best_film_content">
+                    <div className="selectCondition">
+                        {CriteriesWindow}
+                    </div>
+                <div className="films">
+                    <Page value={films} />
+                </div>
+                </div>
+        </div>
 }
 
 export default BestsFilm

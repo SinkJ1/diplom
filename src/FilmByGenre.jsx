@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react"
+import React,{useState} from "react"
+
 import Page from "./components/Page";
 
 import { get } from "./components/services/DataLoader";
 
-const FilmPageByCountry = (props) => {
+const FilmByGenre = (props) => {
     const [name, setName] = useState(props.value);
 
     const FilmDownload = (url) => {
@@ -19,17 +20,16 @@ const FilmPageByCountry = (props) => {
 
 
     const [films, setFilms] = useState()
-    
     if(name !== props.value){
         setName(props.value)
     }
 
     if(!films){
-        FilmDownload(`http://192.168.100.4:8080/countries/${props.value}`)
+        FilmDownload(`http://192.168.100.4:8080/genres/${props.value}`)
     }
 
-    return (<><div style={{ fontSize: "40px", position: "absolute", marginTop: "5%", marginLeft: "40%" }}>Фильмы снятые в: {name}</div><Page value={films} /></>);
+    return (<><div style={{ fontSize: "40px", position: "absolute", marginTop: "5%", marginLeft: "40%" }}>Фильмы снятые в жанре {name.toLowerCase()}</div><Page value={films} /></>);
 
 }
 
-export default FilmPageByCountry
+export default FilmByGenre

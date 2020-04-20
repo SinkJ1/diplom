@@ -8,10 +8,6 @@ import Login from "./services/Login"
 let window=''
 const Menu = (props) => {
 
-    const CloseMenu = () => {
-        setState(<NotAutorizeUserButtonHeader />)
-    }
-
 
     if(props.value === "Autorize"){
         window = Login()
@@ -19,14 +15,7 @@ const Menu = (props) => {
         window = ''
     }
 
-    const [state, setState] = useState(<><NotAutorizeUserButtonHeader /><div className="regWindow">{window}<div className="closeBtn"><div className="icon"><div className="closeBtnIcon" onClick={CloseMenu} /></div></div></div></>)
-
-    if (window === true) {
-        return <AutorizedUserButton/>
-    }
-
-
-    return state
+    return <>{window === true ?<AutorizedUserButton/> : <><NotAutorizeUserButtonHeader />{window}</>}</>
 
 }
 

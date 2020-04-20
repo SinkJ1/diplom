@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -10,8 +10,13 @@ import GlobalState from "./components/GlobalState"
 import UserPage from "./UserPage"
 import FilmPageByActor from './FilmPageByActor';
 import FilmPageByCountry from './FilmPageByCountry';
-import NewsFilmsPage from './NewsFilmsPage';
+import NewsFilmsPage from './ComingSoonFilms';
 import BestsFilm from './BestsFilm';
+import "bootstrap/dist/css/bootstrap.css"
+import Test from './components/Test';
+import reducer from './components/services/Test3';
+import FilmByGenre from './FilmByGenre';
+import AdminFolder from './AdminFolder';
 //import ReactPlayer from 'react-player'
 
 /*
@@ -27,15 +32,45 @@ const filmPage = (props) => {
 }
 
 const filmPageByActor = (props) => {
-  return (<FilmPageByActor value={props.match.params.name}/>);
+  return (<FilmPageByActor value={props.match.params.name} />);
 }
 
 const filmPageByCountry = (props) => {
-  return (<FilmPageByCountry value={props.match.params.name}/>);
+  return (<FilmPageByCountry value={props.match.params.name} />);
+}
+
+const filmPageByGenre = (props) => {
+  return (<FilmByGenre value={props.match.params.name} />);
+}
+
+const adminPage = () => {
+  return localStorage.getItem("role") === "admin" && localStorage.getItem("onLogin") === 'true' ? <AdminFolder/> : <MainFolder/>;
 }
 
 function App() {
-  console.log((new Date().getFullYear()))
+  
+  const [state, setState] = useState(0);
+  let url = 'http://localhost:8080/films/test'
+  const data = "example";
+
+  const kol = () => {
+    setState(state + 1);
+    (async () => {try {
+      const response = await fetch(url, {
+        method: 'POST', // или 'PUT'
+        body: JSON.stringify(data), // данные могут быть 'строкой' или {объектом}!
+        headers: {
+          'Accept': 'application/json, text/plain, */*',
+          'Content-Type': 'application/json'
+        }
+      });
+      const json = await response.json();
+      console.log('Успех:', JSON.stringify(json));
+    } catch (error) {
+      console.error('Ошибка:', error);
+    }
+  })();
+  }
   return (<>
     <Router>
       <div id="headerAnchor">
@@ -49,6 +84,9 @@ function App() {
         <Route path="/user/:userName" component={UserPage} />
         <Route path="/newsFilms" component={NewsFilmsPage} />
         <Route path="/bestsFilms" component={BestsFilm} />
+        <Route path="/adminPage" component={adminPage} />
+        <Route path="/filmsByGenre/:name" component={filmPageByGenre} />
+        <Route path="/test" component={Test} />
         <Route component={NotFoundPage} />
       </Switch>
     </Router>

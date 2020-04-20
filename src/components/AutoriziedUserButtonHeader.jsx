@@ -1,27 +1,17 @@
 import React, { useState } from "react"
 
 import AutorizedUserButtonWindow from "./AutorizedUserButtonWindow"
+import { Dropdown, DropdownButton } from "react-bootstrap"
+import {Link} from "react-router-dom"
 import "./styles/header.css"
 
 const AutorizedUserButton = () => {
 
-    let isOpen = false;
+    const button = <div className="header_menu_buttons_autorize" > <DropdownButton id="dropdown-basic-button" title={localStorage.getItem('name')}>
+        <AutorizedUserButtonWindow/>
+    </DropdownButton></div>
 
-    const change = () => {
-        if (isOpen) {
-            setState(button)
-            isOpen = false;
-        } else {
-            setState(<>{button}{<AutorizedUserButtonWindow />}</>)
-            isOpen = true;
-        }
-    }
-
-    const button = <div className="header_menu_buttons_autorize" ><button className="header_menu_buttons_autorize_button" onClick={change}></button></div>
-
-    const [state, setState] = useState(button);
-
-    return state;
+    return button;
 
 }
 

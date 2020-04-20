@@ -2,6 +2,9 @@ import React, { useState } from "react"
 import "./styles/filmPage.css"
 import DataLoader from "./services/DataLoader";
 import { Link } from "react-router-dom";
+import Spinner from 'react-bootstrap/Spinner'
+
+import reducer from './services/Test3';
 
 const FilmDownload = (name) => {
    let film = DataLoader.getData(`http://192.168.100.4:8080/films/${name}`)
@@ -14,6 +17,16 @@ const FilmDownload = (name) => {
 
 
 const FilmPage = (props) => {
+
+   const [login, setLogin] = useState();
+
+   const onLoginChange = (e) => {
+       setLogin(e.target.value);
+   }
+
+   const submit = (e) => {
+      e.preventDefault();
+  }
 
    let film = FilmDownload(props.value);
    const [raitingState, setRaitingState] = useState(2.2)
@@ -32,16 +45,43 @@ const FilmPage = (props) => {
       }
    }
 
-   let data = "downloading...";
+   let data = <Spinner animation="border" role="status">
+   <span className="sr-only">Loading...</span>
+ </Spinner>;
    if (film) {
+      let playerAndComment = ""
       { document.title = props.value }
-      console.log(film)
+      console.log(reducer());
+      if(new Date(film.filmReleaseDate).toLocaleDateString() > new Date().toLocaleDateString()){
+         playerAndComment = <><div class="modal-dialog" role="document" style={{marginLeft:"-1%", tabIndex:"-1"}}>
+         <div class="modal-content">
+           <div class="modal-header">
+             <h5 class="modal-title" id="staticBackdropLabel">Уведомить о выходе фильма</h5>
+           </div>
+           <div class="modal-body">
+             <form onSubmit={submit}>
+               <div class="form-group">
+                 <label for="exampleInputEmail1">Адрес электроннгой почты</label>
+                 <input type="email" class="form-control" id="exampleInputEmail1" value={login} onChange={onLoginChange}/>
+               </div>
+               <button type="submit" class="btn btn-primary">Уведомить</button>
+             </form>
+           </div>
+         </div>
+       </div></>
+      } else{
+         playerAndComment = <><div className="item_film_player">player</div>
+      <div className="item_film_comment"><div className="commentBody"><div className="userImg">di</div></div></div></>
+      }
+      console.log(film.filmReleaseDate)
+   console.log(film)         
+
       data = <div className="container-wrapper"><div className="container">
          <div className="item_film_name">
             {props.value}
          </div>
          <div className="item_film_info">
-            <div className="film_logo">
+            <div className="film_logo" style={{alignSelf:"center",textAlign:"center"}}>
                <img className="image" src={film.imgPath} alt="logo"></img>
             </div>
             <div className="text" style={{ borderLeft: "1px solid black" }}>{film.filmInformation}</div>
@@ -73,8 +113,7 @@ const FilmPage = (props) => {
             <div className="actors" style={{ borderTop: "1px solid black", borderLeft: "1px solid black" }}><b>Актёры:</b>{film.actors.map((user) => <li key={user.user.name}><Link to={`/filmByActor/${user.user.name}`}>{user.user.name}</Link></li>)}</div>
          </div>
          <div className="item_film_facts">Страны:{film.countries.map((country) => <li key={country.country.name}><Link to={`/filmByCountry/${country.country.name}`}>{country.country.name}</Link></li>)}</div>
-         <div className="item_film_player">player</div>
-         <div className="item_film_comment"><div className="commentBody"><div className="userImg">di</div></div></div>
+         {playerAndComment}
       </div>
       </div>
    }

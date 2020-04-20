@@ -1,0 +1,44 @@
+.center{
+    grid-area: center;
+    text-align: center;
+    align-self: center;
+}
+.filmBlockMenu{
+    height: 500px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    grid-template-areas: "left center right";
+    text-decoration: none;
+}
+.carousel{
+    background-image: url("https://cdn.pixabay.com/photo/2016/09/01/19/13/confetti-1637197_960_720.jpg");
+
+}
+.filmBlockMenu:hover{
+    text-decoration: none;
+}
+
+.carousel-control-next:hover, .carousel-control-prev:hover{
+    background-color: #DEDDDD;
+    transition: 1s;
+}
+
+.carousel-control-next:not(:hover), .carousel-control-prev:not(:hover){
+    transition: 1s;
+}
+
+.imgLinq{
+
+    height: 350px;
+}
+
+.imgLinq:hover{
+    height: 400px;
+    transition: 1s;
+    box-shadow: 0 0 20px darkmagenta;
+}
+
+.imgLinq:not(:hover){
+    transition: 1s;
+}
