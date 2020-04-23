@@ -3,7 +3,7 @@ package com.diplom.services;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
-
+import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,6 +21,14 @@ public class FilmServiceImpl extends AbstractGenericService<Film> implements Fil
 	@Autowired
 	private FilmDao dao;
 
+	@Override
+	public void add(Film object) {
+		object.getActors().stream().forEach(value -> value.setFilm(object));
+		object.getGenres().stream().forEach(value -> value.setFilm(object));
+		object.getCountries().stream().forEach(value -> value.setFilm(object));
+		dao.add(entityManager, object);
+	}
+	
 	@Override
 	public FilmDto findByName(String name) {
 		return new MapperService<Film, FilmDto>(Film.class, FilmDto.class).toDto(dao.findByName(entityManager, name));

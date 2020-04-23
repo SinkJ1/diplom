@@ -2,23 +2,41 @@ package com.diplom.entity.dto;
 
 public class GenreDto {
 
-	private String name;
+	private int id;
+
+	private String genreName;
 
 	public GenreDto() {
 
 	}
 
-	public String getName() {
-		return name;
+	public GenreDto(int id, String genreName) {
+		this.id = id;
+		this.genreName = genreName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	
+	
+	
+	public String getGenreName() {
+		return genreName;
+	}
+
+	public void setGenreName(String genreName) {
+		this.genreName = genreName;
 	}
 
 	@Override
 	public String toString() {
-		return "GenreDto [name=" + name + "]";
+		return "GenreDto [id=" + id + ", genreName=" + genreName + "]";
 	}
 
 }

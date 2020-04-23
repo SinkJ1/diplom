@@ -46,7 +46,7 @@ public class Film implements Serializable {
 	@Column(name = "film_cost")
 	private double filmCost;
 
-	@OneToMany(mappedBy = "film", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "film", fetch = FetchType.LAZY,cascade = CascadeType.ALL)
 	private Set<Actor> actors;
 
 	@OneToMany(mappedBy = "film", fetch = FetchType.LAZY)

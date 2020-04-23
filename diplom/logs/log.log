@@ -5250,3 +5250,32 @@ antlr.NoViableAltException: unexpected token: name
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:?]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.16.jar:9.0.16]
 	at java.base/java.lang.Thread.run(Unknown Source) [?:?]
+12:20:41.234 [http-nio-8080-exec-2] ERROR org.hibernate.internal.ExceptionMapperStandardImpl - HHH000346: Error during managed flush [org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : com.diplom.entity.Film.userId -> com.diplom.entity.User]
+12:50:46.765 [http-nio-8080-exec-1] ERROR org.hibernate.internal.ExceptionMapperStandardImpl - HHH000346: Error during managed flush [org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : com.diplom.entity.Film.userId -> com.diplom.entity.User]
+12:55:33.442 [http-nio-8080-exec-1] ERROR org.hibernate.internal.ExceptionMapperStandardImpl - HHH000346: Error during managed flush [org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : com.diplom.entity.Film.userId -> com.diplom.entity.User]
+13:25:05.633 [http-nio-8080-exec-1] ERROR org.hibernate.internal.ExceptionMapperStandardImpl - HHH000346: Error during managed flush [org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : com.diplom.entity.Film.userId -> com.diplom.entity.User]
+13:29:08.096 [http-nio-8080-exec-2] ERROR org.hibernate.internal.ExceptionMapperStandardImpl - HHH000346: Error during managed flush [org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : com.diplom.entity.Film.userId -> com.diplom.entity.User]
+14:41:07.663 [http-nio-8080-exec-5] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - ОШИБКА: повторяющееся значение ключа нарушает ограничение уникальности "t_actor_pkey"
+  Подробности: Ключ "(id)=(5)" уже существует.
+14:41:07.786 [http-nio-8080-exec-5] ERROR org.hibernate.internal.ExceptionMapperStandardImpl - HHH000346: Error during managed flush [org.hibernate.exception.ConstraintViolationException: could not execute statement]
+19:33:52.867 [http-nio-8080-exec-2] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - ОШИБКА: повторяющееся значение ключа нарушает ограничение уникальности "t_actor_pkey"
+  Подробности: Ключ "(id)=(5)" уже существует.
+19:33:52.902 [http-nio-8080-exec-2] ERROR org.hibernate.internal.ExceptionMapperStandardImpl - HHH000346: Error during managed flush [org.hibernate.exception.ConstraintViolationException: could not execute statement]
+19:40:13.849 [http-nio-8080-exec-8] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - ОШИБКА: повторяющееся значение ключа нарушает ограничение уникальности "t_actor_pkey"
+  Подробности: Ключ "(id)=(0)" уже существует.
+19:40:13.862 [http-nio-8080-exec-8] ERROR org.hibernate.internal.ExceptionMapperStandardImpl - HHH000346: Error during managed flush [org.hibernate.exception.ConstraintViolationException: could not execute statement]
+19:45:31.780 [http-nio-8080-exec-3] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - ОШИБКА: повторяющееся значение ключа нарушает ограничение уникальности "t_actor_pkey"
+  Подробности: Ключ "(id)=(0)" уже существует.
+19:45:31.801 [http-nio-8080-exec-3] ERROR org.hibernate.internal.ExceptionMapperStandardImpl - HHH000346: Error during managed flush [org.hibernate.exception.ConstraintViolationException: could not execute statement]
+19:47:55.736 [http-nio-8080-exec-7] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - ОШИБКА: повторяющееся значение ключа нарушает ограничение уникальности "t_actor_pkey"
+  Подробности: Ключ "(id)=(0)" уже существует.
+19:47:55.738 [http-nio-8080-exec-7] ERROR org.hibernate.internal.ExceptionMapperStandardImpl - HHH000346: Error during managed flush [org.hibernate.exception.ConstraintViolationException: could not execute statement]
+19:47:58.086 [http-nio-8080-exec-10] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - ОШИБКА: повторяющееся значение ключа нарушает ограничение уникальности "t_actor_pkey"
+  Подробности: Ключ "(id)=(0)" уже существует.
+19:47:58.087 [http-nio-8080-exec-10] ERROR org.hibernate.internal.ExceptionMapperStandardImpl - HHH000346: Error during managed flush [org.hibernate.exception.ConstraintViolationException: could not execute statement]
+19:53:49.625 [http-nio-8080-exec-6] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - ОШИБКА: повторяющееся значение ключа нарушает ограничение уникальности "t_actor_pkey"
+  Подробности: Ключ "(id)=(0)" уже существует.
+19:53:49.627 [http-nio-8080-exec-6] ERROR org.hibernate.internal.ExceptionMapperStandardImpl - HHH000346: Error during managed flush [org.hibernate.exception.ConstraintViolationException: could not execute statement]
+19:53:52.154 [http-nio-8080-exec-3] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - ОШИБКА: повторяющееся значение ключа нарушает ограничение уникальности "t_actor_pkey"
+  Подробности: Ключ "(id)=(0)" уже существует.
+19:53:52.155 [http-nio-8080-exec-3] ERROR org.hibernate.internal.ExceptionMapperStandardImpl - HHH000346: Error during managed flush [org.hibernate.exception.ConstraintViolationException: could not execute statement]

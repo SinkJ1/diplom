@@ -1,7 +1,7 @@
 package com.diplom.entity.dto;
 
-
 public class FilmGenreDtoGenre {
+
 	private GenreDto genre;
 
 	public FilmGenreDtoGenre() {
@@ -22,7 +22,7 @@ public class FilmGenreDtoGenre {
 
 	@Override
 	public String toString() {
-		return "FilmsGenreDtoGenre [genre=" + genre + "]";
+		return "FilmGenreDtoGenre [genre=" + genre + "]";
 	}
 
 }

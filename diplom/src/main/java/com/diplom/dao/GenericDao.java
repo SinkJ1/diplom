@@ -20,7 +20,7 @@ public abstract class GenericDao<T> implements Dao<T> {
 	}
 
 	public void delete(EntityManager em, T entity) {
-		em.remove(entity);
+		em.remove(em.contains(entity) ? entity : em.merge(entity));
 	}
 
 	public T findByName(EntityManager em, String name) {

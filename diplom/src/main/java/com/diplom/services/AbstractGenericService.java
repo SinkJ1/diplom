@@ -18,7 +18,6 @@ public abstract class AbstractGenericService<T> implements GenericService<T> {
 	@Autowired
 	protected GenericDao<T> dao;
 	
-	@Transactional
 	public void add(T object) {
 		dao.add(entityManager, object);
 	}

@@ -1,6 +1,5 @@
 package com.diplom.entity.dto;
 
-
 public class FilmCountryDto {
 
 	private CountryDto country;

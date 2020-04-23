@@ -5,6 +5,8 @@ import java.util.Set;
 
 public class FilmDto {
 
+	private int id;
+
 	private String filmName;
 
 	private UserDto userId;
@@ -31,9 +33,9 @@ public class FilmDto {
 
 	}
 
-	public FilmDto(String filmName, UserDto userId, String filmInformation, Date filmReleaseDate, double filmRaiting,
-			String imgPath, double filmProfit, double filmCost, Set<ActorDto> actors, Set<FilmCountryDto> countries,
-			Set<FilmGenreDtoGenre> genres) {
+	public FilmDto(int id, String filmName, UserDto userId, String filmInformation, Date filmReleaseDate,
+			double filmRaiting, String imgPath, double filmProfit, double filmCost, Set<ActorDto> actors,
+			Set<FilmCountryDto> countries, Set<FilmGenreDtoGenre> genres) {
 		this.filmName = filmName;
 		this.userId = userId;
 		this.filmInformation = filmInformation;
@@ -135,12 +137,20 @@ public class FilmDto {
 		this.genres = genres;
 	}
 
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	@Override
 	public String toString() {
-		return "FilmDto [filmName=" + filmName + ", userId=" + userId + ", filmInformation=" + filmInformation
-				+ ", filmReleaseDate=" + filmReleaseDate + ", filmRaiting=" + filmRaiting + ", imgPath=" + imgPath
-				+ ", filmProfit=" + filmProfit + ", filmCost=" + filmCost + ", actors=" + actors + ", countries="
-				+ countries + ", genres=" + genres + "]";
+		return "FilmDto [id=" + id + ", filmName=" + filmName + ", userId=" + userId + ", filmInformation="
+				+ filmInformation + ", filmReleaseDate=" + filmReleaseDate + ", filmRaiting=" + filmRaiting
+				+ ", imgPath=" + imgPath + ", filmProfit=" + filmProfit + ", filmCost=" + filmCost + ", actors="
+				+ actors + ", countries=" + countries + ", genres=" + genres + "]";
 	}
 
 }

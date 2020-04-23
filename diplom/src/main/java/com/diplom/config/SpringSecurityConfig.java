@@ -33,15 +33,19 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter{
     @Override
     protected void configure(HttpSecurity http) throws Exception {
     	http
-        .csrf().disable()
+    	.cors().and()
         .authorizeRequests()
         .antMatchers(HttpMethod.GET,"/users","/users/**", "/films", "/films/**", "/countries/**", "/countries", "/genres", "/genres/**").permitAll()
         .antMatchers(HttpMethod.POST,"/users","/users/**", "/films", "/films/**", "/countries/**", "/countries").permitAll()
+        .antMatchers(HttpMethod.DELETE,"/users","/users/**", "/films", "/films/**", "/countries/**", "/countries").permitAll()
+        .antMatchers(HttpMethod.PUT,"/users","/users/**", "/films", "/films/**", "/countries/**", "/countries").permitAll()
                 .anyRequest().authenticated()
                 .and()
             .formLogin().and()
             .logout().permitAll().and()
             .httpBasic();
+    	http.csrf().disable();
+        http.headers().frameOptions().disable();
     }
 
 }
