@@ -65,9 +65,9 @@ const Page = (props) => {
     const [right, setRight] = useState(7)
 
     const getPageNumbers = () => {
-        if (pageNumbers.length > 8) {
+        if(pageNumber.length === 0){
             return 0;
-        } else {
+        } else{
             return pageNumbers
         }
     }
@@ -95,10 +95,10 @@ const Page = (props) => {
 
 
     for (let i = 1; i < pageNumbers.length + 1; i++) {
-        if(pageNumbers[i]){
+        if (pageNumbers[i]) {
 
-            if(pageNumbers[i].props.children === pageNumber){
-                pageNumbers[i] = <button key={i} onClick={() => { clck(i) }} style={{border: "1px solid darkmagenta"}}>{i}</button>
+            if (pageNumbers[i].props.children === pageNumber) {
+                pageNumbers[i] = <button key={i} onClick={() => { clck(i) }} style={{ border: "1px solid darkmagenta" }}>{i}</button>
             }
         }
     }
