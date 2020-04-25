@@ -28,7 +28,7 @@ public class FilmServiceImpl extends AbstractGenericService<Film> implements Fil
 		object.getCountries().stream().forEach(value -> value.setFilm(object));
 		dao.add(entityManager, object);
 	}
-	
+
 	@Override
 	public FilmDto findByName(String name) {
 		return new MapperService<Film, FilmDto>(Film.class, FilmDto.class).toDto(dao.findByName(entityManager, name));
@@ -36,35 +36,24 @@ public class FilmServiceImpl extends AbstractGenericService<Film> implements Fil
 
 	@Transactional
 	@Override
-	public List<FilmDto> getAllDto() {
-		return dao.getAll(entityManager)
-				.stream()
-				.map(value -> new MapperService<Film, FilmDto>(Film.class, FilmDto.class).toDto(value))
+	public List<FilmDto> getAllDto(List<Film> flimList) {
+		return flimList.stream().map(value -> new MapperService<Film, FilmDto>(Film.class, FilmDto.class).toDto(value))
 				.collect(Collectors.toList());
 	}
 
 	@Override
 	public List<FilmDto> getTopFilms(int topValue) {
-		return dao.getTopFilms(entityManager, topValue)
-				.stream()
-				.map(value -> new MapperService<Film, FilmDto>(Film.class, FilmDto.class).toDto(value))
-				.collect(Collectors.toList());
+		return getAllDto(dao.getTopFilms(entityManager, topValue));
 	}
 
 	@Override
 	public List<FilmDto> getFilmsByParametr(EntryModelParamsFilmByParametr parametrs) {
-		return dao.getFilmsByParam(entityManager, createParams(parametrs).toString())
-				.stream()
-				.map(value -> new MapperService<Film, FilmDto>(Film.class, FilmDto.class).toDto(value))
-				.collect(Collectors.toList());
+		return getAllDto(dao.getFilmsByParam(entityManager, createParams(parametrs).toString()));
 	}
 
 	@Override
 	public List<FilmDto> findFilmByYear(int year) {
-		return dao.getFilmByYear(entityManager, year)
-				.stream()
-				.map(value -> new MapperService<Film, FilmDto>(Film.class, FilmDto.class).toDto(value))
-				.collect(Collectors.toList());
+		return getAllDto(dao.getFilmByYear(entityManager, year));
 	}
 
 	private StringBuilder createParams(EntryModelParamsFilmByParametr parametrs) {
@@ -99,18 +88,19 @@ public class FilmServiceImpl extends AbstractGenericService<Film> implements Fil
 
 	@Override
 	public List<FilmImgDto> getLastXFilms(int xValue) {
-		return dao.getLastXFilms(entityManager, xValue)
-				.stream()
+		return dao.getLastXFilms(entityManager, xValue).stream()
 				.map(value -> new MapperService<Film, FilmImgDto>(Film.class, FilmImgDto.class).toDto(value))
 				.collect(Collectors.toList());
 	}
 
 	@Override
 	public List<FilmDto> getCommingSonFilms(Date date) {
-		return dao.getCommingsFilms(entityManager, date)
-				.stream()
-				.map(value -> new MapperService<Film, FilmDto>(Film.class, FilmDto.class).toDto(value))
-				.collect(Collectors.toList());
+		return getAllDto(dao.getCommingsFilms(entityManager, date));
+	}
+
+	@Override
+	public List<FilmDto> findByShortName(String name) {
+		return getAllDto(dao.findByShortName(entityManager, name));
 	}
 
 }

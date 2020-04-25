@@ -10,6 +10,10 @@ public class GenreDtoFilms {
 	
 	private Set<FilmCountryDto2> films;
 	
+	public GenreDtoFilms() {
+		
+	}
+	
 	public GenreDtoFilms(int id, String genreName, Set<FilmCountryDto2> films) {
 		this.id = id;
 		this.genreName = genreName;

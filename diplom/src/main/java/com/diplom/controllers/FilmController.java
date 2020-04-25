@@ -1,19 +1,15 @@
 package com.diplom.controllers;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -23,16 +19,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.diplom.entity.Film;
-import com.diplom.entity.User;
 import com.diplom.entity.dto.FilmDto;
 import com.diplom.entity.dto.FilmImgDto;
-import com.diplom.entity.dto.FilmTestDto;
-import com.diplom.entity.dto.UserDto;
 import com.diplom.services.FilmServiceImpl;
 import com.diplom.services.MapperService;
 
@@ -61,9 +53,7 @@ public class FilmController extends AbstractController<Film> {
 	}
 	
 	@GetMapping(value = "/filmByParametr")
-	public List<FilmDto> getFilmByParametr(EntryModelParamsFilmByParametr parametrs){
-		List<EntryModelParamsFilmByParametr> list = new ArrayList<EntryModelParamsFilmByParametr>();
-		
+	public List<FilmDto> getFilmByParametr(EntryModelParamsFilmByParametr parametrs){	
 		return filmService.getFilmsByParametr(parametrs);
 	}
 
@@ -72,22 +62,23 @@ public class FilmController extends AbstractController<Film> {
 	@ResponseStatus(code = HttpStatus.OK)
 	public void Add(@RequestBody FilmDto film) {
 		filmService.add(new MapperService<Film,FilmDto>(Film.class, FilmDto.class).toEntity(film));
-		//film.setFilmName(film.getFilmName() + " aprooved");
-		//return ResponseEntity.ok().build();
 	}
 	
 	@DeleteMapping(value = "/delete",consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseStatus(code = HttpStatus.OK)
 	public void delete(@RequestBody FilmDto film) {
 		filmService.delete(new MapperService<Film,FilmDto>(Film.class, FilmDto.class).toEntity(film));
-		//film.setFilmName(film.getFilmName() + " aprooved");
-		//return ResponseEntity.ok().build();
 	}
 	
 	@GetMapping(value = "/commingsFilms/{date}")	
 	public List<FilmDto> getCommingsFilms(@PathVariable("date") String date) throws ParseException {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
 		return filmService.getCommingSonFilms(sdf.parse(date));
+	}
+	
+	@GetMapping(value = "/shortName/{name}")
+	public List<FilmDto> getFilmsByShortName(@PathVariable("name") String name){
+		return filmService.findByShortName(name);
 	}
 	
 	@GetMapping(value = "/filmImg")
@@ -103,7 +94,7 @@ public class FilmController extends AbstractController<Film> {
 	
 	@GetMapping(value = "/all")
 	public List<FilmDto> getAllDto() {
-		return filmService.getAllDto();
+		return filmService.getAllDto(filmService.getAll());
 	}
 
 }

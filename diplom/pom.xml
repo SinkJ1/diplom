@@ -10,6 +10,7 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>diplom</groupId>
+	<packaging>jar</packaging>
 	<artifactId>diplom</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>diplom</name>
@@ -17,6 +18,8 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
 
 	<dependencies>
@@ -91,7 +94,7 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
+            </plugin>
 		</plugins>
 	</build>
 </project>

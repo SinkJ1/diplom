@@ -1,9 +1,7 @@
 package com.diplom.dao;
 
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
@@ -26,6 +24,10 @@ public class FilmDAOImpl extends GenericDao<Film> implements FilmDao {
 	@Override
 	public Film findByName(EntityManager em, String name) {
 		return em.createQuery("from " + Film.class.getName() + " where film_name =" + "'" + name + "'", Film.class).getSingleResult();
+	}
+	
+	public List<Film> findByShortName(EntityManager em, String name) {
+		return em.createQuery("from " + Film.class.getName() + " where film_name like " + "'%" + name + "%'", Film.class).getResultList();
 	}
 
 	@Override

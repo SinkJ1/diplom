@@ -5279,3 +5279,5 @@ antlr.NoViableAltException: unexpected token: name
 19:53:52.154 [http-nio-8080-exec-3] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - ОШИБКА: повторяющееся значение ключа нарушает ограничение уникальности "t_actor_pkey"
   Подробности: Ключ "(id)=(0)" уже существует.
 19:53:52.155 [http-nio-8080-exec-3] ERROR org.hibernate.internal.ExceptionMapperStandardImpl - HHH000346: Error during managed flush [org.hibernate.exception.ConstraintViolationException: could not execute statement]
+11:05:17.030 [http-nio-8080-exec-10] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - Cannot cast to boolean: "https://kinogo.by/uploads/posts/2019-05/1557387311_300px-brest_fortress-poster.jpg"
+11:05:17.115 [http-nio-8080-exec-9] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - Cannot cast to boolean: "https://kinogo.by/uploads/posts/2019-05/1557387311_300px-brest_fortress-poster.jpg"

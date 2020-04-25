@@ -16,12 +16,14 @@ public interface FilmService extends GenericService<Film>{
 	
 	List<FilmDto> getFilmsByParametr(EntryModelParamsFilmByParametr parametrs);
 	
-	List<FilmDto> getAllDto();
+	List<FilmDto> getAllDto(List<Film> filmList);
 	
 	List<FilmDto> findFilmByYear(int year);
 	
 	List<FilmDto> getCommingSonFilms(Date date);
 	
 	List<FilmImgDto>  getLastXFilms(int xValue);
+	
+	List<FilmDto> findByShortName(String name);
 	
 }

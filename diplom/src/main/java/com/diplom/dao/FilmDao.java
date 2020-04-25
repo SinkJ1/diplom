@@ -6,7 +6,6 @@ import java.util.List;
 import javax.persistence.EntityManager;
 
 import com.diplom.entity.Film;
-import com.diplom.entity.dto.FilmDto;
 
 public interface FilmDao extends Dao<Film>{
 	
@@ -21,4 +20,6 @@ public interface FilmDao extends Dao<Film>{
 	List<Film> getCommingsFilms(EntityManager em, Date date);
 	
 	List<Film> getFilmsByParam(EntityManager em, String params);
+	
+	List<Film> findByShortName(EntityManager em, String name);
 }

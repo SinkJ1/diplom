@@ -5,11 +5,6 @@ import java.util.Set;
 import java.util.Date;
 import javax.persistence.*;
 
-import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.format.annotation.DateTimeFormat.ISO;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
-
 @Entity
 @Table(name = "t_film")
 public class Film implements Serializable {
@@ -46,13 +41,22 @@ public class Film implements Serializable {
 	@Column(name = "film_cost")
 	private double filmCost;
 
-	@OneToMany(mappedBy = "film", fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+	@Column(name = "block_to_watch")
+	private boolean blockToWatch;
+
+	@Column(name = "premium_status")
+	private boolean premiumStatus;
+
+	@Column(name = "film_player")
+	private String filmPlayer;
+
+	@OneToMany(mappedBy = "film", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private Set<Actor> actors;
 
-	@OneToMany(mappedBy = "film", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "film", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private Set<FilmCountry> countries;
 
-	@OneToMany(mappedBy = "film", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "film", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private Set<FilmsGenre> genres;
 
 	public Film() {
@@ -60,8 +64,8 @@ public class Film implements Serializable {
 	}
 
 	public Film(int id, String filmName, User userId, String filmInformation, Date filmReleaseDate, double filmRaiting,
-			String imgPath, double filmProfit, double filmCost, Set<Actor> actors, Set<FilmCountry> countries,
-			Set<FilmsGenre> genres) {
+			String imgPath, double filmProfit, double filmCost, boolean blockToWatch, boolean premiumStatus,
+			String filmPlayer, Set<Actor> actors, Set<FilmCountry> countries, Set<FilmsGenre> genres) {
 		this.id = id;
 		this.filmName = filmName;
 		this.userId = userId;
@@ -71,6 +75,9 @@ public class Film implements Serializable {
 		this.imgPath = imgPath;
 		this.filmProfit = filmProfit;
 		this.filmCost = filmCost;
+		this.blockToWatch = blockToWatch;
+		this.premiumStatus = premiumStatus;
+		this.filmPlayer = filmPlayer;
 		this.actors = actors;
 		this.countries = countries;
 		this.genres = genres;
@@ -172,11 +179,36 @@ public class Film implements Serializable {
 		this.genres = genres;
 	}
 
+	public boolean isBlockToWatch() {
+		return blockToWatch;
+	}
+
+	public void setBlockToWatch(boolean blockToWatch) {
+		this.blockToWatch = blockToWatch;
+	}
+
+	public boolean isPremiumStatus() {
+		return premiumStatus;
+	}
+
+	public void setPremiumStatus(boolean premiumStatus) {
+		this.premiumStatus = premiumStatus;
+	}
+
+	public String isFilmPlayer() {
+		return filmPlayer;
+	}
+
+	public void setFilmPlayer(String filmPlayer) {
+		this.filmPlayer = filmPlayer;
+	}
+
 	@Override
 	public String toString() {
 		return "Film [id=" + id + ", filmName=" + filmName + ", userId=" + userId + ", filmInformation="
 				+ filmInformation + ", filmReleaseDate=" + filmReleaseDate + ", filmRaiting=" + filmRaiting
-				+ ", imgPath=" + imgPath + ", filmProfit=" + filmProfit + ", filmCost=" + filmCost + ", actors="
+				+ ", imgPath=" + imgPath + ", filmProfit=" + filmProfit + ", filmCost=" + filmCost + ", blockToWatch="
+				+ blockToWatch + ", premiumStatus=" + premiumStatus + ", filmPlayer=" + filmPlayer + ", actors="
 				+ actors + ", countries=" + countries + ", genres=" + genres + "]";
 	}
 

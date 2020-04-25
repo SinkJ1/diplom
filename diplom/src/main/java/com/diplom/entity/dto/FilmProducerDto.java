@@ -4,6 +4,9 @@ import java.util.Date;
 import java.util.Set;
 
 public class FilmProducerDto {
+
+	public int id;
+
 	private String filmName;
 
 	private String filmInformation;
@@ -18,6 +21,12 @@ public class FilmProducerDto {
 
 	private double filmCost;
 
+	private boolean blockToWatch;
+
+	private boolean premiumStatus;
+
+	private String filmPlayer;
+
 	private Set<ActorDto> actors;
 
 	private Set<FilmCountryDto> countries;
@@ -26,8 +35,10 @@ public class FilmProducerDto {
 
 	}
 
-	public FilmProducerDto(String filmName, String filmInformation, Date filmReleaseDate, double filmRaiting,
-			String imgPath, double filmProfit, double filmCost, Set<ActorDto> actors, Set<FilmCountryDto> countries) {
+	public FilmProducerDto(int id, String filmName, String filmInformation, Date filmReleaseDate, double filmRaiting,
+			String imgPath, double filmProfit, double filmCost, boolean blockToWatch, boolean premiumStatus,
+			String filmPlayer, Set<ActorDto> actors, Set<FilmCountryDto> countries) {
+		this.id = id;
 		this.filmName = filmName;
 		this.filmInformation = filmInformation;
 		this.filmReleaseDate = filmReleaseDate;
@@ -35,6 +46,9 @@ public class FilmProducerDto {
 		this.imgPath = imgPath;
 		this.filmProfit = filmProfit;
 		this.filmCost = filmCost;
+		this.blockToWatch = blockToWatch;
+		this.premiumStatus = premiumStatus;
+		this.filmPlayer = filmPlayer;
 		this.actors = actors;
 		this.countries = countries;
 	}
@@ -111,11 +125,45 @@ public class FilmProducerDto {
 		this.countries = countries;
 	}
 
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public boolean isBlockToWatch() {
+		return blockToWatch;
+	}
+
+	public void setBlockToWatch(boolean blockToWatch) {
+		this.blockToWatch = blockToWatch;
+	}
+
+	public boolean isPremiumStatus() {
+		return premiumStatus;
+	}
+
+	public void setPremiumStatus(boolean premiumStatus) {
+		this.premiumStatus = premiumStatus;
+	}
+
+	public String isFilmPlayer() {
+		return filmPlayer;
+	}
+
+	public void setFilmPlayer(String filmPlayer) {
+		this.filmPlayer = filmPlayer;
+	}
+
 	@Override
 	public String toString() {
-		return "FilmDto [filmName=" + filmName + ", filmInformation=" + filmInformation
+		return "FilmProducerDto [id=" + id + ", filmName=" + filmName + ", filmInformation=" + filmInformation
 				+ ", filmReleaseDate=" + filmReleaseDate + ", filmRaiting=" + filmRaiting + ", imgPath=" + imgPath
-				+ ", filmProfit=" + filmProfit + ", filmCost=" + filmCost + ", actors=" + actors + ", countries="
-				+ countries + "]";
+				+ ", filmProfit=" + filmProfit + ", filmCost=" + filmCost + ", blockToWatch=" + blockToWatch
+				+ ", premiumStatus=" + premiumStatus + ", filmPlayer=" + filmPlayer + ", actors=" + actors
+				+ ", countries=" + countries + "]";
 	}
+
 }

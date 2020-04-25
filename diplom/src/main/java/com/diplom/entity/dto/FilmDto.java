@@ -23,6 +23,12 @@ public class FilmDto {
 
 	private double filmCost;
 
+	private boolean blockToWatch;
+
+	private boolean premiumStatus;
+
+	private String filmPlayer;
+
 	private Set<ActorDto> actors;
 
 	private Set<FilmCountryDto> countries;
@@ -34,8 +40,10 @@ public class FilmDto {
 	}
 
 	public FilmDto(int id, String filmName, UserDto userId, String filmInformation, Date filmReleaseDate,
-			double filmRaiting, String imgPath, double filmProfit, double filmCost, Set<ActorDto> actors,
-			Set<FilmCountryDto> countries, Set<FilmGenreDtoGenre> genres) {
+			double filmRaiting, String imgPath, double filmProfit, double filmCost, boolean blockToWatch,
+			boolean premiumStatus, String filmPlayer, Set<ActorDto> actors, Set<FilmCountryDto> countries,
+			Set<FilmGenreDtoGenre> genres) {
+		this.id = id;
 		this.filmName = filmName;
 		this.userId = userId;
 		this.filmInformation = filmInformation;
@@ -44,6 +52,9 @@ public class FilmDto {
 		this.imgPath = imgPath;
 		this.filmProfit = filmProfit;
 		this.filmCost = filmCost;
+		this.blockToWatch = blockToWatch;
+		this.premiumStatus = premiumStatus;
+		this.filmPlayer = filmPlayer;
 		this.actors = actors;
 		this.countries = countries;
 		this.genres = genres;
@@ -145,11 +156,36 @@ public class FilmDto {
 		this.id = id;
 	}
 
+	public boolean isBlockToWatch() {
+		return blockToWatch;
+	}
+
+	public void setBlockToWatch(boolean blockToWatch) {
+		this.blockToWatch = blockToWatch;
+	}
+
+	public boolean isPremiumStatus() {
+		return premiumStatus;
+	}
+
+	public void setPremiumStatus(boolean premiumStatus) {
+		this.premiumStatus = premiumStatus;
+	}
+
+	public String isFilmPlayer() {
+		return filmPlayer;
+	}
+
+	public void setFilmPlayer(String filmPlayer) {
+		this.filmPlayer = filmPlayer;
+	}
+
 	@Override
 	public String toString() {
 		return "FilmDto [id=" + id + ", filmName=" + filmName + ", userId=" + userId + ", filmInformation="
 				+ filmInformation + ", filmReleaseDate=" + filmReleaseDate + ", filmRaiting=" + filmRaiting
-				+ ", imgPath=" + imgPath + ", filmProfit=" + filmProfit + ", filmCost=" + filmCost + ", actors="
+				+ ", imgPath=" + imgPath + ", filmProfit=" + filmProfit + ", filmCost=" + filmCost + ", blockToWatch="
+				+ blockToWatch + ", premiumStatus=" + premiumStatus + ", filmPlayer=" + filmPlayer + ", actors="
 				+ actors + ", countries=" + countries + ", genres=" + genres + "]";
 	}
 
