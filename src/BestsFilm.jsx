@@ -12,7 +12,7 @@ const BestsFilm = () => {
     const [producer, setProducer] = useState("");
     const [actor, setActor] = useState("");
     
-    const [url, setUrl] = useState(`http://192.168.100.4:8080/films/bestFilms/10`)
+    const [url, setUrl] = useState(`http://localhost:8080/films/bestFilms/10`)
     const FilmDownload = (url) => {
         let films = []
         let film = get(url, (film) => {

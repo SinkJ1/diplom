@@ -25,7 +25,7 @@ const FilmPageByCountry = (props) => {
     }
 
     if(!films){
-        FilmDownload(`http://192.168.100.4:8080/countries/${props.value}`)
+        FilmDownload(`http://localhost:8080/countries/${props.value}`)
     }
 
     return (<><div style={{ fontSize: "40px", position: "absolute", marginTop: "5%", marginLeft: "40%" }}>Фильмы снятые в: {name}</div><Page value={films} /></>);

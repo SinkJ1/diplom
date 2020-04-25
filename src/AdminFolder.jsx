@@ -3,6 +3,7 @@ import React, { useState } from "react"
 import Tabs from 'react-bootstrap/Tabs'
 import { Tab, Row, Col, Nav } from "react-bootstrap"
 import AddFilm from "./components/admins components/AddFilm";
+import ChangeFilm from "./components/admins components/ChangeFilm";
 
 const AdminFolder = () => {
 
@@ -31,6 +32,7 @@ const AdminFolder = () => {
                                 <AddFilm />
                             </Tab>
                             <Tab eventKey="change" title="Изменить фильм">
+                                <ChangeFilm/>
                             </Tab>
                             <Tab eventKey="delete" title="Удалить фильм">
                             </Tab>

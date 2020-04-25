@@ -25,7 +25,7 @@ const FilmByGenre = (props) => {
     }
 
     if(!films){
-        FilmDownload(`http://192.168.100.4:8080/genres/${props.value}`)
+        FilmDownload(`http://localhost:8080/genres/${props.value}`)
     }
 
     return (<><div style={{ fontSize: "40px", position: "absolute", marginTop: "5%", marginLeft: "40%" }}>Фильмы снятые в жанре {name.toLowerCase()}</div><Page value={films} /></>);

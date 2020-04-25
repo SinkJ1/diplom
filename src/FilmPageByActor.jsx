@@ -23,7 +23,7 @@ const FilmPageByActor = (props) => {
 
     }
 
-    return (<><div style={{ fontSize: "40px", position: "absolute", marginTop: "5%", marginLeft: "40%" }}>Фильмы созданные с участием: {name}</div><Page value={FilmDownload(`http://192.168.100.4:8080/users/${props.value}`)} /></>);
+    return (<><div style={{ fontSize: "40px", position: "absolute", marginTop: "5%", marginLeft: "40%" }}>Фильмы созданные с участием: {name}</div><Page value={FilmDownload(`http://localhost:8080/users/${props.value}`)} /></>);
 
 
 }

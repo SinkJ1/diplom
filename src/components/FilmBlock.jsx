@@ -4,7 +4,7 @@ import "./styles/filmBlock.css"
 const FilmBlock = (props) => {
 
     return (
-        <div className="filmBlock">
+        <div className="filmBlock" onClick={props.onClick}>
             <div className="film_block_info">
                 <div className="film_block_image">
                     <img className="film_image" src={props.imgPath} alt="filmImage"></img>

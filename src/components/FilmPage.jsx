@@ -7,7 +7,7 @@ import Spinner from 'react-bootstrap/Spinner'
 import reducer from './services/Test3';
 
 const FilmDownload = (name) => {
-   let film = DataLoader.getData(`http://192.168.100.4:8080/films/${name}`)
+   let film = DataLoader.getData(`http://localhost:8080/films/${name}`)
 
    if (film) {
       return film.entity;
@@ -72,9 +72,7 @@ const FilmPage = (props) => {
       } else{
          playerAndComment = <><div className="item_film_player">player</div>
       <div className="item_film_comment"><div className="commentBody"><div className="userImg">di</div></div></div></>
-      }
-      console.log(film.filmReleaseDate)
-   console.log(film)         
+      }       
 
       data = <div className="container-wrapper"><div className="container">
          <div className="item_film_name">

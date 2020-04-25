@@ -30,22 +30,20 @@ const Header = (props) => {
         let film = DataLoader.getData(url)
         if (film) {
             film.entity.map(function (entity) {
-                console.log(entity.name)
-                films.push(entity.name);
+                films.push(entity.genreName);
             });
             return films;
         }
 
     }
 
-    let countriesFromServer = FilmDownload('http://192.168.100.4:8080/countries/all')
-    let genresFromServer = FilmDownload('http://192.168.100.4:8080/genres')
+    let countriesFromServer = FilmDownload('http://localhost:8080/countries/all')
+    let genresFromServer = Download('http://localhost:8080/genres')
     let data = <Spinner animation="border" role="status">
     <span className="sr-only">Loading...</span>
   </Spinner>
 
     if(countriesFromServer && genresFromServer){
-        let counter = 0;
         data = <><div className="header">
         <div className="header_logo">
             <Link key="l" className="film_block_link" to={`/`}>

@@ -21,7 +21,7 @@ const NewsFilmsPage = () => {
     
     }
 
-    return <><div style={{ fontSize: "40px", position: "absolute", marginTop: "5%", marginLeft: "40%" }}>Скоро на сайте:</div><Page value={FilmDownload(`http://192.168.100.4:8080/films/commingsFilms/${new Date().toLocaleDateString()}`)}/></>
+    return <><div style={{ fontSize: "40px", position: "absolute", marginTop: "5%", marginLeft: "40%" }}>Скоро на сайте:</div><Page value={FilmDownload(`http://localhost:8080/films/commingsFilms/${new Date().toLocaleDateString()}`)}/></>
 }
 
 export default NewsFilmsPage

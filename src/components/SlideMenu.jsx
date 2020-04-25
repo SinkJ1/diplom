@@ -42,14 +42,11 @@ const Menu = () => {
     
     }
 
-    let films = FilmDownload("http://192.168.100.4:8080/films/filmImg");
+    let films = FilmDownload("http://localhost:8080/films/filmImg");
     let imgForCarousel='';
     if(films){
         imgForCarousel = filmGroupsBuild(films,5)
     }
-
-
-    let arr = [<Link to={`/film/Гарри Поттер`}><img className="imgLinq" src="https://kinogo.by/uploads/posts/2020-02/1582556711_bez-nazvaniya-6.jpg" alt="as" /></Link>, <Link to={`/film/Гарри Поттер`}><img className="imgLinq" src="https://kinogo.by/uploads/posts/2020-02/1582556711_bez-nazvaniya-6.jpg" alt="as" /></Link>, <Link to={`/film/Гарри Поттер`}><img className="imgLinq" src="https://kinogo.by/uploads/posts/2020-02/1582556711_bez-nazvaniya-6.jpg" alt="as" /></Link>, <Link to={`/film/Гарри Поттер`}><img className="imgLinq" src="https://kinogo.by/uploads/posts/2020-02/1582556711_bez-nazvaniya-6.jpg" alt="as" /></Link>, <Link to={`/film/Гарри Поттер`}><img className="imgLinq" src="https://kinogo.by/uploads/posts/2020-02/1582556711_bez-nazvaniya-6.jpg" alt="as" /></Link>]
 
     return (<div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
         <ol key="carousel-indicators" className="carousel-indicators">
