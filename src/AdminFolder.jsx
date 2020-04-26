@@ -4,6 +4,8 @@ import Tabs from 'react-bootstrap/Tabs'
 import { Tab, Row, Col, Nav } from "react-bootstrap"
 import AddFilm from "./components/admins components/AddFilm";
 import ChangeFilm from "./components/admins components/ChangeFilm";
+import DeleteFilm from "./components/admins components/DeleteFilm";
+import GenreWork from "./components/admins components/GenreWork";
 
 const AdminFolder = () => {
 
@@ -16,7 +18,7 @@ const AdminFolder = () => {
                         <Nav.Link eventKey="first">Работа с фильмами</Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                        <Nav.Link eventKey="second">Работа с пользователями</Nav.Link>
+                        <Nav.Link eventKey="second">Жанр</Nav.Link>
                     </Nav.Item>
                 </Nav>
             </Col>
@@ -29,16 +31,26 @@ const AdminFolder = () => {
                             onSelect={(k) => setKey(k)}
                         >
                             <Tab eventKey="add" title="Добавить фильм">
-                                <AddFilm />
+                                <AddFilm btn={"Добавить"}/>
                             </Tab>
                             <Tab eventKey="change" title="Изменить фильм">
                                 <ChangeFilm/>
                             </Tab>
                             <Tab eventKey="delete" title="Удалить фильм">
+                                <DeleteFilm/>
                             </Tab>
                         </Tabs>
                     </Tab.Pane>
-                    <Tab.Pane eventKey="second">
+                    <Tab.Pane eventKey="second" style={{marginLeft:"-15%"}}>
+                    <Tabs
+                            id="controlled-tab-example"
+                            activeKey={key}
+                            onSelect={(k) => setKey(k)}
+                        >
+                            <Tab eventKey="add" title="Жанры">
+                                <GenreWork/>
+                            </Tab>
+                        </Tabs>
                     </Tab.Pane>
                 </Tab.Content>
             </Col>

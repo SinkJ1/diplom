@@ -39,13 +39,12 @@ const ChangeFilm = () => {
     }
   }
 
-  const [clickedFilm, setClickedfilm] = useState("");
   const [name, setName] = useState("")
 
   const clck = (name) => {
     let filmsArray = []
     let film = get(`http://localhost:8080/films/${name}`, (film) => {
-      setName(<AddFilm value={film.filmName} />)
+      setName(<AddFilm value={film} type={"CHANGE"} btn={"Изменить"}/>)
     });
 
     setVisible("hidden")
@@ -67,20 +66,18 @@ const ChangeFilm = () => {
     </div></>
   }
 
-  return <form className="needs-validation" noValidate>
+  return <>
     <div className="form-row">
       <div className="col-md-4 mb-3">
         <div>
-          <label for="validationTooltip01">First name</label>
+          <label for="validationTooltip01">Название фильма</label>
           <input type="text" className="form-control" id="validationTooltip01" value={text} onChange={change} required></input>
           {blocks}
           {name}
         </div>
       </div>
     </div>
-    <button className="btn btn-primary" type="submit">Submit form</button>
-  </form>
-
+    </>
 }
 
 export default ChangeFilm

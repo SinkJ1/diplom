@@ -1,29 +1,92 @@
 import React, { useState } from "react"
-import { send, get } from "../services/DataLoader"
+import { send, get,UPDATE } from "../services/DataLoader"
 
 const AddFilm = (props) => {
 
+  let id;
+  let name;
+  let logo;
+  let player;
+  let info;
+  let cost;
+  let producer;
+  let profit;
+  let day;
+  let month;
+  let year;
+  let producer1;
+  let blocked = false;
+  let premium = false;
+  let actors1 = [];
+  let genres1 = [];
+  let countries1 = [];
 
-  const [filmId,setFilmId] = useState("")
-  const [filmName, setFilmName] = useState(props.value)
-  const [filmLogo, setFilmLogo] = useState("")
-  const [filmPlayer, setFilmPlayer] = useState("")
-  const [filmInfo, setFilmInfo] = useState("aewg")
-  const [filmCost, setFilmCost] = useState(123)
-  const [filmProfit, setFilmProfit] = useState(123)
-  const [filmReleaseYear, setFilmReleaseYear] = useState("2000")
-  const [filmReleaseMonth, setFilmReleaseMonth] = useState("01")
-  const [filmReleaseDay, setFilmReleaseDay] = useState("01")
+  if (props.type === "CHANGE") {
+    id = props.value.id;
+    player = "sdf"
+    name = props.value.filmName;
+    logo = props.value.imgPath;
+    info = props.value.filmInformation;
+    cost = props.value.filmCost;
+    profit = props.value.filmProfit
+    premium = props.value.premiumStatus;
+    blocked = props.value.blockToWatch;
+    let date = new Date(props.value.filmReleaseDate);
+    day = date.getDate()
+    month = date.getMonth() + 1
+    year = date.getFullYear()
+
+    let a = props.value.actors.slice();
+    let b = props.value.genres.slice();
+    let c = props.value.countries.slice();
+
+    for (let i = 0; i < a.length; i++) {
+      if (a.length > 0) {
+        actors1.push(a[i].user)
+      }
+    }
+    for (let i = 0; i < b.length; i++) {
+      if (b.length > 0) {
+        genres1.push(b[i].genre)
+      }
+    }
+    for (let i = 0; i < c.length; i++) {
+      if (c.length > 0) {
+        countries1.push(c[i].country)
+      }
+    }
+    if(props.value.userId){
+      producer1 = props.value.userId.id + "#" + props.value.userId.name
+    }
+  }
+
+
+  const [filmId, setFilmId] = useState(id)
+  const [filmName, setFilmName] = useState(name)
+  const [filmLogo, setFilmLogo] = useState(logo)
+  const [filmPlayer, setFilmPlayer] = useState(player)
+  const [filmInfo, setFilmInfo] = useState(info)
+  const [filmCost, setFilmCost] = useState(cost)
+  const [filmProfit, setFilmProfit] = useState(profit)
+  const [filmReleaseYear, setFilmReleaseYear] = useState(year)
+  const [filmReleaseMonth, setFilmReleaseMonth] = useState(month)
+  const [filmReleaseDay, setFilmReleaseDay] = useState(day)
   const [filmProducer, setFilmProducer] = useState("")
   const [filmProducerNotPicked, setFilmProducerNotPicked] = useState({ value: [], download: false })
   const [filmActors, setFilmActors] = useState({ value: [] })
-  const [filmActorsNotPicked, setFilmActorsNotPicked] = useState({ value: ["Саша", "Маня", "Петя", "Коля"] })
+  const [filmActorsNotPicked, setFilmActorsNotPicked] = useState({ value: [""] })
   const [filmCountries, setFilmCountries] = useState({ value: [] })
   const [filmCountriesNotPicked, setFilmCountriesNotPicked] = useState({ value: [""], download: false })
   const [filmGenres, setFilmGenres] = useState({ value: [] })
   const [filmGenresNotPicked, setFilmGenresNotPicked] = useState({ value: [""], download: false })
-  const [filmBlocked, setFilmBlocked] = useState(false)
-  const [filmPremium, setFilmPremium] = useState(false)
+  const [filmBlocked, setFilmBlocked] = useState(blocked)
+  const [filmPremium, setFilmPremium] = useState(premium)
+
+  let days = []
+
+  for (let i = 1; i < 32; i++) {
+    days.push(i);
+  }
 
   if (filmProducerNotPicked.download === false) {
     let filmsArray = []
@@ -31,12 +94,27 @@ const AddFilm = (props) => {
       film.map(function (entity) {
         filmsArray.push(entity);
       });
-      setFilmActorsNotPicked({ value: filmsArray })
-      setFilmProducerNotPicked({ value: filmsArray, download: true })
-      setFilmProducer(filmsArray[0].id + "#" + filmsArray[0].name)
-    });
+      setFilmActors({ value: actors1 })
 
+      let copy = filmsArray.slice();
+      for (let i = 0; i < actors1.length; i++) {
+        for (let j = 0; j < copy.length; j++) {
+          if (actors1[i].name === copy[j].name) {
+            copy.splice(j, 1)
+          }
+        }
+      }
+      setFilmActorsNotPicked({ value: copy.slice() })
+      setFilmProducerNotPicked({ value: filmsArray, download: true })
+      if (producer1){
+        setFilmProducer(producer1)
+      } else{
+        setFilmProducer(filmsArray[0].id + "#" + filmsArray[0].name)
+      }
+    });
   }
+
+
 
   if (filmCountriesNotPicked.download === false) {
     let filmsArray = []
@@ -44,7 +122,19 @@ const AddFilm = (props) => {
       film.map(function (entity) {
         filmsArray.push(entity);
       });
-      setFilmCountriesNotPicked({ value: filmsArray, download: true })
+      let copy = filmsArray.slice();
+      if (countries1.length > 0) {
+        setFilmCountries({ value: countries1 })
+      }
+      for (let i = 0; i < countries1.length; i++) {
+        for (let j = 0; j < copy.length; j++) {
+          if (countries1[i].name === copy[j].name) {
+            copy.splice(j, 1)
+          }
+        }
+      }
+
+      setFilmCountriesNotPicked({ value: copy, download: true })
     });
 
   }
@@ -55,7 +145,20 @@ const AddFilm = (props) => {
       film.map(function (entity) {
         filmsArray.push(entity);
       });
-      setFilmGenresNotPicked({ value: filmsArray, download: true })
+
+      if (genres1.length > 0) {
+        setFilmGenres({ value: genres1 })
+      }
+      let copy = filmsArray.slice();
+    
+      for (let i = 0; i < genres1.length; i++) {
+        for (let j = 0; j < copy.length; j++) {
+          if (genres1[i].genreName === copy[j].genreName) {
+            copy.splice(j, 1)
+          }
+        }
+      }
+      setFilmGenresNotPicked({ value: copy, download: true })
     });
 
   }
@@ -101,52 +204,54 @@ const AddFilm = (props) => {
   let genres = []
   let countries = []
 
-  for(let i = 0; i < filmActors.value.length;i++){
+  for (let i = 0; i < filmActors.value.length; i++) {
     let user = {}
     actors.push(
-      user = { user: filmActors.value[i]}
-      )
+      user = { user: filmActors.value[i] }
+    )
   }
 
-  for(let i = 0; i < filmCountries.value.length;i++){
+  for (let i = 0; i < filmCountries.value.length; i++) {
     let country = {}
     countries.push(
-      country = { country: filmCountries.value[i]}
-      )
+      country = { country: filmCountries.value[i] }
+    )
   }
 
-  for(let i = 0; i < filmGenres.value.length;i++){
+  for (let i = 0; i < filmGenres.value.length; i++) {
     let genre = {}
     genres.push(
-      genre = { genre: filmGenres.value[i]}
-      )
+      genre = { genre: filmGenres.value[i] }
+    )
   }
 
+
+
   let film = {
-    id:filmId,
+    id : filmId,
     filmName: filmName,
     userId: {
-      id:parseInt(filmProducer.split("#")[0]),
-      name:filmProducer.split("#")[1]
+      id: parseInt(filmProducer.split("#")[0]),
+      name: filmProducer.split("#")[1]
     },
     filmInformation: filmInfo,
-    filmReleaseDate:filmReleaseDay + "." + filmReleaseMonth + "." + filmReleaseYear,
+    filmReleaseDate: filmReleaseDay + "." + filmReleaseMonth + "." + filmReleaseYear,
     filmRaiting: 0,
     imgPath: filmLogo,
     filmProfit: filmProfit,
     filmCost: filmCost,
-    blockToWatch : filmBlocked,
-    premiumStatus : filmPremium,
-    actors : actors,
-    countries : countries,
-    genres : genres
-
+    blockToWatch: filmBlocked,
+    premiumStatus: filmPremium,
+    actors: actors,
+    countries: countries,
+    genres: genres
   }
-
   const clck = (e) => {
-    //props.onClick(film)
-    //send("http://localhost:8080/films/add",film);
-    console.log(JSON.stringify(film))
+    if(props.type === "CHANGE"){
+      UPDATE("http://localhost:8080/films/update",film);
+    } else {
+      send("http://localhost:8080/films/add",film);
+    }
     e.preventDefault();
   }
 
@@ -155,7 +260,7 @@ const AddFilm = (props) => {
   return <form>
     <div className="form-group">
       <label for="exampleFormControlInputId">Id фильма:</label>
-      <input type="text" className="form-control" id="exampleFormControlInput1" placeholder="" value={filmId} disabled/>
+      <input type="text" className="form-control" id="exampleFormControlInputId" placeholder="" value={filmId} disabled />
     </div>
     <div className="form-group">
       <label for="exampleFormControlInput1">Название фильма:</label>
@@ -174,24 +279,18 @@ const AddFilm = (props) => {
       <textarea className="form-control" id="exampleFormControlTextarea4" rows="3" value={filmInfo} onChange={(e) => setFilmInfo(e.target.value)}></textarea>
     </div>
     <div className="form-group">
-      <label for="exampleFormControlInput1">Стоимсоть фильма:</label>
-      <input type="number" className="form-control" id="exampleFormControlInput1" placeholder="Стоимость" value={filmCost} onChange={(e) => setFilmCost(e.target.value)} />
+      <label for="exampleFormControlInput5">Стоимсоть фильма:</label>
+      <input type="number" className="form-control" id="exampleFormControlInput5" placeholder="Стоимость" value={filmCost} onChange={(e) => setFilmCost(e.target.value)} />
     </div>
     <div className="form-group">
-      <label for="exampleFormControlInput1">Сборы фильма:</label>
-      <input type="number" className="form-control" id="exampleFormControlInput1" placeholder="Сборы" value={filmProfit} onChange={(e) => setFilmProfit(e.target.value)} />
+      <label for="exampleFormControlInput6">Сборы фильма:</label>
+      <input type="number" className="form-control" id="exampleFormControlInput6" placeholder="Сборы" value={filmProfit} onChange={(e) => setFilmProfit(e.target.value)} />
     </div>
     <div className="form-group">
-      <label for="exampleFormControlSelect1">Дата выпуска</label>
-      <div id="exampleFormControlSelect1">
+      <label for="exampleFormControlSelect2">Дата выпуска</label>
+      <div id="exampleFormControlSelect2">
         <label for="exampleFormControlSelectYear">Год</label>
-        <select className="form-control" value={filmReleaseYear} onChange={(e) => setFilmReleaseYear(e.target.value)} id="exampleFormControlSelectYear">
-          <option>1999</option>
-          <option>2000</option>
-          <option>3000</option>
-          <option>4000</option>
-          <option>5000</option>
-        </select>
+        <input type="text" className="form-control" id="exampleFormControlSelectYear" placeholder="year" value={filmReleaseYear} onChange={(e) => setFilmReleaseYear(e.target.value)} />
         <label for="exampleFormControlSelectMonth">Месяц</label>
         <select className="form-control" value={filmReleaseMonth} onChange={(e) => setFilmReleaseMonth(e.target.value)} id="exampleFormControlSelectMonth">
           <option>1</option>
@@ -199,52 +298,55 @@ const AddFilm = (props) => {
           <option>3</option>
           <option>4</option>
           <option>5</option>
+          <option>6</option>
+          <option>7</option>
+          <option>8</option>
+          <option>9</option>
+          <option>10</option>
+          <option>11</option>
+          <option>12</option>
         </select>
         <label for="exampleFormControlSelectDay">Число</label>
         <select className="form-control" value={filmReleaseDay} onChange={(e) => setFilmReleaseDay(e.target.value)} id="exampleFormControlSelectDay">
-          <option>12</option>
-          <option>13</option>
-          <option>14</option>
-          <option>15</option>
-          <option>16</option>
+          {days.map((item) => (<option key={item}>{item}</option>))}
         </select>
       </div>
     </div>
     <div className="form-group">
-      <label for="exampleFormControlSelect1">Режиссёр</label>
-      <select className="form-control" value={filmProducer} onChange={(e) => { setFilmProducer(e.target.value) }} id="exampleFormControlSelect2" data-live-search="true">
+      <label for="exampleFormControlSelect33">Режиссёр</label>
+      <select className="form-control" value={filmProducer} onChange={(e) => { setFilmProducer(e.target.value) }} id="exampleFormControlSelect33" data-live-search="true">
         {filmProducerNotPicked.value.map((item, i) => (<option key={i}>{item.id}{"#"}{item.name}</option>))}
       </select>
     </div>
     <div className="form-group">
-      <label for="exampleFormControlSelect2">Актёры</label>
+      <label for="exampleFormControlSelect44">Актёры</label>
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr" }}>
-        <select multiple={true} className="form-control" id="exampleFormControlSelect2" data-live-search="true">
+        <select multiple={true} className="form-control" id="exampleFormControlSelect44" data-live-search="true">
           {filmActorsNotPicked.value.map((item, i) => (<option key={i} onClick={() => { deleteItem2(i) }}>{item.name}</option>))}
         </select>
-        <select multiple={true} className="form-control" id="exampleFormControlSelect2" data-live-search="true">
+        <select multiple={true} className="form-control" id="exampleFormControlSelect45" data-live-search="true">
           {filmActors.value.map((item, i) => (<option key={i} onClick={() => { deleteItem(i) }}>{item.name}</option>))}
         </select>
       </div>
     </div>
     <div className="form-group">
-      <label for="exampleFormControlSelect2">Страны</label>
+      <label for="exampleFormControlSelect55">Страны</label>
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr" }}>
-        <select multiple className="form-control" id="exampleFormControlSelect2">
+        <select multiple className="form-control" id="exampleFormControlSelect55">
           {filmCountriesNotPicked.value.map((item, i) => (<option key={i} onClick={() => { deleteItem3(i) }}>{item.name}</option>))}
         </select>
-        <select multiple className="form-control" id="exampleFormControlSelect2">
+        <select multiple className="form-control" id="exampleFormControlSelect56">
           {filmCountries.value.map((item, i) => (<option key={i} onClick={() => { deleteItem4(i) }}>{item.name}</option>))}
         </select>
       </div>
     </div>
     <div className="form-group">
-      <label for="exampleFormControlSelect2">Жанры</label>
+      <label for="exampleFormControlSelect66">Жанры</label>
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr" }}>
-        <select multiple className="form-control" id="exampleFormControlSelect2">
+        <select multiple className="form-control" id="exampleFormControlSelect66">
           {filmGenresNotPicked.value.map((item, i) => (<option key={i} onClick={() => { deleteItem5(i) }}>{item.genreName}</option>))}
         </select>
-        <select multiple className="form-control" id="exampleFormControlSelect2">
+        <select multiple className="form-control" id="exampleFormControlSelect67">
           {filmGenres.value.map((item, i) => (<option key={i} onClick={() => { deleteItem6(i) }}>{item.genreName}</option>))}
         </select>
       </div>
@@ -256,7 +358,7 @@ const AddFilm = (props) => {
       <input type="checkbox" className="form-check-input" id="exampleCheck2" checked={filmPremium} onChange={() => setFilmPremium(!filmPremium)} />
       <label className="form-check-label" for="exampleCheck2">Доступ по подписке</label>
     </div>
-    <button type="submit" className="btn btn-primary" onClick={clck}>Добавить</button>
+    <button type="submit" className="btn btn-primary" onClick={clck}>{props.btn}</button>
   </form>
 }
 
