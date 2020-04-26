@@ -3,14 +3,15 @@ package com.diplom.services;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.diplom.controllers.EntryModelParamsFilmByParametr;
+import com.diplom.dao.ActorDAOImpl;
+import com.diplom.dao.FilmCountryDaoImpl;
 import com.diplom.dao.FilmDao;
+import com.diplom.dao.FilmGenreDaoImpl;
 import com.diplom.entity.Film;
 import com.diplom.entity.dto.FilmDto;
 import com.diplom.entity.dto.FilmImgDto;
@@ -21,6 +22,15 @@ public class FilmServiceImpl extends AbstractGenericService<Film> implements Fil
 	@Autowired
 	private FilmDao dao;
 
+	@Autowired
+	private ActorDAOImpl actorDao;
+	
+	@Autowired
+	private FilmCountryDaoImpl countryDao;
+	
+	@Autowired
+	private FilmGenreDaoImpl genreDao;
+	
 	@Override
 	public void add(Film object) {
 		object.getActors().stream().forEach(value -> value.setFilm(object));
@@ -29,6 +39,32 @@ public class FilmServiceImpl extends AbstractGenericService<Film> implements Fil
 		dao.add(entityManager, object);
 	}
 
+	
+	@Transactional
+	@Override
+	public void update(Film object) {
+		object.getActors().stream().forEach(value -> value.setFilm(object));
+		object.getGenres().stream().forEach(value -> value.setFilm(object));
+		object.getCountries().stream().forEach(value -> value.setFilm(object));
+	
+		deleteReference(object);
+		dao.update(entityManager, object);
+	}
+	
+	
+	@Transactional
+	@Override
+	public void delete(Film object) {
+		deleteReference(object);
+		dao.delete(entityManager, object);
+	}
+	
+	private void deleteReference(Film film) {
+		actorDao.getByEntity(entityManager, film).stream().forEach(value -> actorDao.delete(entityManager, value));
+		countryDao.getByEntity(entityManager, film).stream().forEach(value -> countryDao.delete(entityManager, value));
+		genreDao.getByEntity(entityManager, film).stream().forEach(value -> genreDao.delete(entityManager, value));		
+	}
+	
 	@Override
 	public FilmDto findByName(String name) {
 		return new MapperService<Film, FilmDto>(Film.class, FilmDto.class).toDto(dao.findByName(entityManager, name));

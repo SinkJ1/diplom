@@ -1,6 +1,5 @@
 package com.diplom.controllers;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.text.ParseException;
@@ -16,6 +15,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -28,9 +28,9 @@ import com.diplom.entity.dto.FilmImgDto;
 import com.diplom.services.FilmServiceImpl;
 import com.diplom.services.MapperService;
 
-
 @RestController
-@CrossOrigin(origins = "http://localhost:3000", methods = {RequestMethod.GET,RequestMethod.POST,RequestMethod.DELETE,RequestMethod.PUT})
+@CrossOrigin(origins = "http://localhost:3000", methods = { RequestMethod.GET, RequestMethod.POST, RequestMethod.DELETE,
+		RequestMethod.PUT })
 @RequestMapping(value = "/films")
 public class FilmController extends AbstractController<Film> {
 
@@ -51,47 +51,52 @@ public class FilmController extends AbstractController<Film> {
 	public List<Date> getAllYearsFilms() {
 		return filmService.getAll().stream().map(year -> year.getFilmReleaseDate()).collect(Collectors.toList());
 	}
-	
+
 	@GetMapping(value = "/filmByParametr")
-	public List<FilmDto> getFilmByParametr(EntryModelParamsFilmByParametr parametrs){	
+	public List<FilmDto> getFilmByParametr(EntryModelParamsFilmByParametr parametrs) {
 		return filmService.getFilmsByParametr(parametrs);
 	}
 
 	@Transactional
-	@PostMapping(value = "/add",consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@PostMapping(value = "/add", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseStatus(code = HttpStatus.OK)
 	public void Add(@RequestBody FilmDto film) {
-		filmService.add(new MapperService<Film,FilmDto>(Film.class, FilmDto.class).toEntity(film));
+		filmService.add(new MapperService<Film, FilmDto>(Film.class, FilmDto.class).toEntity(film));
 	}
-	
-	@DeleteMapping(value = "/delete",consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+
+	@DeleteMapping(value = "/delete", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseStatus(code = HttpStatus.OK)
 	public void delete(@RequestBody FilmDto film) {
-		filmService.delete(new MapperService<Film,FilmDto>(Film.class, FilmDto.class).toEntity(film));
+		filmService.delete(new MapperService<Film, FilmDto>(Film.class, FilmDto.class).toEntity(film));
 	}
-	
-	@GetMapping(value = "/commingsFilms/{date}")	
+
+	@PutMapping(value = "/update", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@ResponseStatus(code = HttpStatus.OK)
+	public void update(@RequestBody FilmDto film) {
+		filmService.update(new MapperService<Film, FilmDto>(Film.class, FilmDto.class).toEntity(film));
+	}
+
+	@GetMapping(value = "/commingsFilms/{date}")
 	public List<FilmDto> getCommingsFilms(@PathVariable("date") String date) throws ParseException {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
 		return filmService.getCommingSonFilms(sdf.parse(date));
 	}
-	
+
 	@GetMapping(value = "/shortName/{name}")
-	public List<FilmDto> getFilmsByShortName(@PathVariable("name") String name){
+	public List<FilmDto> getFilmsByShortName(@PathVariable("name") String name) {
 		return filmService.findByShortName(name);
 	}
-	
+
 	@GetMapping(value = "/filmImg")
-	public List<FilmImgDto> getImgFilms(){
+	public List<FilmImgDto> getImgFilms() {
 		return filmService.getLastXFilms(15);
 	}
 
-	
 	@GetMapping(value = "/year/{year}")
 	public List<FilmDto> getFilmsByYear(@PathVariable("year") int year) {
 		return filmService.findFilmByYear(year);
 	}
-	
+
 	@GetMapping(value = "/all")
 	public List<FilmDto> getAllDto() {
 		return filmService.getAllDto(filmService.getAll());

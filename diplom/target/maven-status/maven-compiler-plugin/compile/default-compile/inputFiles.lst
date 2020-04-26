@@ -24,6 +24,7 @@ e:\local repository\diplom work back\diplom\src\main\java\com\diplom\entity\dto\
 e:\local repository\diplom work back\diplom\src\main\java\com\diplom\entity\dto\CountryDto.java
 e:\local repository\diplom work back\diplom\src\main\java\com\diplom\entity\User.java
 e:\local repository\diplom work back\diplom\src\main\java\com\diplom\Program.java
+e:\local repository\diplom work back\diplom\src\main\java\com\diplom\dao\FilmGenreDaoImpl.java
 e:\local repository\diplom work back\diplom\src\main\java\com\diplom\entity\dto\FilmTestDto.java
 e:\local repository\diplom work back\diplom\src\main\java\com\diplom\controllers\FilmController.java
 e:\local repository\diplom work back\diplom\src\main\java\com\diplom\services\CountryService.java
@@ -35,6 +36,7 @@ e:\local repository\diplom work back\diplom\src\main\java\com\diplom\services\Us
 e:\local repository\diplom work back\diplom\src\main\java\com\diplom\dao\ActorDAOImpl.java
 e:\local repository\diplom work back\diplom\src\main\java\com\diplom\entity\dto\FilmGenreDtoFilm.java
 e:\local repository\diplom work back\diplom\src\main\java\com\diplom\entity\dto\FilmGenreDtoGenre.java
+e:\local repository\diplom work back\diplom\src\main\java\com\diplom\dao\FilmCountryDaoImpl.java
 e:\local repository\diplom work back\diplom\src\main\java\com\diplom\services\UserService.java
 e:\local repository\diplom work back\diplom\src\main\java\com\diplom\controllers\EntryModelParamsFilmByParametr.java
 e:\local repository\diplom work back\diplom\src\main\java\com\diplom\entity\dto\FilmCountryDto.java
@@ -45,6 +47,7 @@ e:\local repository\diplom work back\diplom\src\main\java\com\diplom\entity\Coun
 e:\local repository\diplom work back\diplom\src\main\java\com\diplom\dao\FilmDao.java
 e:\local repository\diplom work back\diplom\src\main\java\com\diplom\services\UserServiceImpl.java
 e:\local repository\diplom work back\diplom\src\main\java\com\diplom\dao\GenericDao.java
+e:\local repository\diplom work back\diplom\src\main\java\com\diplom\dao\IntermediateEntityDao.java
 e:\local repository\diplom work back\diplom\src\main\java\com\diplom\dao\GenreDaoImpl.java
 e:\local repository\diplom work back\diplom\src\main\java\com\diplom\entity\Comment.java
 e:\local repository\diplom work back\diplom\src\main\java\com\diplom\dao\CountryDao.java
