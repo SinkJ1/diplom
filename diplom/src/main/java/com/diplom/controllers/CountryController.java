@@ -6,10 +6,17 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.diplom.entity.Country;
@@ -18,10 +25,11 @@ import com.diplom.entity.dto.CountryDtoFilms;
 import com.diplom.services.CountryService;
 import com.diplom.services.MapperService;
 
-@CrossOrigin // (origins = { "http://localhost:8080", "http://localhost:3000" })
+@CrossOrigin ( methods = { RequestMethod.GET, RequestMethod.POST, RequestMethod.DELETE,
+		RequestMethod.PUT })
 @RestController
 @RequestMapping(value = "/countries")
-public class CountryController {
+public class CountryController extends AbstractController<Country>{
 
 	@Autowired
 	CountryService countryService;
@@ -35,7 +43,19 @@ public class CountryController {
 
 		return dtoList;
 	}
+	
+	@PutMapping(value = "/update", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@ResponseStatus(code = HttpStatus.OK)
+	public void update(@RequestBody CountryDto film) {
+		countryService.update(new MapperService<Country, CountryDto>(Country.class, CountryDto.class).toEntity(film));
+	}
 
+	@DeleteMapping(value = "/delete", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@ResponseStatus(code = HttpStatus.OK)
+	public void delete(@RequestBody CountryDto film) {
+		countryService.delete(new MapperService<Country, CountryDto>(Country.class, CountryDto.class).toEntity(film));
+	}
+	
 	private List<CountryDto> sortedCountryByName(List<CountryDto> dtoList) {
 		dtoList = dtoList
 				.stream()
@@ -46,7 +66,7 @@ public class CountryController {
 	}
 
 	@GetMapping(value = "/all")
-	public List<CountryDto> getAll() {
+	public List<CountryDto> getAllDto() {
 		return sortedCountryByName(mapToDto());
 	}
 

@@ -17,20 +17,14 @@ public abstract class AbstractController<T> {
 	@Autowired
 	private GenericService<T> genericService;
 
-	@PostMapping
-	public String add(@RequestBody T entity) {
-		return new String();
-	}
-
-	@GetMapping
-	public List<T> getAll() {
-		return genericService.getAll();
+	@PostMapping(value="/add")
+	public void add(@RequestBody T entity) {
+		genericService.add(entity);
 	}
 
 	@GetMapping(value = "{/id}")
-	public T getById(@PathVariable("id") int id){
+	public T getById(@PathVariable("id") int id) {
 		return (genericService.findById(id));
 	}
-
 
 }

@@ -22,7 +22,7 @@ public class Genre implements Serializable {
 	private Integer id;
 
 	@Column(name = "genre_name")
-	private String genreName;
+	private String name;
 
 	@OneToMany(mappedBy = "genre", fetch = FetchType.LAZY)
 	private Set<FilmsGenre> films;
@@ -31,9 +31,9 @@ public class Genre implements Serializable {
 
 	}
 
-	public Genre(Integer id, String genreName, Set<FilmsGenre> films) {
+	public Genre(Integer id, String name, Set<FilmsGenre> films) {
 		this.id = id;
-		this.genreName = genreName;
+		this.name = name;
 		this.films = films;
 	}
 
@@ -45,12 +45,12 @@ public class Genre implements Serializable {
 		this.id = id;
 	}
 
-	public String getGenreName() {
-		return genreName;
+	public String getName() {
+		return name;
 	}
 
-	public void setGenreName(String genreName) {
-		this.genreName = genreName;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public Set<FilmsGenre> getFilms() {
@@ -63,7 +63,7 @@ public class Genre implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Genre [id=" + id + ", genreName=" + genreName + ", films=" + films + "]";
+		return "Genre [id=" + id + ", name=" + name + ", films=" + films + "]";
 	}
 
 }

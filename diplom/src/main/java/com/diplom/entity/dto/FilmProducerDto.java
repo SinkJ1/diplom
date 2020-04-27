@@ -149,7 +149,7 @@ public class FilmProducerDto {
 		this.premiumStatus = premiumStatus;
 	}
 
-	public String isFilmPlayer() {
+	public String getFilmPlayer() {
 		return filmPlayer;
 	}
 

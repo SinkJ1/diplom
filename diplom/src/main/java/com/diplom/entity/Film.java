@@ -195,7 +195,7 @@ public class Film implements Serializable {
 		this.premiumStatus = premiumStatus;
 	}
 
-	public String isFilmPlayer() {
+	public String getFilmPlayer() {
 		return filmPlayer;
 	}
 
