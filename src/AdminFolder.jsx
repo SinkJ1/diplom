@@ -18,7 +18,7 @@ const AdminFolder = () => {
                         <Nav.Link eventKey="first">Работа с фильмами</Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                        <Nav.Link eventKey="second">Жанр</Nav.Link>
+                        <Nav.Link eventKey="second">Дополнительно</Nav.Link>
                     </Nav.Item>
                 </Nav>
             </Col>
@@ -47,8 +47,11 @@ const AdminFolder = () => {
                             activeKey={key}
                             onSelect={(k) => setKey(k)}
                         >
-                            <Tab eventKey="add" title="Жанры">
-                                <GenreWork/>
+                            <Tab eventKey="add" title="Дополнительно">
+                                Жанр
+                                <GenreWork value={`http://localhost:8080/genres/`}/>
+                                Страна
+                                <GenreWork value={`http://localhost:8080/genres/`}/>
                             </Tab>
                         </Tabs>
                     </Tab.Pane>
