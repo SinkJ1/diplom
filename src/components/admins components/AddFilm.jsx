@@ -153,7 +153,7 @@ const AddFilm = (props) => {
     
       for (let i = 0; i < genres1.length; i++) {
         for (let j = 0; j < copy.length; j++) {
-          if (genres1[i].genreName === copy[j].genreName) {
+          if (genres1[i].name === copy[j].name) {
             copy.splice(j, 1)
           }
         }
@@ -344,10 +344,10 @@ const AddFilm = (props) => {
       <label for="exampleFormControlSelect66">Жанры</label>
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr" }}>
         <select multiple className="form-control" id="exampleFormControlSelect66">
-          {filmGenresNotPicked.value.map((item, i) => (<option key={i} onClick={() => { deleteItem5(i) }}>{item.genreName}</option>))}
+          {filmGenresNotPicked.value.map((item, i) => (<option key={i} onClick={() => { deleteItem5(i) }}>{item.name}</option>))}
         </select>
         <select multiple className="form-control" id="exampleFormControlSelect67">
-          {filmGenres.value.map((item, i) => (<option key={i} onClick={() => { deleteItem6(i) }}>{item.genreName}</option>))}
+          {filmGenres.value.map((item, i) => (<option key={i} onClick={() => { deleteItem6(i) }}>{item.name}</option>))}
         </select>
       </div>
     </div>

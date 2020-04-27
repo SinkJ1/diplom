@@ -19,6 +19,7 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.3.0",
     "react-scrollable-anchor": "^0.6.1",
+    "react-videoplayer": "^0.6.4",
     "redux": "^4.0.5"
   },
   "scripts": {

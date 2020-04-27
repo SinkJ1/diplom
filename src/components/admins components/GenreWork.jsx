@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../admin styles/genreWork.css"
 
-import { send, get, UPDATE } from "../services/DataLoader"
+import { send, get, UPDATE, DELETE } from "../services/DataLoader"
 
 const GenreWork = (props) => {
 
@@ -30,10 +30,11 @@ const GenreWork = (props) => {
     const change = () => {
         setVis("visible")
         setType("change")
-        setInputValue(genres.value[selected].genreName)
+        setInputValue(genres.value[selected].name)
     }
 
     const remove = () => {
+        DELETE(props.del,genres.value[selected])
         setGenres({value:genres.value.filter((item, i) => i !== selected)})
     }
 
@@ -41,13 +42,17 @@ const GenreWork = (props) => {
         if(type === "add"){
 
             let newGenre = {
-                genreName: inputValue
+                name: inputValue
             }
+            send(props.add,newGenre);
+            //console.log(JSON.stringify(newGenre))
             setGenres({ value: genres.value.concat(newGenre)})
+           
         } else if(type === "change"){
             let arr = genres.value.slice()
-            arr[selected].genreName = inputValue
+            arr[selected].name = inputValue
             setGenres({value:arr.slice()})
+            UPDATE(props.put,arr[selected])
         }
             setVis("hidden")
             setInputValue("")
@@ -70,7 +75,7 @@ const GenreWork = (props) => {
             <div className="form-group">
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr" }}>
                     <select multiple={true} className="form-control" id="exampleFormControlSelect44" data-live-search="true">
-                        {genres.value.map((item, i) => (<option key={i} onClick={()=>setSelected(i)}>{item.genreName}</option>))}
+                        {genres.value.map((item, i) => (<option key={i} onClick={()=>setSelected(i)}>{item.name}</option>))}
                     </select>
                     <div style={{ position: "absolute", visibility: vis }}>
                         <input value={inputValue} onChange={(e) => setInputValue(e.target.value)}  />

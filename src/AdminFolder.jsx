@@ -49,9 +49,17 @@ const AdminFolder = () => {
                         >
                             <Tab eventKey="add" title="Дополнительно">
                                 Жанр
-                                <GenreWork value={`http://localhost:8080/genres/`}/>
+                                <GenreWork value={`http://localhost:8080/genres/`}
+                                add={`http://localhost:8080/genres/add`}
+                                put={`http://localhost:8080/genres/update`}
+                                del={`http://localhost:8080/genres/delete`}
+                                entityName={`genre`}/>
                                 Страна
-                                <GenreWork value={`http://localhost:8080/genres/`}/>
+                                <GenreWork value={`http://localhost:8080/countries/all`}
+                                add={`http://localhost:8080/countries/add`}
+                                put={`http://localhost:8080/countries/update`}
+                                del={`http://localhost:8080/countries/delete`}
+                                entityName={`country`}/>
                             </Tab>
                         </Tabs>
                     </Tab.Pane>

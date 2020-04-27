@@ -17,7 +17,9 @@ import Test from './components/Test';
 import reducer from './components/services/Test3';
 import FilmByGenre from './FilmByGenre';
 import AdminFolder from './AdminFolder';
-//import ReactPlayer from 'react-player'
+import ReactPlayer from 'react-player';
+import VideoPlayer from 'react-videoplayer'
+import 'react-videoplayer/lib/index.css'
 
 /*
 <ReactPlayer
@@ -49,28 +51,7 @@ const adminPage = () => {
 
 function App() {
   
-  const [state, setState] = useState(0);
-  let url = 'http://localhost:8080/films/test'
-  const data = "example";
 
-  const kol = () => {
-    setState(state + 1);
-    (async () => {try {
-      const response = await fetch(url, {
-        method: 'POST', // или 'PUT'
-        body: JSON.stringify(data), // данные могут быть 'строкой' или {объектом}!
-        headers: {
-          'Accept': 'application/json, text/plain, */*',
-          'Content-Type': 'application/json'
-        }
-      });
-      const json = await response.json();
-      console.log('Успех:', JSON.stringify(json));
-    } catch (error) {
-      console.error('Ошибка:', error);
-    }
-  })();
-  }
   return (<>
     <Router>
       <div id="headerAnchor">
