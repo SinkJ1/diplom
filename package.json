@@ -11,16 +11,20 @@
     "bootstrap": "^4.4.1",
     "bootstrap-select": "^1.13.14",
     "jquery": "^3.5.0",
+    "qier-player": "^1.2.9",
     "react": "^16.12.0",
     "react-bootstrap": "^1.0.0",
     "react-dom": "^16.12.0",
+    "react-hot-loader": "^4.12.20",
     "react-player": "^1.14.2",
+    "react-plyr": "^2.2.0",
     "react-redux": "^7.1.3",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.3.0",
     "react-scrollable-anchor": "^0.6.1",
     "react-videoplayer": "^0.6.4",
-    "redux": "^4.0.5"
+    "redux": "^4.0.5",
+    "screenfull-react": "0.0.4"
   },
   "scripts": {
     "start": "react-scripts start",

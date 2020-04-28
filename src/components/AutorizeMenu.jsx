@@ -4,6 +4,7 @@ import "./styles/header.css"
 import NotAutorizeUserButtonHeader from "./NotAuoriziedUserButtonHeader"
 import AutorizedUserButton from "./AutoriziedUserButtonHeader"
 import Login from "./services/Login"
+import Registration from "./services/Registration"
 
 let window=''
 const Menu = (props) => {
@@ -11,7 +12,9 @@ const Menu = (props) => {
 
     if(props.value === "Autorize"){
         window = Login()
-    }else{
+    }else if(props.value === "Registration"){
+        window = Registration()
+    } else {
         window = ''
     }
 

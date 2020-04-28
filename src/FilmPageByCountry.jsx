@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import Page from "./components/Page";
 
 import { get } from "./components/services/DataLoader";
@@ -20,11 +20,14 @@ const FilmPageByCountry = (props) => {
 
     const [films, setFilms] = useState()
     
-    if(name !== props.value){
-        setName(props.value)
-    }
+    
 
     if(!films){
+        FilmDownload(`http://localhost:8080/countries/${props.value}`)
+    }
+
+    if(name !== props.value){
+        setName(props.value)
         FilmDownload(`http://localhost:8080/countries/${props.value}`)
     }
 

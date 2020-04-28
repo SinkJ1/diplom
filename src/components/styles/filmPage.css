@@ -29,6 +29,8 @@
 .item_film_player {
   border-bottom: 1px solid black;
   grid-area: player;
+  align-self: center;
+  text-align: center;
 }
 
 .item_film_comment {

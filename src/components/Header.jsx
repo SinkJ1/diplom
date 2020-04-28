@@ -23,22 +23,8 @@ const Header = (props) => {
 
     }
 
-     const Download = (url) => {
-
-        let films = [];
-
-        let film = DataLoader.getData(url)
-        if (film) {
-            film.entity.map(function (entity) {
-                films.push(entity.genreName);
-            });
-            return films;
-        }
-
-    }
-
     let countriesFromServer = FilmDownload('http://localhost:8080/countries/all')
-    let genresFromServer = Download('http://localhost:8080/genres')
+    let genresFromServer = FilmDownload('http://localhost:8080/genres')
     let data = <Spinner animation="border" role="status">
     <span className="sr-only">Loading...</span>
   </Spinner>

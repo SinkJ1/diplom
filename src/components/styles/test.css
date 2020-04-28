@@ -1,0 +1,80 @@
+.testBody{
+    height: 500px;
+    width :800px;
+    display: grid;
+    background-color: black;
+    grid-template-rows: auto auto auto;
+}
+
+.startStop{
+    grid-area: startStop;
+    align-items: center;
+    text-align: center;
+}
+
+.previus{
+    grid-area: previus;
+    align-items: center;
+    text-align: center;
+}
+
+.next{
+    grid-area: next;
+    align-items: center;
+    text-align: center;
+}
+
+.volume{
+    grid-area: volume;
+    align-items: center;
+    text-align: center;
+}
+
+.fsc{
+    grid-area: fsc;
+    align-items: center;
+    text-align: center;
+}
+
+.volume:hover .volumeContent{
+    visibility: visible;
+}
+
+.variants {
+    margin-top: -53px;
+    margin-left: -6px;
+    display: grid;
+    align-self: center;
+    text-align: center;
+    position: absolute;
+    visibility: hidden;
+}
+
+.quality:hover .variants{
+    visibility: visible;
+}
+
+.volumeContent {
+    margin-left: 1px;
+    margin-top: -70px;
+    transform: rotate(270deg);
+    position: absolute;
+    visibility: hidden;
+}
+
+.quality{
+    grid-area: quality;
+    align-items: center;
+    text-align: center;
+}
+
+.controlPlayerButtons{
+    display: grid;
+    grid-template-columns: 60px 60px auto 60px 60px 60px 60px;
+    grid-template-areas: "startStop previus progress next volume quality fsc";
+}
+
+.serialMenu{
+    display: grid;
+    
+}

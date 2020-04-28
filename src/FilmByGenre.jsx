@@ -1,5 +1,4 @@
-import React,{useState} from "react"
-
+import React, { useState } from "react"
 import Page from "./components/Page";
 
 import { get } from "./components/services/DataLoader";
@@ -16,19 +15,22 @@ const FilmByGenre = (props) => {
             setFilms(filmsArray)
         });
     }
-    
+
 
 
     const [films, setFilms] = useState()
-    if(name !== props.value){
-        setName(props.value)
-    }
 
-    if(!films){
+
+    if (!films) {
         FilmDownload(`http://localhost:8080/genres/${props.value}`)
     }
 
-    return (<><div style={{ fontSize: "40px", position: "absolute", marginTop: "5%", marginLeft: "40%" }}>Фильмы снятые в жанре {name.toLowerCase()}</div><Page value={films} /></>);
+    if (name !== props.value) {
+        setName(props.value)
+        FilmDownload(`http://localhost:8080/countries/${props.value}`)
+    }
+
+    return (<><div style={{ fontSize: "40px", position: "absolute", marginTop: "5%", marginLeft: "40%" }}>Фильмы снятые в жанре {name}</div><Page value={films} /></>);
 
 }
 

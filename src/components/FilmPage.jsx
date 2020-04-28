@@ -1,10 +1,12 @@
-import React, { useState } from "react"
+import React, { useState,useEffect } from "react"
 import "./styles/filmPage.css"
 import DataLoader from "./services/DataLoader";
+import  { get } from "./services/DataLoader";
 import { Link } from "react-router-dom";
 import Spinner from 'react-bootstrap/Spinner'
 
 import reducer from './services/Test3';
+import Player from "./Player";
 
 const FilmDownload = (name) => {
    let film = DataLoader.getData(`http://localhost:8080/films/${name}`)
@@ -17,20 +19,28 @@ const FilmDownload = (name) => {
 
 
 const FilmPage = (props) => {
-
+   
+   
+   
    const [login, setLogin] = useState();
 
    const onLoginChange = (e) => {
-       setLogin(e.target.value);
+      setLogin(e.target.value);
    }
-
+   
    const submit = (e) => {
       e.preventDefault();
-  }
+   }
 
-   let film = FilmDownload(props.value);
    const [raitingState, setRaitingState] = useState(2.2)
+   const [film,setFilm] = useState();
 
+   const download = (name) => {
+      let films = []
+      let film = get(`http://localhost:8080/films/${name}`, (film1) => {
+          setFilm(film1)
+      });
+  }
    const raitingColor = () => {
       if (raitingState <= 1) {
          return '#C00101';
@@ -48,10 +58,15 @@ const FilmPage = (props) => {
    let data = <Spinner animation="border" role="status">
    <span className="sr-only">Loading...</span>
  </Spinner>;
+ if(!film){
+    download(props.value)
+ }
    if (film) {
+      if(film.filmName !== props.value){
+         download(props.value)
+      }
       let playerAndComment = ""
       { document.title = props.value }
-      console.log(reducer());
       if(new Date(film.filmReleaseDate).toLocaleDateString() > new Date().toLocaleDateString()){
          playerAndComment = <><div class="modal-dialog" role="document" style={{marginLeft:"-1%", tabIndex:"-1"}}>
          <div class="modal-content">
@@ -70,7 +85,7 @@ const FilmPage = (props) => {
          </div>
        </div></>
       } else{
-         playerAndComment = <><div className="item_film_player">player</div>
+         playerAndComment = <><div className="item_film_player"><div style={{marginLeft:"15%"}}><Player value={film.filmName}/></div></div>
       <div className="item_film_comment"><div className="commentBody"><div className="userImg">di</div></div></div></>
       }       
 

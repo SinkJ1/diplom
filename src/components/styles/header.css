@@ -48,7 +48,16 @@
     text-decoration: none;
     transition: 1s;
 }
-
+.findList123 {
+    position: absolute;
+    display: grid;
+    max-height: 500px;
+    height: auto;
+    width: 50%;
+    overflow: scroll;
+    grid-template-columns: auto;
+    z-index: 5;
+}
 .testBtn{
     cursor: pointer;
     outline: none;

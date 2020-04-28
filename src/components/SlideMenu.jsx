@@ -49,7 +49,7 @@ const Menu = () => {
     }
 
     return (<div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
-        <ol key="carousel-indicators" className="carousel-indicators">
+        <ol key="carousel-indicators" className="carousel-indicators" style={{zIndex:"2"}}>
             <li data-target="#carouselExampleIndicators" style={{backgroundColor:"gray"}} data-slide-to="0" className="active"></li>
             <li data-target="#carouselExampleIndicators" style={{backgroundColor:"gray"}} data-slide-to="1"></li>
             <li data-target="#carouselExampleIndicators" style={{backgroundColor:"gray"}} data-slide-to="2"></li>

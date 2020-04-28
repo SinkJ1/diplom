@@ -13,21 +13,9 @@ import FilmPageByCountry from './FilmPageByCountry';
 import NewsFilmsPage from './ComingSoonFilms';
 import BestsFilm from './BestsFilm';
 import "bootstrap/dist/css/bootstrap.css"
-import Test from './components/Test';
-import reducer from './components/services/Test3';
+import Player from './components/Player';
 import FilmByGenre from './FilmByGenre';
 import AdminFolder from './AdminFolder';
-import ReactPlayer from 'react-player';
-import VideoPlayer from 'react-videoplayer'
-import 'react-videoplayer/lib/index.css'
-
-/*
-<ReactPlayer
-url='E:\Torrents\qq\Криминальное.чтиво.Pulp.Fiction.1994.BDRip-HEVC.mkv'
-controls='true'
-width='900px'
-height='500px'
-/>*/
 
 const filmPage = (props) => {
   return (<FilmPage value={props.match.params.id} />);
@@ -67,7 +55,7 @@ function App() {
         <Route path="/bestsFilms" component={BestsFilm} />
         <Route path="/adminPage" component={adminPage} />
         <Route path="/filmsByGenre/:name" component={filmPageByGenre} />
-        <Route path="/test" component={Test} />
+        <Route path="/test" component={Player} />
         <Route component={NotFoundPage} />
       </Switch>
     </Router>
