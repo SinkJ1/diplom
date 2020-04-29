@@ -10,13 +10,15 @@ const AutorizedUserButtonWindow = () => {
         document.location.reload();
     }
 
+    const buttons = <></>
+
     return <>{localStorage.getItem("role") === "user" ?
-        <>  <Dropdown.Item as={Link} to="/" >Личный кабинет</Dropdown.Item>
+        <>  <Dropdown.Item as={Link} to="/user/tom" >Личный кабинет</Dropdown.Item>
             <Dropdown.Item as={Link} to="/">Продолжить</Dropdown.Item>
             <Dropdown.Item as={Link} to="/">Ожидаемое</Dropdown.Item>
             <Dropdown.Item as="button" onClick={exit}>Выход</Dropdown.Item></>
         :
-        <>  <Dropdown.Item as={Link} to="/" >Личный кабинет</Dropdown.Item>
+        <>  <Dropdown.Item as={Link} to="/user/tom" >Личный кабинет</Dropdown.Item>
             <Dropdown.Item as={Link} to="/adminPage">Панель администратора</Dropdown.Item>
             <Dropdown.Item as={Link} to="/">Продолжить</Dropdown.Item>
             <Dropdown.Item as={Link} to="/">Ожидаемое</Dropdown.Item>

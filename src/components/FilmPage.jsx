@@ -1,7 +1,7 @@
 import React, { useState,useEffect } from "react"
 import "./styles/filmPage.css"
 import DataLoader from "./services/DataLoader";
-import  { get } from "./services/DataLoader";
+import  { get, send } from "./services/DataLoader";
 import { Link } from "react-router-dom";
 import Spinner from 'react-bootstrap/Spinner'
 
@@ -29,6 +29,7 @@ const FilmPage = (props) => {
    }
    
    const submit = (e) => {
+     
       e.preventDefault();
    }
 
@@ -55,6 +56,16 @@ const FilmPage = (props) => {
       }
    }
 
+   let subs = {
+      eMail : login,
+      film : film
+   }
+
+   const subscribe = (e) =>{
+      send(`http://localhost:8080/subscribe/add`,subs)
+      e.preventDefault();
+   }
+
    let data = <Spinner animation="border" role="status">
    <span className="sr-only">Loading...</span>
  </Spinner>;
@@ -67,7 +78,7 @@ const FilmPage = (props) => {
       }
       let playerAndComment = ""
       { document.title = props.value }
-      if(new Date(film.filmReleaseDate).toLocaleDateString() > new Date().toLocaleDateString()){
+      if(new Date(film.filmReleaseDate).getTime() > new Date().getTime()){
          playerAndComment = <><div class="modal-dialog" role="document" style={{marginLeft:"-1%", tabIndex:"-1"}}>
          <div class="modal-content">
            <div class="modal-header">
@@ -79,12 +90,12 @@ const FilmPage = (props) => {
                  <label for="exampleInputEmail1">Адрес электроннгой почты</label>
                  <input type="email" class="form-control" id="exampleInputEmail1" value={login} onChange={onLoginChange}/>
                </div>
-               <button type="submit" class="btn btn-primary">Уведомить</button>
+               <button type="submit" class="btn btn-primary" onClick={(e)=> subscribe(e)}>Уведомить</button>
              </form>
            </div>
          </div>
        </div></>
-      } else{
+      } else {
          playerAndComment = <><div className="item_film_player"><div style={{marginLeft:"15%"}}><Player value={film.filmName}/></div></div>
       <div className="item_film_comment"><div className="commentBody"><div className="userImg">di</div></div></div></>
       }       
