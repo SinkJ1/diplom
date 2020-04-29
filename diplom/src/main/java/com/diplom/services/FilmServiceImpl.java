@@ -12,6 +12,8 @@ import com.diplom.dao.ActorDAOImpl;
 import com.diplom.dao.FilmCountryDaoImpl;
 import com.diplom.dao.FilmDao;
 import com.diplom.dao.FilmGenreDaoImpl;
+import com.diplom.dao.SenderDao;
+import com.diplom.dao.SubscriberDao;
 import com.diplom.entity.Film;
 import com.diplom.entity.dto.FilmDto;
 import com.diplom.entity.dto.FilmImgDto;
@@ -24,13 +26,19 @@ public class FilmServiceImpl extends AbstractGenericService<Film> implements Fil
 
 	@Autowired
 	private ActorDAOImpl actorDao;
-	
+
 	@Autowired
 	private FilmCountryDaoImpl countryDao;
-	
+
 	@Autowired
 	private FilmGenreDaoImpl genreDao;
-	
+
+	@Autowired
+	private SenderDao sender;
+
+	@Autowired
+	SubscriberDao subDao;
+
 	@Override
 	public void add(Film object) {
 		object.getActors().stream().forEach(value -> value.setFilm(object));
@@ -39,32 +47,34 @@ public class FilmServiceImpl extends AbstractGenericService<Film> implements Fil
 		dao.add(entityManager, object);
 	}
 
-	
 	@Transactional
 	@Override
 	public void update(Film object) {
 		object.getActors().stream().forEach(value -> value.setFilm(object));
 		object.getGenres().stream().forEach(value -> value.setFilm(object));
 		object.getCountries().stream().forEach(value -> value.setFilm(object));
-	
+
+		if (object.getFilmPlayer() != dao.findById(entityManager, object.getId()).getFilmPlayer()) {
+			subDao.getSubsByFilm(entityManager, object).stream().forEach(value -> Send("teext", value.geteMail()));
+		}
+
 		deleteReference(object);
 		dao.update(entityManager, object);
 	}
-	
-	
+
 	@Transactional
 	@Override
 	public void delete(Film object) {
 		deleteReference(object);
 		dao.delete(entityManager, object);
 	}
-	
+
 	private void deleteReference(Film film) {
 		actorDao.getByEntity(entityManager, film).stream().forEach(value -> actorDao.delete(entityManager, value));
 		countryDao.getByEntity(entityManager, film).stream().forEach(value -> countryDao.delete(entityManager, value));
-		genreDao.getByEntity(entityManager, film).stream().forEach(value -> genreDao.delete(entityManager, value));		
+		genreDao.getByEntity(entityManager, film).stream().forEach(value -> genreDao.delete(entityManager, value));
 	}
-	
+
 	@Override
 	public FilmDto findByName(String name) {
 		return new MapperService<Film, FilmDto>(Film.class, FilmDto.class).toDto(dao.findByName(entityManager, name));
@@ -137,6 +147,16 @@ public class FilmServiceImpl extends AbstractGenericService<Film> implements Fil
 	@Override
 	public List<FilmDto> findByShortName(String name) {
 		return getAllDto(dao.findByShortName(entityManager, name));
+	}
+
+	private void Send(String text, String recevier) {
+		try {
+			new MailService(sender.get(entityManager)).sendMail(recevier, text);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 	}
 
 }

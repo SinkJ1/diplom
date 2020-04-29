@@ -59,13 +59,17 @@ public class Film implements Serializable {
 	@OneToMany(mappedBy = "film", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private Set<FilmsGenre> genres;
 
+	@OneToMany(mappedBy = "film", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private Set<Subscriber> subs;
+
 	public Film() {
 
 	}
 
 	public Film(int id, String filmName, User userId, String filmInformation, Date filmReleaseDate, double filmRaiting,
 			String imgPath, double filmProfit, double filmCost, boolean blockToWatch, boolean premiumStatus,
-			String filmPlayer, Set<Actor> actors, Set<FilmCountry> countries, Set<FilmsGenre> genres) {
+			String filmPlayer, Set<Actor> actors, Set<FilmCountry> countries, Set<FilmsGenre> genres,
+			Set<Subscriber> subs) {
 		this.id = id;
 		this.filmName = filmName;
 		this.userId = userId;
@@ -81,6 +85,7 @@ public class Film implements Serializable {
 		this.actors = actors;
 		this.countries = countries;
 		this.genres = genres;
+		this.subs = subs;
 	}
 
 	public int getId() {
@@ -203,13 +208,21 @@ public class Film implements Serializable {
 		this.filmPlayer = filmPlayer;
 	}
 
+	public Set<Subscriber> getSubs() {
+		return subs;
+	}
+
+	public void setSubs(Set<Subscriber> subs) {
+		this.subs = subs;
+	}
+
 	@Override
 	public String toString() {
 		return "Film [id=" + id + ", filmName=" + filmName + ", userId=" + userId + ", filmInformation="
 				+ filmInformation + ", filmReleaseDate=" + filmReleaseDate + ", filmRaiting=" + filmRaiting
 				+ ", imgPath=" + imgPath + ", filmProfit=" + filmProfit + ", filmCost=" + filmCost + ", blockToWatch="
 				+ blockToWatch + ", premiumStatus=" + premiumStatus + ", filmPlayer=" + filmPlayer + ", actors="
-				+ actors + ", countries=" + countries + ", genres=" + genres + "]";
+				+ actors + ", countries=" + countries + ", genres=" + genres + ", subs=" + subs + "]";
 	}
 
 }

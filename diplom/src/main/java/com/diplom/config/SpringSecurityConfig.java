@@ -32,10 +32,10 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http.cors().and().authorizeRequests()
 				.antMatchers(HttpMethod.GET, "/users", "/users/**", "/films", "/films/**", "/countries/**",
-						"/countries", "/genres", "/genres/**")
+						"/countries", "/genres", "/genres/**", "/subscribe", "/subscribe/**")
 				.permitAll()
 				.antMatchers(HttpMethod.POST, "/users", "/users/**", "/films", "/films/**", "/countries/**",
-						"/countries", "/genres", "/genres/**")
+						"/countries", "/genres", "/genres/**","/subscribe", "/subscribe/**")
 				.permitAll()
 				.antMatchers(HttpMethod.DELETE, "/users", "/users/**", "/films", "/films/**", "/countries/**",
 						"/countries", "/genres", "/genres/**")

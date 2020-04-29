@@ -36,7 +36,7 @@ public class FilmController extends AbstractController<Film> {
 
 	@Autowired
 	FilmServiceImpl filmService;
-
+	
 	@GetMapping(value = "/{name}")
 	public FilmDto getUserByName(@PathVariable("name") String name) {
 		return filmService.findByName(name);
