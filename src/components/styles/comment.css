@@ -1,0 +1,29 @@
+.commentBodyComponent{
+    display: grid;
+    grid-template-rows: auto auto;
+}
+
+.commentText{
+    display: grid;
+    grid-template-rows: auto auto;
+}
+
+.imgCom{
+    grid-area: imgCom;
+    align-items: left;
+    align-self: left;
+    text-align: left;
+}
+
+.textCom{
+    grid-area: textCom;
+    display: grid;
+    grid-template-rows: 0.1fr auto;
+}
+
+.someComment{
+    margin-top:25px;
+    display: grid;
+    grid-template-columns: 1fr 6.3fr;
+    grid-template-areas: "imgCom textCom";
+}

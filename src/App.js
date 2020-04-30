@@ -16,6 +16,8 @@ import "bootstrap/dist/css/bootstrap.css"
 import Player from './components/Player';
 import FilmByGenre from './FilmByGenre';
 import AdminFolder from './AdminFolder';
+import Expected from './Expected';
+import Continue from './Continue';
 
 const filmPage = (props) => {
   return (<FilmPage value={props.match.params.id} />);
@@ -54,6 +56,8 @@ function App() {
         <Route path="/newsFilms" component={NewsFilmsPage} />
         <Route path="/bestsFilms" component={BestsFilm} />
         <Route path="/adminPage" component={adminPage} />
+        <Route path="/expected" component={Expected} />
+        <Route path="/continue" component={Continue} />
         <Route path="/filmsByGenre/:name" component={filmPageByGenre} />
         <Route path="/test" component={Player} />
         <Route component={NotFoundPage} />

@@ -14,14 +14,16 @@ const AutorizedUserButtonWindow = () => {
 
     return <>{localStorage.getItem("role") === "user" ?
         <>  <Dropdown.Item as={Link} to="/user/tom" >Личный кабинет</Dropdown.Item>
-            <Dropdown.Item as={Link} to="/">Продолжить</Dropdown.Item>
-            <Dropdown.Item as={Link} to="/">Ожидаемое</Dropdown.Item>
+            <Dropdown.Item as={Link} to="/continue">Продолжить</Dropdown.Item>
+            <Dropdown.Item as={Link} to="/expected">Ожидаемое</Dropdown.Item>
+            <Dropdown.Item as={Link} to="/expected">Редактировать профиль</Dropdown.Item>
             <Dropdown.Item as="button" onClick={exit}>Выход</Dropdown.Item></>
         :
         <>  <Dropdown.Item as={Link} to="/user/tom" >Личный кабинет</Dropdown.Item>
             <Dropdown.Item as={Link} to="/adminPage">Панель администратора</Dropdown.Item>
-            <Dropdown.Item as={Link} to="/">Продолжить</Dropdown.Item>
-            <Dropdown.Item as={Link} to="/">Ожидаемое</Dropdown.Item>
+            <Dropdown.Item as={Link} to="/continue">Продолжить</Dropdown.Item>
+            <Dropdown.Item as={Link} to="/expected">Ожидаемое</Dropdown.Item>
+            <Dropdown.Item as={Link} to="/expected">Редактировать профиль</Dropdown.Item>
             <Dropdown.Item as="button" onClick={exit}>Выход</Dropdown.Item>
         </>
     }

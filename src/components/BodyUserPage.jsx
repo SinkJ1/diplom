@@ -1,6 +1,8 @@
 import React, { useState } from "react"
 import "../components/styles/BodyUserPage.css"
 
+import Menu from './SlideMenu';
+
 
 const testImg = "https://sun9-65.userapi.com/c855028/v855028652/3ec4c/fhIvb1BTNiE.jpg"
 
@@ -33,9 +35,9 @@ const BodyUserPage = () => {
             </div>
         </div>
         <div className="body2">
-            <div> продолжить</div>
-            <div> ожидаемое</div>
-            <div> понравившееся </div>
+            <div style={{ textAlign: "center" }}>ПРОДОЛЖИТЬ<Menu value="http://localhost:8080/films/filmImg" /></div>
+            <div style={{ textAlign: "center" }}>ОЖИДАЕМОЕ<Menu value="http://localhost:8080/films/all" /></div>
+            <div style={{ textAlign: "center" }}>ПОНРАВИВШЕЕСЯ<Menu value="http://localhost:8080/films/filmImg" /></div>
         </div>
     </div>
 }

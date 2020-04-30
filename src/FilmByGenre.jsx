@@ -27,7 +27,7 @@ const FilmByGenre = (props) => {
 
     if (name !== props.value) {
         setName(props.value)
-        FilmDownload(`http://localhost:8080/countries/${props.value}`)
+        FilmDownload(`http://localhost:8080/genres/${props.value}`)
     }
 
     return (<><div style={{ fontSize: "40px", position: "absolute", marginTop: "5%", marginLeft: "40%" }}>Фильмы снятые в жанре {name}</div><Page value={films} /></>);

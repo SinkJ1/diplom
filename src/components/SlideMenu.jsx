@@ -3,7 +3,7 @@ import "./styles/slideMenu.css"
 import DataLoader from "./services/DataLoader";
 import { Link } from "react-router-dom"
 
-const Menu = () => {
+const Menu = (props) => {
 
     const filmGroupsBuild = (array, max_values_in_group) => {
 
@@ -42,7 +42,7 @@ const Menu = () => {
     
     }
 
-    let films = FilmDownload("http://localhost:8080/films/filmImg");
+    let films = FilmDownload(props.value);
     let imgForCarousel='';
     if(films){
         imgForCarousel = filmGroupsBuild(films,5)

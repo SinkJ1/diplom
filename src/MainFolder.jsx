@@ -22,7 +22,7 @@ const MainFolder = () => {
     }
 
     return (<>
-            <Menu />
+            <Menu value="http://localhost:8080/films/filmImg"/>
             <Page value={FilmDownload('http://localhost:8080/films/all')}/>
             </>
     );

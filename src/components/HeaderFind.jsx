@@ -52,7 +52,7 @@ const HeaderFind = () => {
       let blocks = "";
     
       if (filmBlocks.length > 0) {
-        blocks = <><div className="findList123" style={{ visibility: visible }}>
+        blocks = <><div className="findList123" style={{ visibility: visible,overflow:"auto" }}>
           {filmBlocks}
         </div></>
       }
