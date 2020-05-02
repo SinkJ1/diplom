@@ -1,6 +1,9 @@
 package com.diplom.entity;
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.io.Serializable;
 import java.util.Set;
 
@@ -25,24 +28,48 @@ public class User implements Serializable {
 	@Column(name = "user_password")
 	private String password;
 
+	@Enumerated(EnumType.STRING)
+	@Column(name = "user_role")
+	private UserRole role;
+
+	@JsonIgnore
 	@OneToMany(mappedBy = "userId", fetch = FetchType.LAZY)
 	private Set<Film> films;
 
+	@JsonIgnore
 	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
 	private Set<Actor> actors;
+
+	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+	private Set<LikedFilm> licked;
+
+	@JsonIgnore
+	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+	private Set<WatchingFilm> watch;
 
 	public User() {
 	}
 
-	public User(Integer id, String name, String birdthDate, String login, String password, Set<Film> films,
-			Set<Actor> actors) {
+	public User(Integer id, String name, String birdthDate, String login, String password, UserRole role,
+			Set<Film> films, Set<Actor> actors, Set<LikedFilm> licked, Set<WatchingFilm> watch) {
 		this.id = id;
 		this.name = name;
 		this.birdthDate = birdthDate;
 		this.login = login;
 		this.password = password;
+		this.role = role;
 		this.films = films;
 		this.actors = actors;
+		this.licked = licked;
+		this.watch = watch;
+	}
+
+	public UserRole getRole() {
+		return role;
+	}
+
+	public void setRole(UserRole role) {
+		this.role = role;
 	}
 
 	public Set<Film> getFilms() {
@@ -101,10 +128,27 @@ public class User implements Serializable {
 		this.password = password;
 	}
 
+	public Set<LikedFilm> getLicked() {
+		return licked;
+	}
+
+	public void setLicked(Set<LikedFilm> licked) {
+		this.licked = licked;
+	}
+
+	public Set<WatchingFilm> getWatch() {
+		return watch;
+	}
+
+	public void setWatch(Set<WatchingFilm> watch) {
+		this.watch = watch;
+	}
+
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", name=" + name + ", birdthDate=" + birdthDate + ", login=" + login + ", password="
-				+ password + ", films=" + films + ", actors=" + actors + "]";
+				+ password + ", role=" + role + ", films=" + films + ", actors=" + actors + ", licked=" + licked
+				+ ", watch=" + watch + "]";
 	}
 
 }

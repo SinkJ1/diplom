@@ -3,6 +3,8 @@ package com.diplom.entity.dto;
 import java.util.Date;
 import java.util.Set;
 
+import com.diplom.entity.dto.userDataDto.UserDataUser;
+
 public class FilmDto {
 
 	private int id;

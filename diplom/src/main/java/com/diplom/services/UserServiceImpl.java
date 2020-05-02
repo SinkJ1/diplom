@@ -28,4 +28,9 @@ public class UserServiceImpl extends AbstractGenericService<User> implements Use
 		return dao.getAll(entityManager);
 	}
 
+	@Override
+	public User findByLogin(String login) {
+		return dao.findByLogin(entityManager, login);
+	}
+
 }
