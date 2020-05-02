@@ -11,9 +11,10 @@ const AddFilm = (props) => {
   let cost;
   let producer;
   let profit;
-  let day;
-  let month;
-  let year;
+  let notParseDate = new Date().toLocaleDateString();
+
+  
+  let date = notParseDate.split(".")[2] + "-" + notParseDate.split(".")[1] + "-" + notParseDate.split(".")[0];
   let producer1;
   let blocked = false;
   let premium = false;
@@ -31,10 +32,8 @@ const AddFilm = (props) => {
     profit = props.value.filmProfit
     premium = props.value.premiumStatus;
     blocked = props.value.blockToWatch;
-    let date = new Date(props.value.filmReleaseDate);
-    day = date.getDate()
-    month = date.getMonth() + 1
-    year = date.getFullYear()
+    let notParseDate = new Date(props.value.filmReleaseDate); 
+    date = notParseDate.split(".")[2] + "-" + notParseDate.split(".")[1] + "-" + notParseDate.split(".")[0];
 
     let a = props.value.actors.slice();
     let b = props.value.genres.slice();
@@ -68,9 +67,7 @@ const AddFilm = (props) => {
   const [filmInfo, setFilmInfo] = useState(info)
   const [filmCost, setFilmCost] = useState(cost)
   const [filmProfit, setFilmProfit] = useState(profit)
-  const [filmReleaseYear, setFilmReleaseYear] = useState(year)
-  const [filmReleaseMonth, setFilmReleaseMonth] = useState(month)
-  const [filmReleaseDay, setFilmReleaseDay] = useState(day)
+  const [filmReleaseDate, setFilmReleaseDate] = useState(date)
   const [filmProducer, setFilmProducer] = useState("")
   const [filmProducerNotPicked, setFilmProducerNotPicked] = useState({ value: [], download: false })
   const [filmActors, setFilmActors] = useState({ value: [] })
@@ -235,7 +232,7 @@ const AddFilm = (props) => {
       name: filmProducer.split("#")[1]
     },
     filmInformation: filmInfo,
-    filmReleaseDate: filmReleaseDay + "." + filmReleaseMonth + "." + filmReleaseYear,
+    filmReleaseDate: filmReleaseDate.split("-")[2] + "." + filmReleaseDate.split("-")[1] + "." + filmReleaseDate.split("-")[0],
     filmRaiting: 0,
     imgPath: filmLogo,
     filmProfit: filmProfit,
@@ -248,10 +245,11 @@ const AddFilm = (props) => {
   }
   const clck = (e) => {
     if(props.type === "CHANGE"){
-      UPDATE("http://localhost:8080/films/update",film);
+    //  UPDATE("http://localhost:8080/films/update",film);
     } else {
-      send("http://localhost:8080/films/add",film);
+   //   send("http://localhost:8080/films/add",film);
     }
+    console.log(JSON.stringify(film))
     e.preventDefault();
   }
 
@@ -289,27 +287,7 @@ const AddFilm = (props) => {
     <div className="form-group">
       <label for="exampleFormControlSelect2">Дата выпуска</label>
       <div id="exampleFormControlSelect2">
-        <label for="exampleFormControlSelectYear">Год</label>
-        <input type="text" className="form-control" id="exampleFormControlSelectYear" placeholder="year" value={filmReleaseYear} onChange={(e) => setFilmReleaseYear(e.target.value)} />
-        <label for="exampleFormControlSelectMonth">Месяц</label>
-        <select className="form-control" value={filmReleaseMonth} onChange={(e) => setFilmReleaseMonth(e.target.value)} id="exampleFormControlSelectMonth">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-          <option>6</option>
-          <option>7</option>
-          <option>8</option>
-          <option>9</option>
-          <option>10</option>
-          <option>11</option>
-          <option>12</option>
-        </select>
-        <label for="exampleFormControlSelectDay">Число</label>
-        <select className="form-control" value={filmReleaseDay} onChange={(e) => setFilmReleaseDay(e.target.value)} id="exampleFormControlSelectDay">
-          {days.map((item) => (<option key={item}>{item}</option>))}
-        </select>
+        <input type="date" className="form-control" id="exampleFormControlSelectYear" placeholder="year" value={filmReleaseDate} onChange={(e)=>{setFilmReleaseDate(e.target.value)}}/>
       </div>
     </div>
     <div className="form-group">

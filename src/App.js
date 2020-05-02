@@ -18,7 +18,6 @@ import FilmByGenre from './FilmByGenre';
 import AdminFolder from './AdminFolder';
 import Expected from './Expected';
 import Continue from './Continue';
-
 const filmPage = (props) => {
   return (<FilmPage value={props.match.params.id} />);
 }
@@ -39,9 +38,8 @@ const adminPage = () => {
   return localStorage.getItem("role") === "admin" && localStorage.getItem("onLogin") === 'true' ? <AdminFolder/> : <MainFolder/>;
 }
 
-function App() {
-  
 
+function App() {
   return (<>
     <Router>
       <div id="headerAnchor">

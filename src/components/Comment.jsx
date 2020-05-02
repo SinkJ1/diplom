@@ -9,35 +9,74 @@ const Comment = () => {
     const [text, setText] = useState()
 
     let c1 = {
+        id: 1,
         userName : "Тест",
         date:"",
-        text:"lauihwegljkwegkjnwkjegn"
+        text:"lauihwegljkwegkjnwkjegn",
+        like : 5,
+        dislike :0
     }
     let c2 = {
+        id: 2,
         userName : "Тест2",
         date:"",
-        text:"lauihwegljknljaknegljkawglkanwegkjnwkjegn"
+        text:"lauihwegljknljaknegljkawglkanwegkjnwkjegn",
+        like : 5,
+        dislike :0
     }
     let c3 = {
+        id: 3,
         userName : "Тест3",
         date:"",
-        text:"jkawglkanwegkjnwkjegn"
+        text:"jkawglkanwegkjnwkjegn",
+        like : 5,
+        dislike :0
+    }
+
+    const add = () =>{
+        let arr = comments.value.slice();
+        arr.push({
+            id: 4,
+            userName : "Тест4",
+            date : "",
+            text : text,
+            like : 5,
+            dislike :0
+        })
+        setComments({value:arr.slice()})
     }
 
     let arr = [c1,c2,c3]
+
+    const [comments,setComments] = useState({value:arr});
+
+    const delEl = (item) =>{
+        if(localStorage.getItem("role") === "admin"){
+            return <button onClick={()=>{
+                setComments({value:comments.value.filter((val)=> val.id !== item.id)})
+            }}>X</button>
+        } else if(item.id === parseInt(localStorage.getItem("id"))) {
+            return <button onClick={()=>{
+                setComments({value:comments.value.filter((val)=> val.id !== item.id)})
+            }}>X</button>
+        }
+    }
+    
+
+    
 
 
     return <div className="commentBodyComponent">
         <div>
             <form style={{ position: "absolute", visibility: visible }} className="commentText">
                 <textarea value={text} onChange={(e) => { setText(e.target.value) }} style={{ width: "450%", height: "100%" }} />
-                <button type="button" class="btn btn-primary" onClick={() => { setText(""); setVisible("hidden") }}>Отправить</button>
+                <button type="button" class="btn btn-primary" onClick={() => { add(); setText(""); setVisible("hidden");  }}>Отправить</button>
             </form>
             <button type="button" class="btn btn-primary" onClick={() => setVisible("visible")}>Добавить комментарий</button>
         </div>
         <div style={{ overflow: "auto", height: "auto", maxHeight: "250px" }}>
             
-            {arr.map((item)=>(
+            {comments.value.map((item)=>(
             <div className="someComment" style={{ border: "1px solid black" }}>
             <div className="imgCom">
                 <div style={{ height: "150px", width: "150px", backgroundColor: "red" }}>
@@ -47,7 +86,29 @@ const Comment = () => {
                 </div>
             </div>
             <div className="textCom">
-            <div style={{border:"1px solid black"}}>{item.userName}</div>
+            <div style={{border:"1px solid black"}} className="textComHeader">{item.userName}
+            <div>{item.like}<button onClick={()=>{
+                item.like = item.like + 1;
+                let arr = comments.value.slice();
+                for(let i = 0; i < arr.length; i++){
+                    if(arr[i].id === item.id){
+                        arr[i] = item;
+                    }
+                }
+                setComments({value:arr.slice()})
+                
+            }}>+</button>{item.dislike}<button onClick={()=>{
+                item.dislike = item.dislike + 1;
+                let arr = comments.value.slice();
+                for(let i = 0; i < arr.length; i++){
+                    if(arr[i].id === item.id){
+                        arr[i] = item;
+                    }
+                }
+                setComments({value:arr.slice()})
+            }}>-</button> 
+           {delEl(item)}
+            </div></div>
                 <div style={{border:"1px solid black"}}>{item.text}</div>
             </div>
         </div>    

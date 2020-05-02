@@ -1,7 +1,7 @@
-import React, { useState,useEffect } from "react"
+import React, { useState, useEffect } from "react"
 import "./styles/filmPage.css"
 import DataLoader from "./services/DataLoader";
-import  { get, send } from "./services/DataLoader";
+import { get, send } from "./services/DataLoader";
 import { Link } from "react-router-dom";
 import Spinner from 'react-bootstrap/Spinner'
 
@@ -20,29 +20,29 @@ const FilmDownload = (name) => {
 
 
 const FilmPage = (props) => {
-   
-   
-   
+
+
+
    const [login, setLogin] = useState();
 
    const onLoginChange = (e) => {
       setLogin(e.target.value);
    }
-   
+
    const submit = (e) => {
-     
+
       e.preventDefault();
    }
 
    const [raitingState, setRaitingState] = useState(2.2)
-   const [film,setFilm] = useState();
+   const [film, setFilm] = useState();
 
    const download = (name) => {
       let films = []
       let film = get(`http://localhost:8080/films/${name}`, (film1) => {
-          setFilm(film1)
+         setFilm(film1)
       });
-  }
+   }
    const raitingColor = () => {
       if (raitingState <= 1) {
          return '#C00101';
@@ -58,55 +58,55 @@ const FilmPage = (props) => {
    }
 
    let subs = {
-      eMail : login,
-      film : film
+      eMail: login,
+      film: film
    }
 
-   const subscribe = (e) =>{
-      send(`http://localhost:8080/subscribe/add`,subs)
+   const subscribe = (e) => {
+      send(`http://localhost:8080/subscribe/add`, subs)
       e.preventDefault();
    }
 
    let data = <Spinner animation="border" role="status">
-   <span className="sr-only">Loading...</span>
- </Spinner>;
- if(!film){
-    download(props.value)
- }
+      <span className="sr-only">Loading...</span>
+   </Spinner>;
+   if (!film) {
+      download(props.value)
+   }
    if (film) {
-      if(film.filmName !== props.value){
+      if (film.filmName !== props.value) {
          download(props.value)
       }
       let playerAndComment = ""
       { document.title = props.value }
-      if(new Date(film.filmReleaseDate).getTime() > new Date().getTime()){
-         playerAndComment = <><div class="modal-dialog" role="document" style={{marginLeft:"-1%", tabIndex:"-1"}}>
-         <div class="modal-content">
-           <div class="modal-header">
-             <h5 class="modal-title" id="staticBackdropLabel">Уведомить о выходе фильма</h5>
-           </div>
-           <div class="modal-body">
-             <form onSubmit={submit}>
-               <div class="form-group">
-                 <label for="exampleInputEmail1">Адрес электроннгой почты</label>
-                 <input type="email" class="form-control" id="exampleInputEmail1" value={login} onChange={onLoginChange}/>
+      if (new Date(film.filmReleaseDate).getTime() > new Date().getTime()) {
+         playerAndComment = <><div class="modal-dialog" role="document" style={{ marginLeft: "-1%", tabIndex: "-1" }}>
+            <div class="modal-content">
+               <div class="modal-header">
+                  <h5 class="modal-title" id="staticBackdropLabel">Уведомить о выходе фильма</h5>
                </div>
-               <button type="submit" class="btn btn-primary" onClick={(e)=> subscribe(e)}>Уведомить</button>
-             </form>
-           </div>
-         </div>
-       </div></>
+               <div class="modal-body">
+                  <form onSubmit={submit}>
+                     <div class="form-group">
+                        <label for="exampleInputEmail1">Адрес электроннгой почты</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" value={login} onChange={onLoginChange} />
+                     </div>
+                     <button type="submit" class="btn btn-primary" onClick={(e) => subscribe(e)}>Уведомить</button>
+                  </form>
+               </div>
+            </div>
+         </div></>
       } else {
-         playerAndComment = <><div className="item_film_player"><div style={{marginLeft:"15%"}}><Player value={film.filmName}/></div></div>
-      <div className="item_film_comment"><Comment /></div></>
-      }       
+         playerAndComment = <><div className="item_film_player"><div style={{ marginLeft: "15%" }}><Player value={film.filmName} /></div></div>
+            <div className="item_film_comment"><Comment /></div></>
+      }
 
       data = <div className="container-wrapper"><div className="container">
          <div className="item_film_name">
             {props.value}
          </div>
          <div className="item_film_info">
-            <div className="film_logo" style={{alignSelf:"center",textAlign:"center"}}>
+            <div className="film_logo" style={{ alignSelf: "center", textAlign: "center" }}>
                <img className="image" src={film.imgPath} alt="logo"></img>
             </div>
             <div className="text" style={{ borderLeft: "1px solid black" }}>{film.filmInformation}</div>
@@ -137,7 +137,25 @@ const FilmPage = (props) => {
             </div>
             <div className="actors" style={{ borderTop: "1px solid black", borderLeft: "1px solid black" }}><b>Актёры:</b>{film.actors.map((user) => <li key={user.user.name}><Link to={`/filmByActor/${user.user.name}`}>{user.user.name}</Link></li>)}</div>
          </div>
-         <div className="item_film_facts">Страны:{film.countries.map((country) => <li key={country.country.name}><Link to={`/filmByCountry/${country.country.name}`}>{country.country.name}</Link></li>)}</div>
+         <div className="item_film_facts">
+            <div>Страны:{film.countries.map((country) =>
+               <li key={country.country.name}>
+                  <Link to={`/filmByCountry/${country.country.name}`}>{country.country.name}
+                  </Link>
+               </li>)}</div>
+            <div>
+               Бюджет: 25 000 000$
+            </div>
+            <div>
+               Сборы: 100 000 000$
+            </div>
+            <div>
+               Дата выхода : 02.05.2020
+            </div>
+            <div>
+               Жанр : Комедия, Боевик
+            </div>
+         </div>
          {playerAndComment}
       </div>
       </div>

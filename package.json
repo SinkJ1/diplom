@@ -24,7 +24,8 @@
     "react-scrollable-anchor": "^0.6.1",
     "react-videoplayer": "^0.6.4",
     "redux": "^4.0.5",
-    "screenfull-react": "0.0.4"
+    "screenfull-react": "0.0.4",
+    "simple-react-calendar": "^2.2.1"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -13,11 +13,18 @@
     align-items: left;
     align-self: left;
     text-align: left;
+    border:1px solid black;
+}
+
+.textComHeader{
+    display: grid;
+    grid-template-columns: 2fr 0.25fr;
 }
 
 .textCom{
     grid-area: textCom;
     display: grid;
+    background-color: white;
     grid-template-rows: 0.1fr auto;
 }
 
