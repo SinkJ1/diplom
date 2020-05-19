@@ -14,7 +14,7 @@ public class UserDaoImpl extends GenericDao<User> implements UserDao {
 	}
 
 	public User findByLogin(EntityManager em, String login) {
-		return em.createQuery("from " + User.class.getName() + " where user_login =" + "'" + login + "'", User.class).getSingleResult();
+		return em.createQuery("from " + User.class.getName() + " where upper(user_login) =" + "'" + login.toUpperCase() + "'", User.class).getSingleResult();
 	}
 
 	@Override

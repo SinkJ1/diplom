@@ -54,10 +54,8 @@ public class MailService {
 			message.setText(text);
 			return message;
 		} catch (AddressException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (MessagingException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return null;

@@ -6,8 +6,6 @@ import javax.persistence.EntityManager;
 
 import com.diplom.entity.Film;
 import com.diplom.entity.Subscriber;
-import com.diplom.entity.dto.FilmDto;
-import com.diplom.entity.dto.SubscriberDto;
 
 public interface SubscriberDao extends Dao<Subscriber>{
 

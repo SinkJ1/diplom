@@ -1,8 +1,6 @@
 package com.diplom.entity.dto;
 
-import java.util.Set;
-
-import com.diplom.entity.dto.userDataDto.UserDataFilm;
+import java.util.Date;
 
 public class UserDto {
 
@@ -16,16 +14,61 @@ public class UserDto {
 
 	private String role;
 
+	private boolean subscribeStatus;
+
+	private boolean blockedStatus;
+
+	private Date subscribeDate;
+
+	private String userImage;
+
 	public UserDto() {
 
 	}
 
-	public UserDto(int id, String name, String birdthDate, String login, String role) {
+	public UserDto(int id, String name, String birdthDate, String login, String role, boolean subscribeStatus,
+			boolean blockedStatus, Date subscribeDate, String userImage) {
 		this.id = id;
 		this.name = name;
 		this.birdthDate = birdthDate;
 		this.login = login;
 		this.role = role;
+		this.subscribeStatus = subscribeStatus;
+		this.blockedStatus = blockedStatus;
+		this.subscribeDate = subscribeDate;
+		this.userImage = userImage;
+	}
+
+	public boolean isSubscribeStatus() {
+		return subscribeStatus;
+	}
+
+	public void setSubscribeStatus(boolean subscribeStatus) {
+		this.subscribeStatus = subscribeStatus;
+	}
+
+	public boolean isBlockedStatus() {
+		return blockedStatus;
+	}
+
+	public void setBlockedStatus(boolean blockedStatus) {
+		this.blockedStatus = blockedStatus;
+	}
+
+	public Date getSubscribeDate() {
+		return subscribeDate;
+	}
+
+	public void setSubscribeDate(Date subscribeDate) {
+		this.subscribeDate = subscribeDate;
+	}
+
+	public String getUserImage() {
+		return userImage;
+	}
+
+	public void setUserImage(String userImage) {
+		this.userImage = userImage;
 	}
 
 	public int getId() {
@@ -68,11 +111,11 @@ public class UserDto {
 		this.role = role;
 	}
 
-
 	@Override
 	public String toString() {
 		return "UserDto [id=" + id + ", name=" + name + ", birdthDate=" + birdthDate + ", login=" + login + ", role="
-				+ role + "]";
+				+ role + ", subscribeStatus=" + subscribeStatus + ", blockedStatus=" + blockedStatus
+				+ ", subscribeDate=" + subscribeDate + ", userImage=" + userImage + "]";
 	}
 
 }

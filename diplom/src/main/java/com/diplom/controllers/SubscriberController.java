@@ -14,8 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.diplom.entity.Subscriber;
 import com.diplom.entity.dto.FilmDto;
-import com.diplom.entity.dto.SubscriberDto;
-import com.diplom.entity.dto.SubscriberDtoFilm;
 import com.diplom.services.SubscriberServiceImpl;
 
 @CrossOrigin(methods = { RequestMethod.POST, RequestMethod.GET })
@@ -25,21 +23,6 @@ public class SubscriberController {
 
 	@Autowired
 	private SubscriberServiceImpl service;
-	
-	@PostMapping(value = "/add")
-	public void add(@RequestBody Subscriber sub) {
-		service.add(sub);
-	}
-	
-	@GetMapping(value = "/{email}")
-	public List<SubscriberDtoFilm> getByEmail(@PathVariable("email") String email){
-		return service.getFilmsByEmail(email);
-	}
-	
-	@PostMapping(value = "/test")
-	public List<SubscriberDto> get(@RequestBody FilmDto film){
-		return service.getSubsByFilm(film);
-	}
 	
 	
 }

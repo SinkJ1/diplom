@@ -17,9 +17,10 @@ public class Subscriber {
 	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-
-	@Column(name = "email")
-	private String eMail;
+	
+	@OneToOne
+	@JoinColumn(name = "subscriber")
+	private User user;
 
 	@OneToOne
 	@JoinColumn(name = "film")
@@ -29,9 +30,9 @@ public class Subscriber {
 
 	}
 
-	public Subscriber(int id, String eMail, Film film) {
+	public Subscriber(int id, User user, Film film) {
 		this.id = id;
-		this.eMail = eMail;
+		this.user = user;
 		this.film = film;
 	}
 
@@ -43,12 +44,12 @@ public class Subscriber {
 		this.id = id;
 	}
 
-	public String geteMail() {
-		return eMail;
+	public User getUser() {
+		return user;
 	}
 
-	public void seteMail(String eMail) {
-		this.eMail = eMail;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	public Film getFilm() {
@@ -61,7 +62,7 @@ public class Subscriber {
 
 	@Override
 	public String toString() {
-		return "SubscriberOnFilmUpdate [id=" + id + ", eMail=" + eMail + ", film=" + film + "]";
+		return "Subscriber [id=" + id + ", user=" + user + ", film=" + film + "]";
 	}
 
 }

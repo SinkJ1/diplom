@@ -5898,3 +5898,159 @@ antlr.NoViableAltException: unexpected token: filmName
 
 РџСЂРѕР»РµР¶Р°РІ 4 РіРѕРґР° РІ РєРѕРјРµ, РќРµРІРµСЃС‚Р° РїСЂРёР±С‹РІР°РµС‚ РІ СЃРµР±СЏ. РћРЅР° РіРѕСЂРёС‚ Р¶РµР»Р°РЅРёРµРј РЅР°Р№С‚Рё С‚РµС…, РєС‚Рѕ РµРµ РїСЂРµРґР°Р». РЎРµРіРѕРґРЅСЏ Р»РёС€СЊ СЃРІРёСЂРµРїР°СЏ РјРµСЃС‚СЊ СѓСЃРїРѕРєРѕРёС‚ СЃРµСЂРґС†Рµ Р§РµСЂРЅРѕР№ РњР°РјР±С‹, Рё РѕРЅР° РЅР°С‡РёРЅР°РµС‚ СѓР±РёРІР°С‚СЊ РїРѕРѕС‡РµСЂРµРґРЅРѕ РІСЃРµС… С‡Р»РµРЅРѕРІ Р±Р°РЅРґС‹ Р‘РёР»Р»Р°, РѕСЃС‚Р°РІР»СЏСЏ РіР»Р°РІР°СЂСЏ РЅР°РїРѕСЃР»РµРґРѕРє., filmReleaseDate=Thu Jun 23 04:00:00 MSD 2005, filmRaiting=4.0, imgPath=https://kinogo.by/uploads/posters/2717-kinogo-by.jpg, filmProfit=4.0, filmCost=5.0, blockToWatch=false, premiumStatus=false, filmPlayer=kgkjgkhgkgkgkg, actors=[Actor [userId=User [id=2, name=Ben, birdthDate=null, login=null, password=null, films=null, actors=null], filmId=null]], countries=[FilmCountry [id=null, film=null, country=Country [id=14, name=РђР»Р¶РёСЂ, films=null]]], genres=[FilmsGenre [id=0, film=null, genre=Genre [id=2, name=null, films=null]]], subs=null]"
   РџРѕР·РёС†РёСЏ: 166
+17:52:57.503 [http-nio-8080-exec-4] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - РћРЁРР‘РљРђ: РѕС€РёР±РєР° СЃРёРЅС‚Р°РєСЃРёСЃР° (РїСЂРёРјРµСЂРЅРѕРµ РїРѕР»РѕР¶РµРЅРёРµ: "user")
+  РџРѕР·РёС†РёСЏ: 42
+17:52:57.520 [http-nio-8080-exec-4] ERROR org.hibernate.internal.ExceptionMapperStandardImpl - HHH000346: Error during managed flush [org.hibernate.exception.SQLGrammarException: could not execute statement]
+17:53:51.379 [http-nio-8080-exec-6] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - РћРЁРР‘РљРђ: РѕС€РёР±РєР° СЃРёРЅС‚Р°РєСЃРёСЃР° (РїСЂРёРјРµСЂРЅРѕРµ РїРѕР»РѕР¶РµРЅРёРµ: "user")
+  РџРѕР·РёС†РёСЏ: 42
+17:53:51.379 [http-nio-8080-exec-6] ERROR org.hibernate.internal.ExceptionMapperStandardImpl - HHH000346: Error during managed flush [org.hibernate.exception.SQLGrammarException: could not execute statement]
+17:55:13.361 [http-nio-8080-exec-8] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - РћРЁРР‘РљРђ: РѕС€РёР±РєР° СЃРёРЅС‚Р°РєСЃРёСЃР° (РїСЂРёРјРµСЂРЅРѕРµ РїРѕР»РѕР¶РµРЅРёРµ: "user")
+  РџРѕР·РёС†РёСЏ: 42
+17:55:13.386 [http-nio-8080-exec-8] ERROR org.hibernate.internal.ExceptionMapperStandardImpl - HHH000346: Error during managed flush [org.hibernate.exception.SQLGrammarException: could not execute statement]
+17:55:33.485 [http-nio-8080-exec-10] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - РћРЁРР‘РљРђ: РѕС€РёР±РєР° СЃРёРЅС‚Р°РєСЃРёСЃР° (РїСЂРёРјРµСЂРЅРѕРµ РїРѕР»РѕР¶РµРЅРёРµ: "user")
+  РџРѕР·РёС†РёСЏ: 42
+17:55:33.486 [http-nio-8080-exec-10] ERROR org.hibernate.internal.ExceptionMapperStandardImpl - HHH000346: Error during managed flush [org.hibernate.exception.SQLGrammarException: could not execute statement]
+17:57:48.278 [http-nio-8080-exec-3] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - РћРЁРР‘РљРђ: РѕС€РёР±РєР° СЃРёРЅС‚Р°РєСЃРёСЃР° (РїСЂРёРјРµСЂРЅРѕРµ РїРѕР»РѕР¶РµРЅРёРµ: "user")
+  РџРѕР·РёС†РёСЏ: 42
+17:57:48.279 [http-nio-8080-exec-3] ERROR org.hibernate.internal.ExceptionMapperStandardImpl - HHH000346: Error during managed flush [org.hibernate.exception.SQLGrammarException: could not execute statement]
+17:58:54.836 [http-nio-8080-exec-4] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - РћРЁРР‘РљРђ: РѕС€РёР±РєР° СЃРёРЅС‚Р°РєСЃРёСЃР° (РїСЂРёРјРµСЂРЅРѕРµ РїРѕР»РѕР¶РµРЅРёРµ: "user")
+  РџРѕР·РёС†РёСЏ: 49
+17:58:54.836 [http-nio-8080-exec-4] ERROR org.hibernate.internal.ExceptionMapperStandardImpl - HHH000346: Error during managed flush [org.hibernate.exception.SQLGrammarException: could not execute statement]
+18:01:36.786 [http-nio-8080-exec-1] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - РћРЁРР‘РљРђ: РѕС€РёР±РєР° СЃРёРЅС‚Р°РєСЃРёСЃР° (РїСЂРёРјРµСЂРЅРѕРµ РїРѕР»РѕР¶РµРЅРёРµ: "user")
+  РџРѕР·РёС†РёСЏ: 42
+18:01:36.786 [http-nio-8080-exec-1] ERROR org.hibernate.internal.ExceptionMapperStandardImpl - HHH000346: Error during managed flush [org.hibernate.exception.SQLGrammarException: could not execute statement]
+18:02:09.993 [http-nio-8080-exec-3] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - РћРЁРР‘РљРђ: РѕС€РёР±РєР° СЃРёРЅС‚Р°РєСЃРёСЃР° (РїСЂРёРјРµСЂРЅРѕРµ РїРѕР»РѕР¶РµРЅРёРµ: "user")
+  РџРѕР·РёС†РёСЏ: 42
+18:02:09.995 [http-nio-8080-exec-3] ERROR org.hibernate.internal.ExceptionMapperStandardImpl - HHH000346: Error during managed flush [org.hibernate.exception.SQLGrammarException: could not execute statement]
+18:02:52.656 [http-nio-8080-exec-4] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - РћРЁРР‘РљРђ: РѕС€РёР±РєР° СЃРёРЅС‚Р°РєСЃРёСЃР° (РїСЂРёРјРµСЂРЅРѕРµ РїРѕР»РѕР¶РµРЅРёРµ: "user")
+  РџРѕР·РёС†РёСЏ: 42
+18:02:52.657 [http-nio-8080-exec-4] ERROR org.hibernate.internal.ExceptionMapperStandardImpl - HHH000346: Error during managed flush [org.hibernate.exception.SQLGrammarException: could not execute statement]
+18:03:01.258 [http-nio-8080-exec-8] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - РћРЁРР‘РљРђ: РѕС€РёР±РєР° СЃРёРЅС‚Р°РєСЃРёСЃР° (РїСЂРёРјРµСЂРЅРѕРµ РїРѕР»РѕР¶РµРЅРёРµ: "user")
+  РџРѕР·РёС†РёСЏ: 42
+18:03:01.259 [http-nio-8080-exec-8] ERROR org.hibernate.internal.ExceptionMapperStandardImpl - HHH000346: Error during managed flush [org.hibernate.exception.SQLGrammarException: could not execute statement]
+18:03:02.556 [http-nio-8080-exec-9] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - РћРЁРР‘РљРђ: РѕС€РёР±РєР° СЃРёРЅС‚Р°РєСЃРёСЃР° (РїСЂРёРјРµСЂРЅРѕРµ РїРѕР»РѕР¶РµРЅРёРµ: "user")
+  РџРѕР·РёС†РёСЏ: 42
+18:03:02.556 [http-nio-8080-exec-9] ERROR org.hibernate.internal.ExceptionMapperStandardImpl - HHH000346: Error during managed flush [org.hibernate.exception.SQLGrammarException: could not execute statement]
+18:03:03.467 [http-nio-8080-exec-1] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - РћРЁРР‘РљРђ: РѕС€РёР±РєР° СЃРёРЅС‚Р°РєСЃРёСЃР° (РїСЂРёРјРµСЂРЅРѕРµ РїРѕР»РѕР¶РµРЅРёРµ: "user")
+  РџРѕР·РёС†РёСЏ: 42
+18:03:03.468 [http-nio-8080-exec-1] ERROR org.hibernate.internal.ExceptionMapperStandardImpl - HHH000346: Error during managed flush [org.hibernate.exception.SQLGrammarException: could not execute statement]
+18:03:04.020 [http-nio-8080-exec-3] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - РћРЁРР‘РљРђ: РѕС€РёР±РєР° СЃРёРЅС‚Р°РєСЃРёСЃР° (РїСЂРёРјРµСЂРЅРѕРµ РїРѕР»РѕР¶РµРЅРёРµ: "user")
+  РџРѕР·РёС†РёСЏ: 42
+18:03:04.020 [http-nio-8080-exec-3] ERROR org.hibernate.internal.ExceptionMapperStandardImpl - HHH000346: Error during managed flush [org.hibernate.exception.SQLGrammarException: could not execute statement]
+18:03:04.481 [http-nio-8080-exec-4] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - РћРЁРР‘РљРђ: РѕС€РёР±РєР° СЃРёРЅС‚Р°РєСЃРёСЃР° (РїСЂРёРјРµСЂРЅРѕРµ РїРѕР»РѕР¶РµРЅРёРµ: "user")
+  РџРѕР·РёС†РёСЏ: 42
+18:03:04.481 [http-nio-8080-exec-4] ERROR org.hibernate.internal.ExceptionMapperStandardImpl - HHH000346: Error during managed flush [org.hibernate.exception.SQLGrammarException: could not execute statement]
+18:03:20.486 [http-nio-8080-exec-8] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - РћРЁРР‘РљРђ: РѕС€РёР±РєР° СЃРёРЅС‚Р°РєСЃРёСЃР° (РїСЂРёРјРµСЂРЅРѕРµ РїРѕР»РѕР¶РµРЅРёРµ: "user")
+  РџРѕР·РёС†РёСЏ: 42
+18:03:20.487 [http-nio-8080-exec-8] ERROR org.hibernate.internal.ExceptionMapperStandardImpl - HHH000346: Error during managed flush [org.hibernate.exception.SQLGrammarException: could not execute statement]
+18:03:28.830 [http-nio-8080-exec-9] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - РћРЁРР‘РљРђ: РѕС€РёР±РєР° СЃРёРЅС‚Р°РєСЃРёСЃР° (РїСЂРёРјРµСЂРЅРѕРµ РїРѕР»РѕР¶РµРЅРёРµ: "user")
+  РџРѕР·РёС†РёСЏ: 42
+18:03:28.830 [http-nio-8080-exec-9] ERROR org.hibernate.internal.ExceptionMapperStandardImpl - HHH000346: Error during managed flush [org.hibernate.exception.SQLGrammarException: could not execute statement]
+18:03:30.050 [http-nio-8080-exec-1] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - РћРЁРР‘РљРђ: РѕС€РёР±РєР° СЃРёРЅС‚Р°РєСЃРёСЃР° (РїСЂРёРјРµСЂРЅРѕРµ РїРѕР»РѕР¶РµРЅРёРµ: "user")
+  РџРѕР·РёС†РёСЏ: 42
+18:03:30.050 [http-nio-8080-exec-1] ERROR org.hibernate.internal.ExceptionMapperStandardImpl - HHH000346: Error during managed flush [org.hibernate.exception.SQLGrammarException: could not execute statement]
+18:04:00.318 [http-nio-8080-exec-5] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - РћРЁРР‘РљРђ: РѕС€РёР±РєР° СЃРёРЅС‚Р°РєСЃРёСЃР° (РїСЂРёРјРµСЂРЅРѕРµ РїРѕР»РѕР¶РµРЅРёРµ: "user")
+  РџРѕР·РёС†РёСЏ: 42
+18:04:00.320 [http-nio-8080-exec-5] ERROR org.hibernate.internal.ExceptionMapperStandardImpl - HHH000346: Error during managed flush [org.hibernate.exception.SQLGrammarException: could not execute statement]
+18:09:00.184 [http-nio-8080-exec-1] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - РћРЁРР‘РљРђ: СЃС‚РѕР»Р±РµС† "date" РёРјРµРµС‚ С‚РёРї date, Р° РІС‹СЂР°Р¶РµРЅРёРµ - character varying
+  РџРѕРґСЃРєР°Р·РєР°: РџРµСЂРµРїРёС€РёС‚Рµ РІС‹СЂР°Р¶РµРЅРёРµ РёР»Рё РїСЂРµРѕР±СЂР°Р·СѓР№С‚Рµ РµРіРѕ С‚РёРї.
+  РџРѕР·РёС†РёСЏ: 66
+18:09:00.207 [http-nio-8080-exec-1] ERROR org.hibernate.internal.ExceptionMapperStandardImpl - HHH000346: Error during managed flush [org.hibernate.exception.SQLGrammarException: could not execute statement]
+20:14:03.596 [http-nio-8080-exec-1] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - РћРЁРР‘РљРђ: РїРѕРІС‚РѕСЂСЏСЋС‰РµРµСЃСЏ Р·РЅР°С‡РµРЅРёРµ РєР»СЋС‡Р° РЅР°СЂСѓС€Р°РµС‚ РѕРіСЂР°РЅРёС‡РµРЅРёРµ СѓРЅРёРєР°Р»СЊРЅРѕСЃС‚Рё "t_comment_pkey"
+  РџРѕРґСЂРѕР±РЅРѕСЃС‚Рё: РљР»СЋС‡ "(id)=(0)" СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚.
+20:14:03.685 [http-nio-8080-exec-1] ERROR org.hibernate.internal.ExceptionMapperStandardImpl - HHH000346: Error during managed flush [org.hibernate.exception.ConstraintViolationException: could not execute statement]
+23:19:24.346 [http-nio-8080-exec-8] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - ОШИБКА: повторяющееся значение ключа нарушает ограничение уникальности "t_user_user_login_key"
+  Подробности: Ключ "(user_login)=(QWELKFM)" уже существует.
+19:37:15.565 [http-nio-8080-exec-24] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - HikariPool-1 - Connection is not available, request timed out after 30037ms.
+19:37:15.565 [http-nio-8080-exec-21] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - HikariPool-1 - Connection is not available, request timed out after 30060ms.
+19:37:18.399 [http-nio-8080-exec-25] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - HikariPool-1 - Connection is not available, request timed out after 30000ms.
+19:37:18.417 [http-nio-8080-exec-28] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - HikariPool-1 - Connection is not available, request timed out after 30000ms.
+19:37:21.316 [http-nio-8080-exec-29] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - HikariPool-1 - Connection is not available, request timed out after 30000ms.
+19:37:21.335 [http-nio-8080-exec-32] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - HikariPool-1 - Connection is not available, request timed out after 30003ms.
+19:37:54.728 [http-nio-8080-exec-33] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - HikariPool-1 - Connection is not available, request timed out after 30001ms.
+19:37:54.771 [http-nio-8080-exec-36] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - HikariPool-1 - Connection is not available, request timed out after 30001ms.
+19:38:12.331 [http-nio-8080-exec-37] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - HikariPool-1 - Connection is not available, request timed out after 30001ms.
+19:38:12.360 [http-nio-8080-exec-40] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - HikariPool-1 - Connection is not available, request timed out after 30000ms.
+19:44:16.122 [http-nio-8080-exec-9] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - ОШИБКА: повторяющееся значение ключа нарушает ограничение уникальности "t_user_user_login_key"
+  Подробности: Ключ "(user_login)=(a;jwef@kl;ewj;)" уже существует.
+19:44:17.387 [http-nio-8080-exec-6] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - ОШИБКА: повторяющееся значение ключа нарушает ограничение уникальности "t_user_user_login_key"
+  Подробности: Ключ "(user_login)=(a;jwef@kl;ewj;)" уже существует.
+19:44:17.405 [http-nio-8080-exec-7] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - ОШИБКА: повторяющееся значение ключа нарушает ограничение уникальности "t_user_user_login_key"
+  Подробности: Ключ "(user_login)=(a;jwef@kl;ewj;)" уже существует.
+19:44:20.703 [http-nio-8080-exec-5] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - ОШИБКА: повторяющееся значение ключа нарушает ограничение уникальности "t_user_user_login_key"
+  Подробности: Ключ "(user_login)=(a;jwef@kl;ewj;)" уже существует.
+23:38:28.192 [http-nio-8080-exec-9] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - ОШИБКА: повторяющееся значение ключа нарушает ограничение уникальности "t_user_user_login_key"
+  Подробности: Ключ "(user_login)=(user)" уже существует.
+15:32:24.589 [http-nio-8080-exec-10] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - ОШИБКА: повторяющееся значение ключа нарушает ограничение уникальности "t_user_user_login_key"
+  Подробности: Ключ "(user_login)=(teste@kak.ls)" уже существует.
+15:32:24.589 [http-nio-8080-exec-5] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - ОШИБКА: повторяющееся значение ключа нарушает ограничение уникальности "t_user_user_login_key"
+  Подробности: Ключ "(user_login)=(teste@kak.ls)" уже существует.
+15:32:24.589 [http-nio-8080-exec-7] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - ОШИБКА: повторяющееся значение ключа нарушает ограничение уникальности "t_user_user_login_key"
+  Подробности: Ключ "(user_login)=(teste@kak.ls)" уже существует.
+15:32:24.589 [http-nio-8080-exec-3] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - ОШИБКА: повторяющееся значение ключа нарушает ограничение уникальности "t_user_user_login_key"
+  Подробности: Ключ "(user_login)=(teste@kak.ls)" уже существует.
+15:32:24.589 [http-nio-8080-exec-6] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - ОШИБКА: повторяющееся значение ключа нарушает ограничение уникальности "t_user_user_login_key"
+  Подробности: Ключ "(user_login)=(teste@kak.ls)" уже существует.
+15:32:24.589 [http-nio-8080-exec-8] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - ОШИБКА: повторяющееся значение ключа нарушает ограничение уникальности "t_user_user_login_key"
+  Подробности: Ключ "(user_login)=(teste@kak.ls)" уже существует.
+15:32:42.517 [http-nio-8080-exec-9] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - ОШИБКА: повторяющееся значение ключа нарушает ограничение уникальности "t_user_user_login_key"
+  Подробности: Ключ "(user_login)=(teste@kak.ls)" уже существует.
+15:32:42.517 [http-nio-8080-exec-4] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - ОШИБКА: повторяющееся значение ключа нарушает ограничение уникальности "t_user_user_login_key"
+  Подробности: Ключ "(user_login)=(teste@kak.ls)" уже существует.
+15:32:44.419 [http-nio-8080-exec-2] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - ОШИБКА: повторяющееся значение ключа нарушает ограничение уникальности "t_user_user_login_key"
+  Подробности: Ключ "(user_login)=(teste@kak.ls)" уже существует.
+15:32:44.430 [http-nio-8080-exec-1] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - ОШИБКА: повторяющееся значение ключа нарушает ограничение уникальности "t_user_user_login_key"
+  Подробности: Ключ "(user_login)=(teste@kak.ls)" уже существует.
+15:55:22.885 [http-nio-8080-exec-3] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - ОШИБКА: повторяющееся значение ключа нарушает ограничение уникальности "t_user_user_login_key"
+  Подробности: Ключ "(user_login)=(qwe@ddd.com)" уже существует.
+21:28:32.839 [http-nio-8080-exec-1] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - РћРЁРР‘РљРђ: СЃС‚РѕР»Р±РµС† expectedfi0_.user РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚
+  РџРѕР·РёС†РёСЏ: 8
+16:22:21.222 [http-nio-8080-exec-2] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - РћРЁРР‘РљРђ: РѕС€РёР±РєР° СЃРёРЅС‚Р°РєСЃРёСЃР° (РїСЂРёРјРµСЂРЅРѕРµ РїРѕР»РѕР¶РµРЅРёРµ: "user")
+  РџРѕР·РёС†РёСЏ: 34
+16:26:29.570 [http-nio-8080-exec-10] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - РћРЁРР‘РљРђ: РѕС€РёР±РєР° СЃРёРЅС‚Р°РєСЃРёСЃР° (РїСЂРёРјРµСЂРЅРѕРµ РїРѕР»РѕР¶РµРЅРёРµ: "user")
+  РџРѕР·РёС†РёСЏ: 34
+16:28:53.754 [http-nio-8080-exec-10] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - РћРЁРР‘РљРђ: РѕС€РёР±РєР° СЃРёРЅС‚Р°РєСЃРёСЃР° (РїСЂРёРјРµСЂРЅРѕРµ РїРѕР»РѕР¶РµРЅРёРµ: "user")
+  РџРѕР·РёС†РёСЏ: 34
+16:29:56.853 [http-nio-8080-exec-2] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - РћРЁРР‘РљРђ: РѕС€РёР±РєР° СЃРёРЅС‚Р°РєСЃРёСЃР° (РїСЂРёРјРµСЂРЅРѕРµ РїРѕР»РѕР¶РµРЅРёРµ: "user")
+  РџРѕР·РёС†РёСЏ: 34
+16:33:01.679 [http-nio-8080-exec-2] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - РћРЁРР‘РљРђ: РѕС‚РЅРѕС€РµРЅРёРµ "t_licked_film_id_seq" РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚
+  РџРѕР·РёС†РёСЏ: 16
+16:34:59.983 [http-nio-8080-exec-1] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - РћРЁРР‘РљРђ: РѕС‚РЅРѕС€РµРЅРёРµ "t_licked_film_id_seq" РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚
+  РџРѕР·РёС†РёСЏ: 16
+16:37:58.321 [http-nio-8080-exec-6] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - РћРЁРР‘РљРђ: РѕС‚РЅРѕС€РµРЅРёРµ "t_licked_film_id_seq" РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚
+  РџРѕР·РёС†РёСЏ: 16
+16:39:39.024 [http-nio-8080-exec-10] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - РћРЁРР‘РљРђ: РѕС‚РЅРѕС€РµРЅРёРµ "t_licked_film_id_seq" РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚
+  РџРѕР·РёС†РёСЏ: 16
+16:42:56.934 [http-nio-8080-exec-10] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - РћРЁРР‘РљРђ: РѕС€РёР±РєР° СЃРёРЅС‚Р°РєСЃРёСЃР° (РїСЂРёРјРµСЂРЅРѕРµ РїРѕР»РѕР¶РµРЅРёРµ: "user")
+  РџРѕР·РёС†РёСЏ: 34
+16:44:55.902 [http-nio-8080-exec-4] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - РћРЁРР‘РљРђ: РѕС€РёР±РєР° СЃРёРЅС‚Р°РєСЃРёСЃР° (РїСЂРёРјРµСЂРЅРѕРµ РїРѕР»РѕР¶РµРЅРёРµ: "user")
+  РџРѕР·РёС†РёСЏ: 34
+16:49:52.083 [http-nio-8080-exec-2] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - РћРЁРР‘РљРђ: РѕС€РёР±РєР° СЃРёРЅС‚Р°РєСЃРёСЃР° (РїСЂРёРјРµСЂРЅРѕРµ РїРѕР»РѕР¶РµРЅРёРµ: "user")
+  РџРѕР·РёС†РёСЏ: 34
+16:55:47.440 [http-nio-8080-exec-10] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - РћРЁРР‘РљРђ: РѕС€РёР±РєР° СЃРёРЅС‚Р°РєСЃРёСЃР° (РїСЂРёРјРµСЂРЅРѕРµ РїРѕР»РѕР¶РµРЅРёРµ: "user")
+  РџРѕР·РёС†РёСЏ: 34
+16:58:39.683 [http-nio-8080-exec-1] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - РћРЁРР‘РљРђ: РѕС€РёР±РєР° СЃРёРЅС‚Р°РєСЃРёСЃР° (РїСЂРёРјРµСЂРЅРѕРµ РїРѕР»РѕР¶РµРЅРёРµ: "user")
+  РџРѕР·РёС†РёСЏ: 34
+17:00:07.020 [http-nio-8080-exec-2] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - РћРЁРР‘РљРђ: РѕС€РёР±РєР° СЃРёРЅС‚Р°РєСЃРёСЃР° (РїСЂРёРјРµСЂРЅРѕРµ РїРѕР»РѕР¶РµРЅРёРµ: "user")
+  РџРѕР·РёС†РёСЏ: 34
+17:04:55.848 [http-nio-8080-exec-10] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - РћРЁРР‘РљРђ: РѕС€РёР±РєР° СЃРёРЅС‚Р°РєСЃРёСЃР° (РїСЂРёРјРµСЂРЅРѕРµ РїРѕР»РѕР¶РµРЅРёРµ: "user")
+  РџРѕР·РёС†РёСЏ: 34
+17:06:19.463 [http-nio-8080-exec-4] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - РћРЁРР‘РљРђ: РѕС€РёР±РєР° СЃРёРЅС‚Р°РєСЃРёСЃР° (РїСЂРёРјРµСЂРЅРѕРµ РїРѕР»РѕР¶РµРЅРёРµ: "user")
+  РџРѕР·РёС†РёСЏ: 34
+17:08:28.118 [http-nio-8080-exec-10] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - РћРЁРР‘РљРђ: РѕС€РёР±РєР° СЃРёРЅС‚Р°РєСЃРёСЃР° (РїСЂРёРјРµСЂРЅРѕРµ РїРѕР»РѕР¶РµРЅРёРµ: "user")
+  РџРѕР·РёС†РёСЏ: 34
+17:10:23.584 [http-nio-8080-exec-10] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - РћРЁРР‘РљРђ: РѕС€РёР±РєР° СЃРёРЅС‚Р°РєСЃРёСЃР° (РїСЂРёРјРµСЂРЅРѕРµ РїРѕР»РѕР¶РµРЅРёРµ: "user")
+  РџРѕР·РёС†РёСЏ: 34
+17:20:05.914 [http-nio-8080-exec-2] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - РћРЁРР‘РљРђ: РѕС€РёР±РєР° СЃРёРЅС‚Р°РєСЃРёСЃР° (РїСЂРёРјРµСЂРЅРѕРµ РїРѕР»РѕР¶РµРЅРёРµ: "user")
+  РџРѕР·РёС†РёСЏ: 34
+23:59:13.734 [http-nio-8080-exec-10] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - РћРЁРР‘РљРђ: РѕС€РёР±РєР° СЃРёРЅС‚Р°РєСЃРёСЃР° (РїСЂРёРјРµСЂРЅРѕРµ РїРѕР»РѕР¶РµРЅРёРµ: "user")
+  РџРѕР·РёС†РёСЏ: 34
+00:01:08.650 [http-nio-8080-exec-2] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - РћРЁРР‘РљРђ: РѕС€РёР±РєР° СЃРёРЅС‚Р°РєСЃРёСЃР° (РїСЂРёРјРµСЂРЅРѕРµ РїРѕР»РѕР¶РµРЅРёРµ: "user")
+  РџРѕР·РёС†РёСЏ: 34
+00:03:34.412 [http-nio-8080-exec-1] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - РћРЁРР‘РљРђ: РѕС€РёР±РєР° СЃРёРЅС‚Р°РєСЃРёСЃР° (РїСЂРёРјРµСЂРЅРѕРµ РїРѕР»РѕР¶РµРЅРёРµ: "user")
+  РџРѕР·РёС†РёСЏ: 34
+00:03:34.555 [http-nio-8080-exec-1] ERROR org.hibernate.internal.ExceptionMapperStandardImpl - HHH000346: Error during managed flush [org.hibernate.exception.SQLGrammarException: could not execute statement]
+00:06:34.549 [http-nio-8080-exec-10] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - РћРЁРР‘РљРђ: РѕС€РёР±РєР° СЃРёРЅС‚Р°РєСЃРёСЃР° (РїСЂРёРјРµСЂРЅРѕРµ РїРѕР»РѕР¶РµРЅРёРµ: "user")
+  РџРѕР·РёС†РёСЏ: 34
+01:08:14.668 [http-nio-8080-exec-8] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - РћРЁРР‘РљРђ: РѕС€РёР±РєР° СЃРёРЅС‚Р°РєСЃРёСЃР° (РїСЂРёРјРµСЂРЅРѕРµ РїРѕР»РѕР¶РµРЅРёРµ: "user")
+  РџРѕР·РёС†РёСЏ: 41

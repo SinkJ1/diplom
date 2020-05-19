@@ -62,14 +62,15 @@ public class Film implements Serializable {
 	@OneToMany(mappedBy = "film", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private Set<Subscriber> subs;
 
+	@OneToMany(mappedBy = "film", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private Set<Comment> comments;
+
+
 	public Film() {
 
 	}
 
-	public Film(int id, String filmName, User userId, String filmInformation, Date filmReleaseDate, double filmRaiting,
-			String imgPath, double filmProfit, double filmCost, boolean blockToWatch, boolean premiumStatus,
-			String filmPlayer, Set<Actor> actors, Set<FilmCountry> countries, Set<FilmsGenre> genres,
-			Set<Subscriber> subs) {
+	public Film(int id, String filmName, User userId, String filmInformation, Date filmReleaseDate, double filmRaiting, String imgPath, double filmProfit, double filmCost, boolean blockToWatch, boolean premiumStatus, String filmPlayer, Set<Actor> actors, Set<FilmCountry> countries, Set<FilmsGenre> genres, Set<Subscriber> subs, Set<Comment> comments) {
 		this.id = id;
 		this.filmName = filmName;
 		this.userId = userId;
@@ -86,6 +87,15 @@ public class Film implements Serializable {
 		this.countries = countries;
 		this.genres = genres;
 		this.subs = subs;
+		this.comments = comments;
+	}
+
+	public Set<Comment> getComments() {
+		return comments;
+	}
+
+	public void setComments(Set<Comment> comments) {
+		this.comments = comments;
 	}
 
 	public int getId() {
@@ -218,11 +228,24 @@ public class Film implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Film [id=" + id + ", filmName=" + filmName + ", userId=" + userId + ", filmInformation="
-				+ filmInformation + ", filmReleaseDate=" + filmReleaseDate + ", filmRaiting=" + filmRaiting
-				+ ", imgPath=" + imgPath + ", filmProfit=" + filmProfit + ", filmCost=" + filmCost + ", blockToWatch="
-				+ blockToWatch + ", premiumStatus=" + premiumStatus + ", filmPlayer=" + filmPlayer + ", actors="
-				+ actors + ", countries=" + countries + ", genres=" + genres + ", subs=" + subs + "]";
+		return "Film{" +
+				"id=" + id +
+				", filmName='" + filmName + '\'' +
+				", userId=" + userId +
+				", filmInformation='" + filmInformation + '\'' +
+				", filmReleaseDate=" + filmReleaseDate +
+				", filmRaiting=" + filmRaiting +
+				", imgPath='" + imgPath + '\'' +
+				", filmProfit=" + filmProfit +
+				", filmCost=" + filmCost +
+				", blockToWatch=" + blockToWatch +
+				", premiumStatus=" + premiumStatus +
+				", filmPlayer='" + filmPlayer + '\'' +
+				", actors=" + actors +
+				", countries=" + countries +
+				", genres=" + genres +
+				", subs=" + subs +
+				", comments=" + comments +
+				'}';
 	}
-
 }

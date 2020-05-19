@@ -19,7 +19,7 @@ public class WatchingFilm {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
-	@JoinColumn(name = "user")
+	@JoinColumn(name = "watcher")
 	@OneToOne(fetch = FetchType.LAZY)
 	private User user;
 

@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.diplom.entity.Film;
 import com.diplom.entity.dto.FilmDto;
-import com.diplom.entity.dto.FilmImgDto;
+import com.diplom.entity.dto.common.FilmImgDto;
 import com.diplom.services.FilmServiceImpl;
 import com.diplom.services.MapperService;
 

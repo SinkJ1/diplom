@@ -1,54 +1,80 @@
 package com.diplom.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "t_comment")
 public class Comment implements Serializable {
-	
+
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -2001325910641603462L;
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
-	private int commentId;
-	
+	private int id;
+
 	@OneToOne
-	@JoinColumn(name = "film_id")
+	@JoinColumn(name = "film")
 	private Film film;
-	
+
 	@OneToOne
-	@JoinColumn(name = "user_id")
+	@JoinColumn(name = "client")
 	private User user;
-	
-	@Column(name = "value")
+
+	@Column(name = "text")
 	private String commentValue;
-	
+
 	@Column(name = "date")
-	private String date;
+	private Date date;
+
+	@Column(name = "licke")
+	private int like;
+
+	@Column(name = "disLike")
+	private int disLike;
 
 	public Comment() {
-		
+
 	}
-	
-	public Comment(int commentId, Film film, User user, String commentValue, String date) {
-		this.commentId = commentId;
+
+	public Comment(int id, Film film, User user, String commentValue, Date date, int like, int disLike) {
+		this.id = id;
 		this.film = film;
 		this.user = user;
 		this.commentValue = commentValue;
 		this.date = date;
+		this.like = like;
+		this.disLike = disLike;
 	}
 
-	public int getCommentId() {
-		return commentId;
+	public int getLike() {
+		return like;
 	}
 
-	public void setCommentId(int commentId) {
-		this.commentId = commentId;
+	public void setLike(int like) {
+		this.like = like;
+	}
+
+	public int getDisLike() {
+		return disLike;
+	}
+
+	public void setDisLike(int disLike) {
+		this.disLike = disLike;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public Film getFilm() {
@@ -75,20 +101,18 @@ public class Comment implements Serializable {
 		this.commentValue = commentValue;
 	}
 
-	public String getDate() {
+	public Date getDate() {
 		return date;
 	}
 
-	public void setDate(String date) {
+	public void setDate(Date date) {
 		this.date = date;
 	}
 
 	@Override
 	public String toString() {
-		return "Comment [commentId=" + commentId + ", film=" + film + ", user=" + user + ", commentValue="
-				+ commentValue + ", date=" + date + "]";
+		return "Comment [id=" + id + ", film=" + film + ", user=" + user + ", commentValue=" + commentValue + ", date="
+				+ date + ", like=" + like + ", disLike=" + disLike + "]";
 	}
-	
-	
-	
+
 }

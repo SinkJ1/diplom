@@ -1,6 +1,8 @@
-package com.diplom.entity.dto;
+package com.diplom.entity.dto.common;
 
 public class FilmImgDto {
+
+	private int id;
 
 	private String filmName;
 
@@ -9,9 +11,18 @@ public class FilmImgDto {
 	public FilmImgDto() {
 	}
 
-	public FilmImgDto(String filmName, String imgPath) {
+	public FilmImgDto(int id, String filmName, String imgPath) {
+		this.id = id;
 		this.filmName = filmName;
 		this.imgPath = imgPath;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getFilmName() {
@@ -32,7 +43,7 @@ public class FilmImgDto {
 
 	@Override
 	public String toString() {
-		return "FilmImgDto [filmName=" + filmName + ", imgPath=" + imgPath + "]";
+		return "FilmImgDto [id=" + id + ", filmName=" + filmName + ", imgPath=" + imgPath + "]";
 	}
 
 }
