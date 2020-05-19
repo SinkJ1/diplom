@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { send, get,UPDATE } from "../services/DataLoader"
+import { Send, get,UPDATE } from "../services/DataLoader"
 
 const AddFilm = (props) => {
 
@@ -32,7 +32,7 @@ const AddFilm = (props) => {
     profit = props.value.filmProfit
     premium = props.value.premiumStatus;
     blocked = props.value.blockToWatch;
-    let notParseDate = new Date(props.value.filmReleaseDate); 
+    let notParseDate = new Date(props.value.filmReleaseDate).toLocaleDateString(); 
     date = notParseDate.split(".")[2] + "-" + notParseDate.split(".")[1] + "-" + notParseDate.split(".")[0];
 
     let a = props.value.actors.slice();
@@ -245,11 +245,10 @@ const AddFilm = (props) => {
   }
   const clck = (e) => {
     if(props.type === "CHANGE"){
-    //  UPDATE("http://localhost:8080/films/update",film);
+      UPDATE("http://localhost:8080/films/update",film);
     } else {
-   //   send("http://localhost:8080/films/add",film);
+      Send("http://localhost:8080/films/add",film);
     }
-    console.log(JSON.stringify(film))
     e.preventDefault();
   }
 

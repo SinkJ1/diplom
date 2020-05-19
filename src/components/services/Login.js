@@ -1,59 +1,61 @@
 import React, { useState } from "react"
+
 import "../styles/headerMenuAutorize.css"
-
-const patternForLogin = "^([a-z0-9_-]+\\.)*[A-Za-z0-9_-]+@[a-z0-9_-]+(\\.[a-z0-9_-]+)*\\.[a-z]{2,6}$";
-const titleForMessage = "use pattern in login - UserName@PostServerName.domain"
-
+import { autentification } from "../../api/user/userService";
 
 const Login = () => {
 
-  var user1 = {
-    name: "Tom",
-    key: "123",
-    role: "admin"
-  };
 
+  const [color, setColor] = useState("white")
 
-  var user2 = {
-    name: "Adam",
-    key: "456",
-    role: "user"
-  };
+  const inputStyle = {
+    backgroundColor: color
+  }
 
-  let users = [user1, user2];
-
-
-  const [login, setLogin] = useState("");
-  const [password, setPassword] = useState("");
+  const [user, setUser] = useState({
+    login: "",
+    password: ""
+  })
 
   const onLoginChange = (e) => {
-    setLogin(e.target.value);
+    setUser({
+      ...user,
+      login: e.target.value
+    })
   }
 
 
   const onPasswordChange = (e) => {
-    setPassword(e.target.value);
+    setUser({
+      ...user,
+      password: e.target.value
+    })
   }
 
   const submit = (e) => {
-    users.forEach(function (value) {
-      if (login === value.name && password === value.key) {
-        localStorage.setItem('name', value.name);
-        localStorage.setItem('role', value.role);
-        localStorage.setItem('onLogin', true);
-        setWindow(true)
+
+    autentification(user).then(autorizedUser => {
+
+      if (autorizedUser !== "false") {
+        localStorage.setItem("user", JSON.stringify(autorizedUser))
+        setColor("#CBFEB1")
+        setOnLogin(true)
+      } else {
+        alert("проверьте введённые данные")
+        setColor("#FEB1B1")
       }
 
-    })
-    // e.preventDefault();
+    }
+    )
+    e.preventDefault();
   }
 
-  const close = (e) => {
-    setWindow("close")
+  const close = () => {
+    setOnLogin("close")
   }
 
-  const [window, setWindow] = useState(false);
-  let a = <div class="modal-dialog" role="document" style={{ position: "fixed", marginLeft: "-30%", marginTop: "10%", tabIndex: "-1", zIndex: "5" }}>
+  const [onLoign, setOnLogin] = useState(false);
+  let modalWindow = <div class="modal-dialog" role="document" style={{ position: "fixed", marginLeft: "-30%", marginTop: "10%", tabIndex: "-1", zIndex: "5" }}>
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="staticBackdropLabel">Вход</h5>
@@ -64,16 +66,12 @@ const Login = () => {
       <div class="modal-body">
         <form onSubmit={submit}>
           <div class="form-group">
-            <label for="exampleInputEmail1">Логин</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" value={login} onChange={onLoginChange} />
+            <label for="exampleInputEmail1">Адрес электронной почты</label>
+            <input type="text" style={inputStyle} class="form-control" id="exampleInputEmail1" value={user.login} onChange={onLoginChange} required />
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Пароль</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" value={password} onChange={onPasswordChange} />
-          </div>
-          <div class="form-group form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1" />
-            <label class="form-check-label" for="exampleCheck1">Запомнить меня</label>
+            <input type="password" style={inputStyle} class="form-control" id="exampleInputPassword1" value={user.password} onChange={onPasswordChange} required />
           </div>
           <button type="submit" class="btn btn-primary">Войти</button>
         </form>
@@ -81,7 +79,7 @@ const Login = () => {
     </div>
   </div>
 
-  return window === true ? window : window === "close" ? "" : a;
+  return onLoign === true ? onLoign : onLoign === "close" ? "" : modalWindow;
 }
 
 export default Login

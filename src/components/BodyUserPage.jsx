@@ -3,6 +3,7 @@ import "../components/styles/BodyUserPage.css"
 
 import Menu from './SlideMenu';
 
+const user = JSON.parse(localStorage.getItem("user"))
 
 const testImg = "https://sun9-65.userapi.com/c855028/v855028652/3ec4c/fhIvb1BTNiE.jpg"
 
@@ -20,17 +21,17 @@ const BodyUserPage = () => {
             </div>
             <div className="info">
                 <div className="name">
-                    <div>ASUDFG iosdng</div>
+                    <div>{user.name}</div>
                     <div style={{ textAlign: "right" }}>subscribe: active</div>
                 </div>
                 <div>
-                    E-mail
+                    E-mail: {user.login}
                 </div>
                 <div>
-                    Дата регистрации
+                    Дата рождения: {user.birdthDate}
                 </div>
                 <div>
-                    Срок действия подписки
+                    Срок действия подписки:
                 </div>
             </div>
         </div>

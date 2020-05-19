@@ -2,87 +2,114 @@
 import React, { useState } from "react"
 import "../styles/headerMenuAutorize.css"
 
-const patternForLogin = "^([a-z0-9_-]+\\.)*[A-Za-z0-9_-]+@[a-z0-9_-]+(\\.[a-z0-9_-]+)*\\.[a-z]{2,6}$";
-const titleForMessage = "use pattern in login - UserName@PostServerName.domain"
+import { registration, autentification } from "../../api/user/userService";
 
+
+const emailPattern = "^([a-z0-9_-]+\\.)*[A-Za-z0-9_-]+@[a-z0-9_-]+(\\.[a-z0-9_-]+)*\\.[a-z]{2,6}$";
 
 const Registration = () => {
 
-  var user1 = {
-    name: "Tom",
-    key: "123",
-    role: "admin"
-};
+
+  const [color, setColor] = useState("white")
+
+  const inputStyle = {
+    backgroundColor: color
+  }
+
+  const [user, setUser] = useState({
+    login: "",
+    password: "",
+    name: "",
+    birdthDate: ""
+  })
+
+  const onLoginChange = (e) => {
+    setUser({
+      ...user,
+      login: e.target.value
+    })
+  }
 
 
-var user2 = {
-  name: "Adam",
-  key: "456",
-  role: "user"
-};
+  const onPasswordChange = (e) => {
+    setUser({
+      ...user,
+      password: e.target.value
+    })
+  }
 
-let users = [user1,user2];
+  const onBirdthDateChange = (e) => {
+    setUser({
+      ...user,
+      birdthDate: e.target.value
+    })
+  }
 
+  const onNameChange = (e) => {
+    setUser({
+      ...user,
+      name: e.target.value
+    })
+  }
 
-    const [login, setLogin] = useState("");
-    const [password, setPassword] = useState("");
+  const submit = (e) => {
+    registration(user).then(response => {
+      if (response === "complete") {
+        autentification(user).then(autorizedUser => {
+          localStorage.setItem("user", JSON.stringify(autorizedUser))
+          setColor("#CBFEB1")
+          setOnLogin(true)
+        }
+        )
+      } else {
+        alert("пользователь с такой электронной почтой уже существует")
+        setColor("#FEB1B1")
+      }
 
-    const onLoginChange = (e) => {
-        setLogin(e.target.value);
     }
+    )
+    e.preventDefault();
+  }
+
+  const close = () => {
+    setOnLogin("close")
+  }
 
 
-    const onPasswordChange = (e) => {
-        setPassword(e.target.value);
-    }
-
-    const submit = (e) => {
-        users.forEach(function(value){
-          if(login === value.name && password === value.key){
-            localStorage.setItem('name',value.name);
-            localStorage.setItem('role',value.role);
-            localStorage.setItem('onLogin',true);
-            setWindow(true)
-          }
-          
-        })
-       // e.preventDefault();
-    }
-
-    const close = (e) => {
-        setWindow("close")
-    }
-
-    const[window, setWindow]=useState(false);
-     let a = <div class="modal-dialog" role="document" style={{position:"fixed", marginLeft:"-30%",marginTop:"10%",tabIndex:"-1", zIndex:"5"}}>
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="staticBackdropLabel">Вход</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true" onClick={close}>&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <form onSubmit={submit}>
-              <div class="form-group">
-                <label for="exampleInputEmail1">Логин</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" value={login} onChange={onLoginChange}/>
-              </div>
-              <div class="form-group">
-                <label for="exampleInputPassword1">Пароль</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" value={password} onChange={onPasswordChange}/>
-              </div>
-              <div class="form-group form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1" />
-                <label class="form-check-label" for="exampleCheck1">Запомнить меня</label>
-              </div>
-              <button type="submit" class="btn btn-primary">Войти</button>
-            </form>
-          </div>
-        </div>
+  const [onLoign, setOnLogin] = useState(false);
+  let modalWindow = <div class="modal-dialog" role="document" style={{ position: "fixed", marginLeft: "-30%", marginTop: "10%", tabIndex: "-1", zIndex: "5" }}>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Регистрация</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" onClick={close}>&times;</span>
+        </button>
       </div>
+      <div class="modal-body">
+        <form onSubmit={submit}>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Адрес электронной почты</label>
+            <input type="text" style={inputStyle} pattern={emailPattern} class="form-control" id="exampleInputEmail1" value={user.login} onChange={onLoginChange} required />
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Имя</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" value={user.name} onChange={onNameChange} required />
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Дата рождения</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" value={user.birdthDate} onChange={onBirdthDateChange} required />
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Пароль</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" value={user.password} onChange={onPasswordChange} required />
+          </div>
+          <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
+        </form>
+      </div>
+    </div>
+  </div>
 
-      return window === true ? window : window === "close" ? "" : a;
+  return onLoign === true ? onLoign : onLoign === "close" ? "" : modalWindow;
 }
 
 export default Registration

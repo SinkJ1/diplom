@@ -18,7 +18,7 @@
 
 .textComHeader{
     display: grid;
-    grid-template-columns: 2fr 0.25fr;
+    grid-template-columns: 2fr auto;
 }
 
 .textCom{

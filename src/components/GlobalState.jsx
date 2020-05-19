@@ -5,7 +5,7 @@ import AutorizedUserButton from "./AutoriziedUserButtonHeader"
 
 const State = () => {
 
-        if (localStorage.getItem('onLogin') === 'true') {
+        if (localStorage.getItem("user")) {
                 return <AutorizedUserButton />
         } else {
                 return <NotAutoriziedUserButtonHeader />

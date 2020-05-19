@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../admin styles/genreWork.css"
 
-import { send, get, UPDATE, DELETE } from "../services/DataLoader"
+import { Send, get, UPDATE, DELETE } from "../services/DataLoader"
 
 const GenreWork = (props) => {
 
@@ -44,7 +44,7 @@ const GenreWork = (props) => {
             let newGenre = {
                 name: inputValue
             }
-            send(props.add,newGenre);
+            Send(props.add,newGenre);
             //console.log(JSON.stringify(newGenre))
             setGenres({ value: genres.value.concat(newGenre)})
            

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import "./styles/filmPage.css"
 import DataLoader from "./services/DataLoader";
-import { get, send } from "./services/DataLoader";
+import { get, Send } from "./services/DataLoader";
 import { Link } from "react-router-dom";
 import Spinner from 'react-bootstrap/Spinner'
 
@@ -34,7 +34,7 @@ const FilmPage = (props) => {
       e.preventDefault();
    }
 
-   const [raitingState, setRaitingState] = useState(2.2)
+   const [raitingState, setRaitingState] = useState(0)
    const [film, setFilm] = useState();
 
    const download = (name) => {
@@ -63,7 +63,7 @@ const FilmPage = (props) => {
    }
 
    const subscribe = (e) => {
-      send(`http://localhost:8080/subscribe/add`, subs)
+      Send(`http://localhost:8080/subscribe/add`, subs)
       e.preventDefault();
    }
 
@@ -98,7 +98,7 @@ const FilmPage = (props) => {
          </div></>
       } else {
          playerAndComment = <><div className="item_film_player"><div style={{ marginLeft: "15%" }}><Player value={film.filmName} /></div></div>
-            <div className="item_film_comment"><Comment /></div></>
+            <div className="item_film_comment"><Comment value={film}/></div></>
       }
 
       data = <div className="container-wrapper"><div className="container">
@@ -144,16 +144,16 @@ const FilmPage = (props) => {
                   </Link>
                </li>)}</div>
             <div>
-               Бюджет: 25 000 000$
+               Бюджет: 
             </div>
             <div>
-               Сборы: 100 000 000$
+               Сборы: 
             </div>
             <div>
-               Дата выхода : 02.05.2020
+               Дата выхода : 08.05.2021
             </div>
             <div>
-               Жанр : Комедия, Боевик
+               Жанр : 
             </div>
          </div>
          {playerAndComment}
