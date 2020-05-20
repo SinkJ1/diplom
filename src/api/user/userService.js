@@ -32,6 +32,31 @@ export const getByLogin = (login) => {
     return fetch(`http://localhost:8080/users/login/${login}`, requestOptions).then(handleResponse);
 }
 
+export const subscribeOnFilm = (user) => {
+    
+    const url = "http://localhost:8080/users/expected"
+    const requestOptions = {
+        method: 'PUT',
+        headers: new Headers({ 'Content-Type': 'application/json' }),
+        body: JSON.stringify(user)
+    };
+
+    return fetch(url, requestOptions)
+        .then(handleResponseRegistr);
+}
+
+export const writeComment = (user) =>{
+    const url = "http://localhost:8080/users/expected"
+    const requestOptions = {
+        method: 'PUT',
+        headers: new Headers({ 'Content-Type': 'application/json' }),
+        body: JSON.stringify(user)
+    };
+
+    return fetch(url, requestOptions)
+        .then(handleResponseRegistr);
+}
+
 export const registration = (user) => {
     const url = "http://localhost:8080/users/registration"
     const requestOptions = {

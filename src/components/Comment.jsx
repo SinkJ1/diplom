@@ -5,6 +5,8 @@ const testImg = "https://sun9-65.userapi.com/c855028/v855028652/3ec4c/fhIvb1BTNi
 
 const Comment = (props) => {
 
+    const user = JSON.parse(localStorage.getItem("user"))
+
     const [visible, setVisible] = useState("hidden")
     const [text, setText] = useState()
     const [btnHandler,setBtnHandler] = useState({ value:"Оставить комментарий", handler : "add"})
@@ -39,14 +41,13 @@ const Comment = (props) => {
         if(btnHandler.handler === "add"){
             arr.push({
                 id: 4,
-                userName : "Тест4",
-                date : "",
+                userName : user.name,
+                date : new Date().toLocaleDateString(),
                 text : text,
                 like : 5,
                 dislike :0
             })
         } else {
-
             for(let i = 0; i < arr.length ; i++){
                 if(arr[i].id === btnHandler.item.id){
                     arr[i].text = text;
@@ -81,7 +82,7 @@ const Comment = (props) => {
     }
 
     const delEl = (item) =>{
-        if(localStorage.getItem("role") === "admin"){
+        if(JSON.parse(localStorage.getItem("user")).role === "admin"){
             return <><button onClick={()=>{
                 setComments({value:comments.value.filter((val)=> val.id !== item.id)})
             }}>X</button></>

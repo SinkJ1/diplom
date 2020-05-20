@@ -77,33 +77,33 @@ const Registration = () => {
 
 
   const [onLoign, setOnLogin] = useState(false);
-  let modalWindow = <div class="modal-dialog" role="document" style={{ position: "fixed", marginLeft: "-30%", marginTop: "10%", tabIndex: "-1", zIndex: "5" }}>
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Регистрация</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+  let modalWindow = <div className="modal-dialog" role="document" style={{ position: "fixed", marginLeft: "-30%", marginTop: "10%", tabIndex: "-1", zIndex: "5" }}>
+    <div className="modal-content">
+      <div className="modal-header">
+        <h5 className="modal-title" id="staticBackdropLabel">Регистрация</h5>
+        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true" onClick={close}>&times;</span>
         </button>
       </div>
-      <div class="modal-body">
+      <div className="modal-body">
         <form onSubmit={submit}>
-          <div class="form-group">
-            <label for="exampleInputEmail1">Адрес электронной почты</label>
-            <input type="text" style={inputStyle} pattern={emailPattern} class="form-control" id="exampleInputEmail1" value={user.login} onChange={onLoginChange} required />
+          <div className="form-group">
+            <label htmlFor="exampleInputEmail1">Адрес электронной почты</label>
+            <input type="text" style={inputStyle} pattern={emailPattern} className="form-control" id="exampleInputEmail1" value={user.login} onChange={onLoginChange} required />
           </div>
-          <div class="form-group">
-            <label for="exampleInputEmail1">Имя</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" value={user.name} onChange={onNameChange} required />
+          <div className="form-group">
+            <label htmlFor="exampleInputEmail1">Имя</label>
+            <input type="text" className="form-control" id="exampleInputEmail1" value={user.name} onChange={onNameChange} required />
           </div>
-          <div class="form-group">
-            <label for="exampleInputEmail1">Дата рождения</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" value={user.birdthDate} onChange={onBirdthDateChange} required />
+          <div className="form-group">
+            <label htmlFor="exampleInputEmail1">Дата рождения</label>
+            <input type="text" className="form-control" id="exampleInputEmail1" value={user.birdthDate} onChange={onBirdthDateChange} required />
           </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Пароль</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" value={user.password} onChange={onPasswordChange} required />
+          <div className="form-group">
+            <label htmlFor="exampleInputPassword1">Пароль</label>
+            <input type="password" className="form-control" id="exampleInputPassword1" value={user.password} onChange={onPasswordChange} required />
           </div>
-          <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
+          <button type="submit" className="btn btn-primary">Зарегистрироваться</button>
         </form>
       </div>
     </div>
