@@ -9,12 +9,14 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.diplom.controllers.EntryModelParamsFilmByParametr;
 import com.diplom.dao.ActorDAOImpl;
+import com.diplom.dao.CommentDAOImpl;
 import com.diplom.dao.FilmCountryDaoImpl;
 import com.diplom.dao.FilmDao;
 import com.diplom.dao.FilmGenreDaoImpl;
 import com.diplom.dao.SenderDao;
 import com.diplom.dao.SubscriberDao;
 import com.diplom.entity.Film;
+import com.diplom.entity.User;
 import com.diplom.entity.dto.FilmDto;
 import com.diplom.entity.dto.common.FilmImgDto;
 
@@ -32,6 +34,9 @@ public class FilmServiceImpl extends AbstractGenericService<Film> implements Fil
 
 	@Autowired
 	private FilmGenreDaoImpl genreDao;
+
+	@Autowired
+	private CommentDAOImpl commentDao;
 
 	@Autowired
 	private SenderDao sender;
@@ -67,6 +72,8 @@ public class FilmServiceImpl extends AbstractGenericService<Film> implements Fil
 	@Override
 	public void delete(Film object) {
 		deleteReference(object);
+		commentDao.getByEntity(entityManager, object).stream()
+				.forEach(value -> commentDao.delete(entityManager, value));
 		dao.delete(entityManager, object);
 	}
 
@@ -158,6 +165,22 @@ public class FilmServiceImpl extends AbstractGenericService<Film> implements Fil
 			e.printStackTrace();
 		}
 
+	}
+
+	@Override
+	public void commentUpdate(Film filmList) {
+		filmList.getComments().stream().forEach(value -> value.setFilm(filmList));
+		Film updateFilm = dao.findById(entityManager, filmList.getId());
+		updateFilm.setComments(filmList.getComments());
+		dao.update(entityManager, updateFilm);
+	}
+
+	@Transactional
+	@Override
+	public void rateUpdate(Film film) {
+		Film updateFilm = dao.findById(entityManager, film.getId());
+		updateFilm.setFilmRaiting((film.getFilmRaiting() + updateFilm.getFilmRaiting())/2);
+		dao.update(entityManager, updateFilm);
 	}
 
 }

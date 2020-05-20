@@ -5,6 +5,8 @@ import java.util.Set;
 import java.util.Date;
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "t_film")
 public class Film implements Serializable {

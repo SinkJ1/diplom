@@ -26,7 +26,7 @@ public class LikedFilm implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@JoinColumn(name = "user")
+	@JoinColumn(name = "liker")
 	@OneToOne(fetch = FetchType.LAZY)
 	private User user;
 	

@@ -25,6 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.diplom.entity.Film;
 import com.diplom.entity.dto.FilmDto;
 import com.diplom.entity.dto.common.FilmImgDto;
+import com.diplom.entity.dto.film.FilmRateDto;
 import com.diplom.services.FilmServiceImpl;
 import com.diplom.services.MapperService;
 
@@ -75,6 +76,13 @@ public class FilmController extends AbstractController<Film> {
 	public void update(@RequestBody FilmDto film) {
 		filmService.update(new MapperService<Film, FilmDto>(Film.class, FilmDto.class).toEntity(film));
 	}
+	
+	@Transactional
+	@PutMapping(value = "/comment", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@ResponseStatus(code = HttpStatus.OK)
+	public void comment(@RequestBody FilmDto film) {
+		filmService.commentUpdate(new MapperService<Film, FilmDto>(Film.class, FilmDto.class).toEntity(film));
+	}
 
 	@GetMapping(value = "/commingsFilms/{date}")
 	public List<FilmDto> getCommingsFilms(@PathVariable("date") String date) throws ParseException {
@@ -90,6 +98,11 @@ public class FilmController extends AbstractController<Film> {
 	@GetMapping(value = "/filmImg")
 	public List<FilmImgDto> getImgFilms() {
 		return filmService.getLastXFilms(15);
+	}
+	
+	@PutMapping(value = "/rate")
+	public void rateUpdate(@RequestBody FilmRateDto film) {
+		filmService.rateUpdate(new MapperService<Film, FilmRateDto>(Film.class, FilmRateDto.class).toEntity(film));
 	}
 
 	@GetMapping(value = "/year/{year}")

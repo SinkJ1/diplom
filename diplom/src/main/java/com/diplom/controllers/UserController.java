@@ -82,11 +82,11 @@ public class UserController {
 
 	@Transactional
 	@PutMapping(value = "/expected")
-	public void expected(@RequestBody UserWatchingFilmDto user) {
+	public void expected(@RequestBody UserExpectedFilmDto user) {
 		userService.userExpectedFilmUpdate(
-				new MapperService<User, UserWatchingFilmDto>(User.class, UserWatchingFilmDto.class).toEntity(user));
+				new MapperService<User, UserExpectedFilmDto>(User.class, UserExpectedFilmDto.class).toEntity(user));
 	}
-	
+
 	@Transactional
 	@PutMapping(value = "/watch")
 	public void watch(@RequestBody UserWatchingFilmDto user) {
@@ -94,12 +94,17 @@ public class UserController {
 				new MapperService<User, UserWatchingFilmDto>(User.class, UserWatchingFilmDto.class).toEntity(user));
 	}
 
+	@Transactional
+	@PutMapping(value = "/like")
+	public void like(@RequestBody UserLickedFilm user) {
+		userService.userLikeFilmUpdate(
+				new MapperService<User, UserLickedFilm>(User.class, UserLickedFilm.class).toEntity(user));
+	}
+
 	@GetMapping(value = "/{name}")
 	public UserDto2 getUserByName(@PathVariable("name") String name) {
 		return new MapperService<User, UserDto2>(User.class, UserDto2.class).toDto(userService.findByName(name));
 	}
-
-
 
 	private List<UserDto> mapToDto() {
 		return userService.getAll().stream()

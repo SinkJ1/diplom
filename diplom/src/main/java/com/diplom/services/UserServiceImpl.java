@@ -41,8 +41,8 @@ public class UserServiceImpl extends AbstractGenericService<User> implements Use
 
 	@Override
 	public void userExpectedFilmUpdate(User user) {
-		user.getExpectedFilms().stream().forEach(value -> value.setUser(user));
 		User updateUser = dao.findById(entityManager, user.getId());
+		user.getExpectedFilms().stream().forEach(value -> value.setUser(updateUser));
 		updateUser.setExpectedFilms(user.getExpectedFilms());
 		dao.update(entityManager, updateUser);
 	}
@@ -53,6 +53,20 @@ public class UserServiceImpl extends AbstractGenericService<User> implements Use
 		User updateUser = dao.findById(entityManager, user.getId());
 		updateUser.setWatch(user.getWatch());
 		dao.update(entityManager, updateUser);
+	}
+
+	@Override
+	public void userLikeFilmUpdate(User user) {
+		user.getLicked().stream().forEach(value -> value.setUser(user));
+		User updateUser = dao.findById(entityManager, user.getId());
+		updateUser.setLicked(user.getLicked());
+		dao.update(entityManager, updateUser);
+	}
+
+	@Override
+	public void addComment(User user) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

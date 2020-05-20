@@ -7,4 +7,6 @@ public interface UserService extends GenericService<User> {
 	User findByLogin(String login);
 	void userExpectedFilmUpdate(User user);
 	void userWatchFilmUpdate(User user);
+	void userLikeFilmUpdate(User user);
+	void addComment(User user);
 }

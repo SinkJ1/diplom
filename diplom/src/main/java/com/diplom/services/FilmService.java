@@ -27,4 +27,7 @@ public interface FilmService extends GenericService<Film>{
 	
 	List<FilmDto> findByShortName(String name);
 	
+	void commentUpdate(Film filmList);
+	
+	void rateUpdate(Film film);
 }

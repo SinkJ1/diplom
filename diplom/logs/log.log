@@ -6054,3 +6054,5 @@ antlr.NoViableAltException: unexpected token: filmName
   Позиция: 34
 01:08:14.668 [http-nio-8080-exec-8] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - ОШИБКА: ошибка синтаксиса (примерное положение: "user")
   Позиция: 41
+01:12:41.259 [http-nio-8080-exec-9] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - ОШИБКА: отношение "t_watchingfilm_id_seq" не существует
+  Позиция: 16
