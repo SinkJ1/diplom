@@ -18,7 +18,21 @@ export const handleResponseRegistr = (response) => {
                 return "false"
             }
         }
+        console.log(data)
         return data;
+    });
+}
+
+export const handleResponseCustom = (response) => {
+    return response.text().then(text => {
+        const data = text;
+        if (!response.ok) {
+            if ([401, 403].indexOf(response.status) !== -1) {
+                return "false"
+            }
+        }
+        console.log(data)
+        return response.status;
     });
 }
 
@@ -45,16 +59,35 @@ export const subscribeOnFilm = (user) => {
         .then(handleResponseRegistr);
 }
 
-export const writeComment = (user) =>{
-    const url = "http://localhost:8080/users/expected"
+export const writeComment = (comment) =>{
+    
+    const url = "http://localhost:8080/films/comment"
     const requestOptions = {
         method: 'PUT',
         headers: new Headers({ 'Content-Type': 'application/json' }),
-        body: JSON.stringify(user)
+        body: JSON.stringify(comment)
+    };
+
+    return fetch(url, requestOptions)
+        .then(handleResponseCustom);
+}
+
+export const deleteComment = (film, id) =>{
+    const url = `http://localhost:8080/films/delComment/${id}`
+    const requestOptions = {
+        method: 'PUT',
+        headers: new Headers({ 'Content-Type': 'application/json' }),
+        body: JSON.stringify(film)
     };
 
     return fetch(url, requestOptions)
         .then(handleResponseRegistr);
+}
+
+export const getCommentsByFilmId = (id) =>{
+    const requestOptions = { method: 'GET' };
+    return fetch(`http://localhost:8080/films/comment/${id}`, requestOptions).then(handleResponse);
+
 }
 
 export const registration = (user) => {

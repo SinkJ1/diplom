@@ -139,7 +139,7 @@ const FilmPage = (props) => {
          </div></>
       } else {
          playerAndComment = <><div className="item_film_player"><div style={{ marginLeft: "15%" }}><Player value={film.filmName} /></div></div>
-            <div className="item_film_comment"><Comment value={film} /></div></>
+            <div className="item_film_comment"><Comment value={film.comments} filmId={film.id}/></div></>
       }
 
       data = <div className="container-wrapper"><div className="container">
