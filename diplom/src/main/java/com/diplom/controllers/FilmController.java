@@ -37,7 +37,7 @@ public class FilmController extends AbstractController<Film> {
 
 	@Autowired
 	FilmServiceImpl filmService;
-	
+
 	@GetMapping(value = "/{name}")
 	public FilmDto getUserByName(@PathVariable("name") String name) {
 		return filmService.findByName(name);
@@ -47,7 +47,7 @@ public class FilmController extends AbstractController<Film> {
 	public List<FilmDto> getTopFilms(@PathVariable("topValue") int topValue) {
 		return filmService.getTopFilms(topValue);
 	}
-	
+
 	@GetMapping(value = "/allYears")
 	public List<Date> getAllYearsFilms() {
 		return filmService.getAll().stream().map(year -> year.getFilmReleaseDate()).collect(Collectors.toList());
@@ -76,12 +76,18 @@ public class FilmController extends AbstractController<Film> {
 	public void update(@RequestBody FilmDto film) {
 		filmService.update(new MapperService<Film, FilmDto>(Film.class, FilmDto.class).toEntity(film));
 	}
-	
+
 	@Transactional
 	@PutMapping(value = "/comment", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseStatus(code = HttpStatus.OK)
 	public void comment(@RequestBody FilmDto film) {
 		filmService.commentUpdate(new MapperService<Film, FilmDto>(Film.class, FilmDto.class).toEntity(film));
+	}
+
+	@GetMapping(value = "/comment/{id}")
+	public com.diplom.entity.dto.film.FilmDto getCommentsByFilm(@PathVariable("id") int id) {
+		return new MapperService<Film, com.diplom.entity.dto.film.FilmDto>(Film.class,
+				com.diplom.entity.dto.film.FilmDto.class).toDto(filmService.getCommentsByFilmId(id));
 	}
 
 	@GetMapping(value = "/commingsFilms/{date}")
@@ -99,7 +105,13 @@ public class FilmController extends AbstractController<Film> {
 	public List<FilmImgDto> getImgFilms() {
 		return filmService.getLastXFilms(15);
 	}
-	
+
+	@PutMapping(value = "/delComment/{id}")
+	public void deleteComment(@RequestBody FilmDto film, @PathVariable("id") int id) {
+		filmService.deleteComment(new MapperService<Film, FilmDto>(Film.class, FilmDto.class).toEntity(film), id);
+
+	}
+
 	@PutMapping(value = "/rate")
 	public void rateUpdate(@RequestBody FilmRateDto film) {
 		filmService.rateUpdate(new MapperService<Film, FilmRateDto>(Film.class, FilmRateDto.class).toEntity(film));

@@ -6,8 +6,6 @@ public class CommentDto {
 
 	private int id;
 
-	private FilmDto film;
-
 	private UserDto user;
 
 	private String commentValue;
@@ -22,9 +20,8 @@ public class CommentDto {
 
 	}
 
-	public CommentDto(int id, FilmDto film, UserDto user, String commentValue, Date date, int like, int disLike) {
+	public CommentDto(int id, UserDto user, String commentValue, Date date, int like, int disLike) {
 		this.id = id;
-		this.film = film;
 		this.user = user;
 		this.commentValue = commentValue;
 		this.date = date;
@@ -38,14 +35,6 @@ public class CommentDto {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public FilmDto getFilm() {
-		return film;
-	}
-
-	public void setFilm(FilmDto film) {
-		this.film = film;
 	}
 
 	public UserDto getUser() {
@@ -90,7 +79,7 @@ public class CommentDto {
 
 	@Override
 	public String toString() {
-		return "CommentDto [id=" + id + ", film=" + film + ", user=" + user + ", commentValue=" + commentValue
+		return "CommentDto [id=" + id + ", user=" + user + ", commentValue=" + commentValue
 				+ ", date=" + date + ", like=" + like + ", disLike=" + disLike + "]";
 	}
 

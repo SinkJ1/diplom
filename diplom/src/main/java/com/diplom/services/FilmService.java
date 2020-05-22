@@ -5,7 +5,6 @@ import java.util.List;
 
 import com.diplom.controllers.EntryModelParamsFilmByParametr;
 import com.diplom.entity.Film;
-import com.diplom.entity.dto.ActorDto;
 import com.diplom.entity.dto.FilmDto;
 import com.diplom.entity.dto.common.FilmImgDto;
 
@@ -30,4 +29,8 @@ public interface FilmService extends GenericService<Film>{
 	void commentUpdate(Film filmList);
 	
 	void rateUpdate(Film film);
+	
+	void deleteComment(Film film, int id);
+	
+	Film getCommentsByFilmId(int id);
 }

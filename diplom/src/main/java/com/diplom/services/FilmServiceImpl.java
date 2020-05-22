@@ -179,8 +179,20 @@ public class FilmServiceImpl extends AbstractGenericService<Film> implements Fil
 	@Override
 	public void rateUpdate(Film film) {
 		Film updateFilm = dao.findById(entityManager, film.getId());
-		updateFilm.setFilmRaiting((film.getFilmRaiting() + updateFilm.getFilmRaiting())/2);
+		updateFilm.setFilmRaiting((film.getFilmRaiting() + updateFilm.getFilmRaiting()) / 2);
 		dao.update(entityManager, updateFilm);
+	}
+
+	@Transactional
+	@Override
+	public void deleteComment(Film film, int id) {
+		commentDao.getByEntity(entityManager, film).stream().filter(comment -> comment.getId() == id)
+				.forEach(value -> commentDao.delete(entityManager, value));
+	}
+
+	@Override
+	public Film getCommentsByFilmId(int id) {
+		return dao.findById(entityManager, id);
 	}
 
 }

@@ -4,12 +4,15 @@ public class UserDto {
 
 	private int id;
 
+	private String name;
+
 	public UserDto() {
 
 	}
 
-	public UserDto(int id) {
+	public UserDto(int id, String name) {
 		this.id = id;
+		this.name = name;
 	}
 
 	public int getId() {
@@ -20,9 +23,17 @@ public class UserDto {
 		this.id = id;
 	}
 
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	@Override
 	public String toString() {
-		return "UserDto [id=" + id + "]";
+		return "UserDto [id=" + id + ", name=" + name + "]";
 	}
 
 }
