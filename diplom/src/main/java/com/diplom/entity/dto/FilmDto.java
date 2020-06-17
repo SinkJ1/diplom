@@ -3,6 +3,10 @@ package com.diplom.entity.dto;
 import java.util.Date;
 import java.util.Set;
 
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+
+import com.diplom.entity.FilmTypes;
 import com.diplom.entity.dto.commet.CommentWithoutFilm;
 
 public class FilmDto {
@@ -29,7 +33,8 @@ public class FilmDto {
 
 	private boolean premiumStatus;
 
-	private String filmPlayer;
+	@Enumerated(EnumType.STRING)
+	private FilmTypes type;
 
 	private Set<ActorDto> actors;
 
@@ -39,12 +44,16 @@ public class FilmDto {
 
 	private Set<CommentWithoutFilm> comments;
 
+	private Set<SeasonDto> seasons;
 
 	public FilmDto() {
 
 	}
 
-	public FilmDto(int id, String filmName, UserDto userId, String filmInformation, Date filmReleaseDate, double filmRaiting, String imgPath, double filmProfit, double filmCost, boolean blockToWatch, boolean premiumStatus, String filmPlayer, Set<ActorDto> actors, Set<FilmCountryDto> countries, Set<FilmGenreDtoGenre> genres, Set<CommentWithoutFilm> comments) {
+	public FilmDto(int id, String filmName, UserDto userId, String filmInformation, Date filmReleaseDate,
+			double filmRaiting, String imgPath, double filmProfit, double filmCost, boolean blockToWatch,
+			boolean premiumStatus, FilmTypes type, Set<ActorDto> actors, Set<FilmCountryDto> countries,
+			Set<FilmGenreDtoGenre> genres, Set<CommentWithoutFilm> comments, Set<SeasonDto> seasons) {
 		this.id = id;
 		this.filmName = filmName;
 		this.userId = userId;
@@ -56,15 +65,22 @@ public class FilmDto {
 		this.filmCost = filmCost;
 		this.blockToWatch = blockToWatch;
 		this.premiumStatus = premiumStatus;
-		this.filmPlayer = filmPlayer;
+		this.type = type;
 		this.actors = actors;
 		this.countries = countries;
 		this.genres = genres;
 		this.comments = comments;
+		this.seasons = seasons;
 	}
 
-	
-	
+	public FilmTypes getType() {
+		return type;
+	}
+
+	public void setType(FilmTypes type) {
+		this.type = type;
+	}
+
 	public void setComments(Set<CommentWithoutFilm> comments) {
 		this.comments = comments;
 	}
@@ -185,33 +201,22 @@ public class FilmDto {
 		this.premiumStatus = premiumStatus;
 	}
 
-	public String getFilmPlayer() {
-		return filmPlayer;
+	public Set<SeasonDto> getSeasons() {
+		return seasons;
 	}
 
-	public void setFilmPlayer(String filmPlayer) {
-		this.filmPlayer = filmPlayer;
+	public void setSeasons(Set<SeasonDto> seasons) {
+		this.seasons = seasons;
 	}
 
 	@Override
 	public String toString() {
-		return "FilmDto{" +
-				"id=" + id +
-				", filmName='" + filmName + '\'' +
-				", userId=" + userId +
-				", filmInformation='" + filmInformation + '\'' +
-				", filmReleaseDate=" + filmReleaseDate +
-				", filmRaiting=" + filmRaiting +
-				", imgPath='" + imgPath + '\'' +
-				", filmProfit=" + filmProfit +
-				", filmCost=" + filmCost +
-				", blockToWatch=" + blockToWatch +
-				", premiumStatus=" + premiumStatus +
-				", filmPlayer='" + filmPlayer + '\'' +
-				", actors=" + actors +
-				", countries=" + countries +
-				", genres=" + genres +
-				", comments=" + comments +
-				'}';
+		return "FilmDto [id=" + id + ", filmName=" + filmName + ", userId=" + userId + ", filmInformation="
+				+ filmInformation + ", filmReleaseDate=" + filmReleaseDate + ", filmRaiting=" + filmRaiting
+				+ ", imgPath=" + imgPath + ", filmProfit=" + filmProfit + ", filmCost=" + filmCost + ", blockToWatch="
+				+ blockToWatch + ", premiumStatus=" + premiumStatus + ", type=" + type + ", actors=" + actors
+				+ ", countries=" + countries + ", genres=" + genres + ", comments=" + comments + ", seasons=" + seasons
+				+ "]";
 	}
+
 }

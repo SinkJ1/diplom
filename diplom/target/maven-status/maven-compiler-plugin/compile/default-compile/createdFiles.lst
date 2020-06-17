@@ -1,6 +1,5 @@
 com\diplom\dao\CommentDao.class
 com\diplom\entity\dto\commet\CommentWithoutFilm.class
-com\diplom\services\CommentServiceImpl.class
 com\diplom\controllers\CommentController.class
 com\diplom\services\CommentService.class
 com\diplom\entity\dto\commet\CommentDto.class

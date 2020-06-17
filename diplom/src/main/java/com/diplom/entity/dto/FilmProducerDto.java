@@ -3,6 +3,11 @@ package com.diplom.entity.dto;
 import java.util.Date;
 import java.util.Set;
 
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+
+import com.diplom.entity.FilmTypes;
+
 public class FilmProducerDto {
 
 	public int id;
@@ -25,12 +30,14 @@ public class FilmProducerDto {
 
 	private boolean premiumStatus;
 
-	private String filmPlayer;
+	@Enumerated(EnumType.STRING)
+	private FilmTypes type;
 
 	private Set<ActorDto> actors;
 
 	private Set<FilmCountryDto> countries;
 
+	private Set<SeasonDto> seasons;
 
 	public FilmProducerDto() {
 
@@ -38,7 +45,7 @@ public class FilmProducerDto {
 
 	public FilmProducerDto(int id, String filmName, String filmInformation, Date filmReleaseDate, double filmRaiting,
 			String imgPath, double filmProfit, double filmCost, boolean blockToWatch, boolean premiumStatus,
-			String filmPlayer, Set<ActorDto> actors, Set<FilmCountryDto> countries) {
+			FilmTypes type, Set<ActorDto> actors, Set<FilmCountryDto> countries, Set<SeasonDto> seasons) {
 		this.id = id;
 		this.filmName = filmName;
 		this.filmInformation = filmInformation;
@@ -49,9 +56,10 @@ public class FilmProducerDto {
 		this.filmCost = filmCost;
 		this.blockToWatch = blockToWatch;
 		this.premiumStatus = premiumStatus;
-		this.filmPlayer = filmPlayer;
+		this.type = type;
 		this.actors = actors;
 		this.countries = countries;
+		this.seasons = seasons;
 	}
 
 	public Set<ActorDto> getActors() {
@@ -150,12 +158,20 @@ public class FilmProducerDto {
 		this.premiumStatus = premiumStatus;
 	}
 
-	public String getFilmPlayer() {
-		return filmPlayer;
+	public Set<SeasonDto> getSeasons() {
+		return seasons;
 	}
 
-	public void setFilmPlayer(String filmPlayer) {
-		this.filmPlayer = filmPlayer;
+	public void setSeasons(Set<SeasonDto> seasons) {
+		this.seasons = seasons;
+	}
+
+	public FilmTypes getType() {
+		return type;
+	}
+
+	public void setType(FilmTypes type) {
+		this.type = type;
 	}
 
 	@Override
@@ -163,8 +179,8 @@ public class FilmProducerDto {
 		return "FilmProducerDto [id=" + id + ", filmName=" + filmName + ", filmInformation=" + filmInformation
 				+ ", filmReleaseDate=" + filmReleaseDate + ", filmRaiting=" + filmRaiting + ", imgPath=" + imgPath
 				+ ", filmProfit=" + filmProfit + ", filmCost=" + filmCost + ", blockToWatch=" + blockToWatch
-				+ ", premiumStatus=" + premiumStatus + ", filmPlayer=" + filmPlayer + ", actors=" + actors
-				+ ", countries=" + countries + "]";
+				+ ", premiumStatus=" + premiumStatus + ", type=" + type + ", actors=" + actors + ", countries="
+				+ countries + ", seasons=" + seasons + "]";
 	}
 
 }

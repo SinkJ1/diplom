@@ -6056,3 +6056,6 @@ antlr.NoViableAltException: unexpected token: filmName
   РџРѕР·РёС†РёСЏ: 41
 01:12:41.259 [http-nio-8080-exec-9] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - РћРЁРР‘РљРђ: РѕС‚РЅРѕС€РµРЅРёРµ "t_watchingfilm_id_seq" РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚
   РџРѕР·РёС†РёСЏ: 16
+16:24:27.879 [http-nio-8080-exec-6] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - ОШИБКА: повторяющееся значение ключа нарушает ограничение уникальности "t_user_user_login_key"
+  Подробности: Ключ "(user_login)=(user)" уже существует.
+16:24:27.926 [http-nio-8080-exec-6] ERROR org.hibernate.internal.ExceptionMapperStandardImpl - HHH000346: Error during managed flush [org.hibernate.exception.ConstraintViolationException: could not execute statement]

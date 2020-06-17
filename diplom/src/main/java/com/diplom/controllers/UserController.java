@@ -8,14 +8,13 @@ import com.diplom.entity.dto.simpleUser.UserAccountDto;
 import com.diplom.entity.dto.simpleUser.UserExpectedFilmDto;
 import com.diplom.entity.dto.simpleUser.UserLickedFilm;
 import com.diplom.entity.dto.simpleUser.UserWatchingFilmDto;
-import com.diplom.entity.dto.userDataDto.UserLikedFilmDto;
-import com.diplom.entity.dto.userDataDto.UserWatchFilm;
+import com.diplom.entity.dto.userDataDto.UpdatedUserDto;
+import com.diplom.entity.dto.userDataDto.UserImgDto;
 
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -42,11 +41,16 @@ public class UserController {
 
 	@PostMapping(value = "/registration")
 	public String registration(@RequestBody RegistrationUserDto user) {
-		if (userService.findByLogin(user.getLogin()) != null) {
-			return "user exist";
+		User newUser = userService.findByLogin(user.getLogin());
+		if (newUser != null && newUser.getPassword() != null) {
+			return "this user exist";
+		} else if(newUser != null){
+			User user2 = new MapperService<User, RegistrationUserDto>(User.class, RegistrationUserDto.class).toEntity(user);
+			user2.setId(newUser.getId());
+			userService.update(newUser);
+			return "complete";
 		} else {
-			userService.add(
-					new MapperService<User, RegistrationUserDto>(User.class, RegistrationUserDto.class).toEntity(user));
+			userService.add(new MapperService<User, RegistrationUserDto>(User.class, RegistrationUserDto.class).toEntity(user));
 			return "complete";
 		}
 	}
@@ -79,6 +83,12 @@ public class UserController {
 		return new MapperService<User, UserLickedFilm>(User.class, UserLickedFilm.class)
 				.toDto(userService.findByLogin(login));
 	}
+	
+	@GetMapping(value = "/id/{id}")
+	public UpdatedUserDto getUserById(@PathVariable("id") int id) {
+		return new MapperService<User, UpdatedUserDto>(User.class, UpdatedUserDto.class)
+				.toDto(userService.findById(id));
+	}
 
 	@Transactional
 	@PutMapping(value = "/expected")
@@ -92,6 +102,20 @@ public class UserController {
 	public void watch(@RequestBody UserWatchingFilmDto user) {
 		userService.userWatchFilmUpdate(
 				new MapperService<User, UserWatchingFilmDto>(User.class, UserWatchingFilmDto.class).toEntity(user));
+	}
+	
+	@Transactional
+	@PutMapping(value = "/settings")
+	public void settings(@RequestBody UpdatedUserDto user) {
+		userService.update(
+				new MapperService<User, UpdatedUserDto>(User.class, UpdatedUserDto.class).toEntity(user));
+	}
+	
+	@Transactional
+	@PutMapping(value = "/image_settings")
+	public void imageSettings(@RequestBody UserImgDto user) {
+		userService.imgChange(
+				new MapperService<User, UserImgDto>(User.class, UserImgDto.class).toEntity(user));
 	}
 
 	@Transactional

@@ -16,7 +16,6 @@ import com.diplom.dao.FilmGenreDaoImpl;
 import com.diplom.dao.SenderDao;
 import com.diplom.dao.SubscriberDao;
 import com.diplom.entity.Film;
-import com.diplom.entity.User;
 import com.diplom.entity.dto.FilmDto;
 import com.diplom.entity.dto.common.FilmImgDto;
 
@@ -59,7 +58,7 @@ public class FilmServiceImpl extends AbstractGenericService<Film> implements Fil
 		object.getGenres().stream().forEach(value -> value.setFilm(object));
 		object.getCountries().stream().forEach(value -> value.setFilm(object));
 
-		if (object.getFilmPlayer() != dao.findById(entityManager, object.getId()).getFilmPlayer()) {
+		if (object.getSeasons() != dao.findById(entityManager, object.getId()).getSeasons()) {
 			subDao.getSubsByFilm(entityManager, object).stream()
 					.forEach(value -> Send("фильм - " + object.getFilmName() + " вышел", value.getUser().getLogin()));
 		}

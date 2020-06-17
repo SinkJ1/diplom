@@ -68,5 +68,23 @@ public class UserServiceImpl extends AbstractGenericService<User> implements Use
 		// TODO Auto-generated method stub
 		
 	}
+	
+	@Override
+	public void update(User user) {
+		User dbUser = dao.findById(entityManager, user.getId());
+		
+		user.setBlockedStatus(dbUser.isBlockedStatus());
+		user.setSubscribeDate(dbUser.getSubscribeDate());
+		user.setUserImage(dbUser.getUserImage());
+		user.setRole(dbUser.getRole());
+		dao.update(entityManager, user);
+	}
+
+	@Override
+	public void imgChange(User user) {
+		User dbUser = dao.findById(entityManager, user.getId());
+		dbUser.setUserImage(user.getUserImage());
+		dao.update(entityManager, dbUser);
+	}
 
 }

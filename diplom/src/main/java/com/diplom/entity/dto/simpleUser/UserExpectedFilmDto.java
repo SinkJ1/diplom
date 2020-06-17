@@ -6,14 +6,17 @@ public class UserExpectedFilmDto {
 
 	private int id;
 
+	private String login;
+
 	private Set<SubscriberUserDto> expectedFilms;
 
 	public UserExpectedFilmDto() {
 
 	}
 
-	public UserExpectedFilmDto(int id, Set<SubscriberUserDto> expectedFilms) {
+	public UserExpectedFilmDto(int id, String login, Set<SubscriberUserDto> expectedFilms) {
 		this.id = id;
+		this.login = login;
 		this.expectedFilms = expectedFilms;
 	}
 
@@ -33,9 +36,17 @@ public class UserExpectedFilmDto {
 		this.expectedFilms = expectedFilms;
 	}
 
+	public String getLogin() {
+		return login;
+	}
+
+	public void setLogin(String login) {
+		this.login = login;
+	}
+
 	@Override
 	public String toString() {
-		return "UserExpectedFilmDto [id=" + id + ", expectedFilms=" + expectedFilms + "]";
+		return "UserExpectedFilmDto [id=" + id + ", login=" + login + ", expectedFilms=" + expectedFilms + "]";
 	}
 
 }

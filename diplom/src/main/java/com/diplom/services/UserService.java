@@ -9,4 +9,5 @@ public interface UserService extends GenericService<User> {
 	void userWatchFilmUpdate(User user);
 	void userLikeFilmUpdate(User user);
 	void addComment(User user);
+	void imgChange(User user);
 }
