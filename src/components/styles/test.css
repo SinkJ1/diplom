@@ -70,6 +70,8 @@
 
 .controlPlayerButtons{
     display: grid;
+    position: absolute;
+    margin-top: -40px;
     grid-template-columns: 60px 60px auto 60px 60px 60px 60px;
     grid-template-areas: "startStop previus progress next volume quality fsc";
 }

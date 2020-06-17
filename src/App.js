@@ -18,6 +18,7 @@ import FilmByGenre from './FilmByGenre';
 import AdminFolder from './AdminFolder';
 import Expected from './Expected';
 import Continue from './Continue';
+import Settings from './Settings';
 const filmPage = (props) => {
   return (<FilmPage value={props.match.params.id} />);
 }
@@ -35,7 +36,7 @@ const filmPageByGenre = (props) => {
 }
 
 const adminPage = () => {
-  return localStorage.getItem("role") === "admin" && localStorage.getItem("onLogin") === 'true' ? <AdminFolder/> : <MainFolder/>;
+  return localStorage.getItem("user") && JSON.parse(localStorage.getItem("user")).role === "admin" ? <AdminFolder/> : <MainFolder/>;
 }
 
 
@@ -56,6 +57,7 @@ function App() {
         <Route path="/adminPage" component={adminPage} />
         <Route path="/expected" component={Expected} />
         <Route path="/continue" component={Continue} />
+        <Route path="/settings"  component={Settings}/>
         <Route path="/filmsByGenre/:name" component={filmPageByGenre} />
         <Route path="/test" component={Player} />
         <Route component={NotFoundPage} />

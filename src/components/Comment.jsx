@@ -133,8 +133,8 @@ const Comment = (props) => {
             <div className="textCom">
                 <div style={{ border: "1px solid black" }} className="textComHeader">{value.user.name} {value.date.split(".")[1] + "." + value.date.split(".")[0] + "." + value.date.split(".")[2]}
                     <div>{value.like}<button disabled={disable} onClick={() => commentRatePlus(index)}>+</button>{value.disLike}<button disabled={disable} onClick={() => commentRateMinus(index)}>-</button>
-                        {user.role === "admin" ? <button onClick={() => commentDelete()}>X</button> : ""}
-                        {user.id === value.user.id ? <button onClick={() => commentDelete(value, index)}>X</button> : ""}
+                        {user.role === "admin" ? <button onClick={() => commentDelete(value, index)}>X</button> : user.id === value.user.id ? <button onClick={() => commentDelete(value, index)}>X</button> : ""}
+                        
                         {user.id === value.user.id ? <button onClick={() => commentChange(value, index)}>&#9998;</button> : ""}
                     </div></div>
                 <div style={{ border: "1px solid black" }}>{value.commentValue}</div>

@@ -101,3 +101,15 @@ export const registration = (user) => {
     return fetch(url, requestOptions)
         .then(handleResponseRegistr);
 }
+
+export const updateUser = (user) => {
+    const url = "http://localhost:8080/users/settings"
+    const requestOptions = {
+        method: 'PUT',
+        headers: new Headers({ 'Content-Type': 'application/json' }),
+        body: JSON.stringify(user)
+    };
+
+    return fetch(url, requestOptions)
+        .then(handleResponseRegistr);
+}

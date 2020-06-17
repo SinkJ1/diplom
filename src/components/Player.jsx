@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 
 import { findDOMNode } from 'react-dom'
 import screenfull from 'screenfull'
@@ -13,6 +13,7 @@ const Player = (props) => {
         const [progress, setProgress] = useState(0)
         const [fullScreen, setFullScreen] = useState(false);
         const [mute, setMute] = useState(false)
+        const [defaultWidth, setDefaultWidth] = useState("47%");
         const inputEl = useRef(null);
         const fsc = useRef(null);
 
@@ -22,13 +23,30 @@ const Player = (props) => {
         const handleClickFullscreen = () => {
             if (!fullScreen) {
                 screenfull.request(findDOMNode(fsc.current))
+                setDefaultWidth("100%");
                 setFullScreen(true)
             } else {
+                setDefaultWidth("47%");
                 screenfull.exit()
 
                 setFullScreen(false)
             }
         }
+
+        const escFunction =(event)=>{
+            if(event.keyCode === 27) {
+              setDefaultWidth("47%");
+            }
+          }
+
+          document.addEventListener("fullscreenchange", function(e){
+            console.log('статус fullscreen = ', document.fullscreenEnabled + "");
+          });
+
+        useEffect(()=>{
+            document.addEventListener("keydown", escFunction, false);
+        })
+
         let timer = setTimeout(0)
         const [cursour, setCursour] = useState("none")
         const [buttonVis, setButtonVis] = useState("hidden")
@@ -58,7 +76,7 @@ const Player = (props) => {
                         <button style={{position:"absolute", visibility:continueButton,marginLeft:"-390px", borderRadius: "2px", border: "1px", width: "auto", textAlign: "center"}} onClick={()=>setPlaying(true)}> Продолжить с </button>
                     <ReactPlayer
                         ref={inputEl}
-                        url={"https://cdn1.kinogo.by/movies/94008a47cd300ff45316ab9c03bbf7fe55a90b01/ecb4f601360d12131b9a813e6663dea2:2020042907/240.mp4"}
+                        url={"https://cdn1.kinogo.by/movies/7bae3e38689484bbaa71f9ab41371550ea6b4532/54732ad798a83b4f492ad5c18cb2f369:2020052607/360.mp4"}
                         height={"100%"}
                         width={"100%"}
                         volume={volume}
@@ -87,8 +105,8 @@ const Player = (props) => {
                               }, 5000);*/
                         }}
                     />
-                    </div>
-                    <div className="controlPlayerButtons" style={{ visibility: buttonVis }}>
+                    
+                    <div className="controlPlayerButtons"  style={{ visibility: buttonVis, width:defaultWidth }}>
                         <div className="startStop">
                             <button style={{ borderRadius: "2px", border: "1px", width: "50px", textAlign: "center" }} onClick={() => { setPlaying(!playing) }}>{!playing ? <div>&#10148;</div> : <div style={{ transform: "rotate(90deg)" }}>&#61;</div>}</button>
                         </div>
@@ -119,6 +137,7 @@ const Player = (props) => {
                         <div className="fsc">
                             <button style={{ borderRadius: "2px", border: "1px", width: "50px", textAlign: "center" }} onClick={handleClickFullscreen}>{!fullScreen ? <div>open</div> : <div>close</div>}</button>
                         </div>
+                    </div>
                     </div>
                 </div>
             </>
