@@ -11,8 +11,7 @@ const Settings = () => {
     const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")))
     const [birdthDate, setBirdthDate] = useState(user.birdthDate.split(".")[2] + "-" + user.birdthDate.split(".")[1] + "-" + user.birdthDate.split(".")[0])
     const [password,setPassword] = useState();
-    console.log(user)
-
+    
     const onLoginChange = (e) => {
         setUser({...user,login: e.target.value})
     }
@@ -37,6 +36,7 @@ const Settings = () => {
             birdthDate: birdthDate.split("-")[2] + "." + birdthDate.split("-")[1] + "." + birdthDate.split("-")[0],
             password: user.password
         }
+      
         updateUser(editabledUser)
     }
 

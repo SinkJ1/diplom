@@ -71,6 +71,7 @@ const DeleteFilm = () => {
 
     const clck2 = (e) =>{
         DELETE('http://localhost:8080/films/delete',downloadFilm)
+        alert("Фильм удалён")
         e.preventDefault();
     }
 

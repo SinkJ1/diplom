@@ -246,8 +246,10 @@ const AddFilm = (props) => {
   const clck = (e) => {
     if(props.type === "CHANGE"){
       UPDATE("http://localhost:8080/films/update",film);
+      alert("Фильм обновлён")
     } else {
       Send("http://localhost:8080/films/add",film);
+      alert("Фильм добавлен")
     }
     e.preventDefault();
   }

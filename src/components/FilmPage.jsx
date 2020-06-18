@@ -117,7 +117,7 @@ const FilmPage = (props) => {
          subscribeOnFilm(user)
          e.preventDefault();
       }
-     // console.log(film)
+      console.log(film)
       let playerAndComment = ""
       { document.title = props.value }
       if (new Date(film.filmReleaseDate).getTime() > new Date().getTime()) {

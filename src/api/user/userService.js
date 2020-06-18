@@ -6,6 +6,7 @@ export const handleResponse = (response) => {
                 return "false"
             }
         }
+        console.log(data)
         return data;
     });
 }
@@ -44,6 +45,11 @@ export const autentification = (user) => {
 export const getByLogin = (login) => {
     const requestOptions = { method: 'GET' };
     return fetch(`http://localhost:8080/users/login/${login}`, requestOptions).then(handleResponse);
+}
+
+export const getById = (id) => {
+    const requestOptions = { method: 'GET' };
+    return fetch(`http://localhost:8080/users/id/${id}`, requestOptions).then(handleResponse);
 }
 
 export const subscribeOnFilm = (user) => {
@@ -87,6 +93,12 @@ export const deleteComment = (film, id) =>{
 export const getCommentsByFilmId = (id) =>{
     const requestOptions = { method: 'GET' };
     return fetch(`http://localhost:8080/films/comment/${id}`, requestOptions).then(handleResponse);
+
+}
+
+export const expected = (login) =>{
+    const requestOptions = { method: 'GET' };
+    return fetch(`http://localhost:8080/users/expected/${login}`, requestOptions).then(handleResponse);
 
 }
 

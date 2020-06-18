@@ -76,7 +76,7 @@ const Player = (props) => {
                         <button style={{position:"absolute", visibility:continueButton,marginLeft:"-390px", borderRadius: "2px", border: "1px", width: "auto", textAlign: "center"}} onClick={()=>setPlaying(true)}> Продолжить с </button>
                     <ReactPlayer
                         ref={inputEl}
-                        url={"https://cdn1.kinogo.by/movies/7bae3e38689484bbaa71f9ab41371550ea6b4532/54732ad798a83b4f492ad5c18cb2f369:2020052607/360.mp4"}
+                        url={"https://cdn1.kinogo.by/movies/7bae3e38689484bbaa71f9ab41371550ea6b4532/ac64bfda57f1b56fcdb23b4941baa778:2020061912/360.mp4"}
                         height={"100%"}
                         width={"100%"}
                         volume={volume}
