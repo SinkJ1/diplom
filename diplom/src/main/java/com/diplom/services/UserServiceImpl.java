@@ -77,6 +77,9 @@ public class UserServiceImpl extends AbstractGenericService<User> implements Use
 		user.setSubscribeDate(dbUser.getSubscribeDate());
 		user.setUserImage(dbUser.getUserImage());
 		user.setRole(dbUser.getRole());
+		if(user.getPassword() == null) {
+			user.setPassword(dbUser.getPassword());
+		}
 		dao.update(entityManager, user);
 	}
 

@@ -6059,3 +6059,10 @@ antlr.NoViableAltException: unexpected token: filmName
 16:24:27.879 [http-nio-8080-exec-6] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - ОШИБКА: повторяющееся значение ключа нарушает ограничение уникальности "t_user_user_login_key"
   Подробности: Ключ "(user_login)=(user)" уже существует.
 16:24:27.926 [http-nio-8080-exec-6] ERROR org.hibernate.internal.ExceptionMapperStandardImpl - HHH000346: Error during managed flush [org.hibernate.exception.ConstraintViolationException: could not execute statement]
+16:28:11.998 [http-nio-8080-exec-5] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - ОШИБКА: UPDATE или DELETE в таблице "t_country" нарушает ограничение внешнего ключа "t_film_country_country_fkey" таблицы "t_film_country"
+  Подробности: На ключ (country_id)=(14) всё ещё есть ссылки в таблице "t_film_country".
+16:28:12.849 [http-nio-8080-exec-5] ERROR org.hibernate.internal.ExceptionMapperStandardImpl - HHH000346: Error during managed flush [org.hibernate.exception.ConstraintViolationException: could not execute statement]
+16:42:54.134 [http-nio-8080-exec-4] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - ОШИБКА: повторяющееся значение ключа нарушает ограничение уникальности "t_country_name_key"
+  Подробности: Ключ "(name)=(Новая страна2)" уже существует.
+16:44:45.481 [http-nio-8080-exec-2] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - ОШИБКА: повторяющееся значение ключа нарушает ограничение уникальности "t_country_name_key"
+  Подробности: Ключ "(name)=(ннп)" уже существует.

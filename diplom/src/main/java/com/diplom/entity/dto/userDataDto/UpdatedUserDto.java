@@ -1,5 +1,7 @@
 package com.diplom.entity.dto.userDataDto;
 
+import java.util.Date;
+
 public class UpdatedUserDto {
 
 	private Integer id;
@@ -12,15 +14,19 @@ public class UpdatedUserDto {
 
 	private String password;
 
+	private Date subscribeDate;
+
 	public UpdatedUserDto() {
 	}
 
-	public UpdatedUserDto(Integer id, String name, String birdthDate, String login, String password) {
+	public UpdatedUserDto(Integer id, String name, String birdthDate, String login, String password,
+			Date subscribeDate) {
 		this.id = id;
 		this.name = name;
 		this.birdthDate = birdthDate;
 		this.login = login;
 		this.password = password;
+		this.subscribeDate = subscribeDate;
 	}
 
 	public Integer getId() {
@@ -63,10 +69,18 @@ public class UpdatedUserDto {
 		this.password = password;
 	}
 
+	public Date getSubscribeDate() {
+		return subscribeDate;
+	}
+
+	public void setSubscribeDate(Date subscribeDate) {
+		this.subscribeDate = subscribeDate;
+	}
+
 	@Override
 	public String toString() {
 		return "UpdatedUserDto [id=" + id + ", name=" + name + ", birdthDate=" + birdthDate + ", login=" + login
-				+ ", password=" + password + "]";
+				+ ", password=" + password + ", subscribeDate=" + subscribeDate + "]";
 	}
 
 }
